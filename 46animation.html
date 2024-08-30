@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Example 1: Simple color change animation */
+    @keyframes colorChange {
+        from { background-color: red; }
+        to { background-color: yellow; }
+    }
+    #colorChangeExample {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation-name: colorChange;
+        animation-duration: 4s;
+    }
+
+    /* Example 2: Move and bounce animation */
+    @keyframes moveAndBounce {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(100px); }
+        100% { transform: translateX(0); }
+    }
+    #moveAndBounceExample {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        animation-name: moveAndBounce;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+
+    /* Example 3: Rotate animation */
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    #rotateExample {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        animation-name: rotate;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+
+    /* Example 4: Scaling animation with delay */
+    @keyframes scaleUp {
+        from { transform: scale(1); }
+        to { transform: scale(1.5); }
+    }
+    #scaleUpExample {
+        width: 100px;
+        height: 100px;
+        background-color: orange;
+        animation-name: scaleUp;
+        animation-duration: 3s;
+        animation-delay: 1s;
+    }
+
+    /* Example 5: Alternate direction animation */
+    @keyframes alternateDirection {
+        from { transform: translateY(0); }
+        to { transform: translateY(50px); }
+    }
+    #alternateDirectionExample {
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+        animation-name: alternateDirection;
+        animation-duration: 2s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+    }
+</style>
+
+<body>
+    <h1>
+        Animation in css
+    </h1>
+    <p>
+        CSS animations allow you to define complex animations using CSS rules. They can be used to create effects like
+        fading, sliding, scaling, rotating, and more.
+        <br>
+        To create an animation, you define a keyframe animation using the @keyframes rule. Then, you apply the animation
+        to the desired element using the animation property.
+        <br>
+        Here's an example of a simple animation that changes the background color of a paragraph element:
+        <br>
+        <code>
+            @keyframes colorChange {
+                0% {
+                    background-color: red;
+                }
+                50% {
+                    background-color: yellow;
+                }
+                100% {
+                    background-color: green;
+                }
+            }
+    </p>
+    <hr>
+    <h2>Key Properties of CSS Animations</h2>
+
+    <h3>1. `@keyframes`</h3>
+    <p>
+        Defines the frames of the animation. You specify the starting and ending points 
+        (`from` and `to`) or intermediate steps (using percentages).
+    </p>
+    <pre><code>@keyframes exampleAnimation {
+    from { background-color: red; }
+    to { background-color: yellow; }
+}</code></pre>
+
+    <h3>2. `animation-name`</h3>
+    <p>
+        Specifies the name of the `@keyframes` animation that you want to apply to an element.
+    </p>
+    <pre><code>animation-name: exampleAnimation;</code></pre>
+
+    <div id="colorChangeExample">Hover me!</div>
+
+    <h3>3. `animation-duration`</h3>
+    <p>
+        Defines how long the animation takes to complete one cycle.
+    </p>
+    <pre><code>animation-duration: 4s;</code></pre>
+
+    <div id="durationExample" style="background-color: lightgreen; width: 100px; height: 100px;">
+        Duration Example
+    </div>
+
+    <h3>4. `animation-timing-function`</h3>
+    <p>
+        Specifies the speed curve of the animation. Values include `linear`, `ease`, `ease-in`,
+        `ease-out`, `ease-in-out`, `cubic-bezier(x1, y1, x2, y2)`, and `steps()`.
+    </p>
+    <pre><code>animation-timing-function: ease-in-out;</code></pre>
+
+    <div id="timingFunctionExample" style="background-color: lightcoral; width: 100px; height: 100px;">
+        Timing Function Example
+    </div>
+
+    <h3>5. `animation-delay`</h3>
+    <p>
+        Specifies a delay before the animation starts.
+    </p>
+    <pre><code>animation-delay: 2s;</code></pre>
+
+    <div id="delayExample" style="background-color: lightyellow; width: 100px; height: 100px;">
+        Delay Example
+    </div>
+
+    <h3>6. `animation-iteration-count`</h3>
+    <p>
+        Specifies the number of times the animation should run. Values include a specific number
+        (e.g., `2`), `infinite` (runs forever).
+    </p>
+    <pre><code>animation-iteration-count: infinite;</code></pre>
+
+    <div id="iterationCountExample" style="background-color: lightpink; width: 100px; height: 100px;">
+        Iteration Count Example
+    </div>
+
+    <h3>7. `animation-direction`</h3>
+    <p>
+        Specifies whether the animation should play in reverse on alternate cycles. Values include
+        `normal`, `reverse`, `alternate`, and `alternate-reverse`.
+    </p>
+    <pre><code>animation-direction: alternate;</code></pre>
+
+    <div id="directionExample" style="background-color: lightblue; width: 100px; height: 100px;">
+        Direction Example
+    </div>
+
+    <h3>8. `animation-fill-mode`</h3>
+    <p>
+        Specifies how a CSS animation should apply styles to its target before and after it is executing.
+        Values include `none`, `forwards`, `backwards`, and `both`.
+    </p>
+    <pre><code>animation-fill-mode: forwards;</code></pre>
+
+    <div id="fillModeExample" style="background-color: lightsalmon; width: 100px; height: 100px;">
+        Fill Mode Example
+    </div>
+
+    <h3>9. `animation-play-state`</h3>
+    <p>
+        Specifies whether the animation is running or paused. Values include `running` and `paused`.
+    </p>
+    <pre><code>animation-play-state: paused;</code></pre>
+
+    <div id="playStateExample" style="background-color: lightseagreen; width: 100px; height: 100px;">
+        Play State Example
+    </div>
+
+    <h3>Example Animations</h3>
+
+    <h4>1. Simple Color Change</h4>
+    <div id="colorChangeExample">Hover me!</div>
+
+    <h4>2. Move and Bounce</h4>
+    <div id="moveAndBounceExample">Bounce me!</div>
+
+    <h4>3. Rotate Animation</h4>
+    <div id="rotateExample">Rotate me!</div>
+
+    <h4>4. Scaling with Delay</h4>
+    <div id="scaleUpExample">Scale me!</div>
+
+    <h4>5. Alternate Direction Animation</h4>
+    <div id="alternateDirectionExample">Move me!</div>
+</body>
+
+</html>

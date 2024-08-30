@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="42transfrom.css">
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Transform property
+    </h1>
+    <p>
+        The transform property in CSS is used to manipulate an element's position, size, and shape.
+        It is a powerful tool for creating complex designs.
+        
+    </p><hr>
+    <h2>
+        rotate() deg or turn
+    </h2>
+    <p>
+        The rotate() function rotates an element around its center by a given number of degrees.
+        It accepts both positive and negative values.
+        <pre>
+            transform: rotate(45deg);
+            transform: rotate(0.25turn)
+        </pre
+        
+    </p>
+    <div class="box" style="transform: rotate(45deg);">
+        box
+    </div> <hr>
+    <h2>
+        rotate x /y/z
+    </h2>
+    <p>
+        The rotateX() and rotateY() functions rotate an element around the horizontal and vertical axes, respectively.
+        They accept both positive and negative values.
+        <pre>
+            transform: rotateX(45deg);
+            transform: rotateY(45deg)
+        </pre
+    </p>
+    <hr><div class="box" style="transform: rotateX('45deg');">
+        box
+    </div>
+    <h2>
+        scale ,scale 3d xyz
+    </h2>
+    <p>
+        The scale() function scales an element horizontally and vertically.
+        It accepts both positive and negative values.
+        <pre>
+            transform: scale(2);
+            transform: scale(2, 1);
+            transform: scaleX(2);
+            transform: scaleY(2);
+            transform: scaleZ(2);
+            transform: scale3d(2, 2, 2);
+        </pre
+    </p>
+    <div class="box" style="transform: scale3d(2, 1, 2);">
+        box
+    </div><hr>
+    <h2>
+        skew xy notz
+    </h2>
+    <p>
+        The skewX() and skewY() functions skew an element along the horizontal and vertical axes, respectively.
+        They accept both positive and negative values.
+        <pre>
+            transform: skewX(45deg);
+            transform: skewY(45deg);
+        </pre
+    </p>
+    <div class="box" style="transform:skewX(45deg);">
+        box
+    </div> <hr>
+    <h2>
+        translate
+    </h2>
+    <p>
+        The translate() function moves an element along the horizontal and vertical axes.
+        It accepts both positive and negative values.
+        <pre>
+            transform: translate(20px, 10px);
+            transform: translateX(20px);
+            transform: translateY(10px);
+            transform: translateZ(20px);
+        </pre
+    </p>
+    <div class="box" style="transform: translate(20px, 10px);">
+        box
+    </div> <hr>
+    <h2>
+        transform origin
+    </h2>
+    <p>
+        The transform-origin property sets the origin for transformations.
+        It accepts values in the form of x-axis (left, center, right), y-axis (top, center, bottom), and z-axis (default is 0).
+        <pre>
+            transform-origin: 50% 50%;
+            transform-origin: left bottom;
+            transform-origin: 20px 20px;
+        </pre
+    </p> <hr>
+    <h1> <u>All properties </u> </h1> <br>
+        <div class="wrap">
+            <!-- scaleX: Scales the element on the X-axis. -->
+            <div class="box">
+              <div class="blue scaleX">
+                scaleX
+              </div>
+            </div>
+            <!-- scaleY: Scales the element on the Y-axis. -->
+            <div class="box">
+              <div class="blue scaleY">
+                scaleY
+              </div>
+            </div>
+            <!-- scale: Scales the element on both the X-axis and Y-axis. -->
+            <div class="box">
+              <div class="blue scale">
+                scale
+              </div>
+            </div>
+            <!-- translateX: Moves the element along the X-axis. -->
+            <div class="box">
+              <div class="blue translateX">
+                translateX
+              </div>
+            </div>
+            <!-- translateY: Moves the element along the Y-axis. -->
+            <div class="box">
+              <div class="blue translateY">
+                translateY
+              </div>
+            </div>
+            <!-- translate: Moves the element along both the X-axis and Y-axis. -->
+            <div class="box">
+              <div class="blue translate">
+                translate
+              </div>
+            </div>
+            <!-- matrix: A 2D transformation method using a matrix of six values. -->
+            <div class="box">
+              <div class="blue matrix">
+                matrix
+              </div>
+            </div>
+            <!-- rotate: Rotates the element around the Z-axis. -->
+            <div class="box">
+              <div class="blue rotate">
+                rotate
+              </div>
+            </div>
+            <!-- skew: Skews the element on the X-axis and Y-axis. -->
+            <div class="box">
+              <div class="blue skew">
+                skew
+              </div>
+            </div>
+            <!-- skewX: Skews the element on the X-axis. -->
+            <div class="box">
+              <div class="blue skewX">
+                skewX
+              </div>
+            </div>
+            <!-- skewY: Skews the element on the Y-axis. -->
+            <div class="box">
+              <div class="blue skewY">
+                skewY
+              </div>
+            </div>
+            <!-- matrix3d: A 3D transformation method using a matrix of 16 values. -->
+            <div class="box">
+              <div class="blue matrix3d">
+                matrix3d
+              </div>
+            </div>
+            <!-- translate3d: Moves the element along the X-axis, Y-axis, and Z-axis. -->
+            <div class="box">
+              <div class="blue translate3d">
+                translate3d
+              </div>
+            </div>
+            <!-- rotateY: Rotates the element around the Y-axis. -->
+            <div class="box">
+              <div class="blue rotateY">
+                rotateY
+              </div>
+            </div>
+            <!-- rotateX: Rotates the element around the X-axis. -->
+            <div class="box">
+              <div class="blue rotateX">
+                rotateX
+              </div>
+            </div>
+            <!-- translateZ: Moves the element along the Z-axis. -->
+            <div class="box">
+              <div class="blue translateZ">
+                translateZ
+              </div>
+            </div>
+          </div>
+</body>
+</html>

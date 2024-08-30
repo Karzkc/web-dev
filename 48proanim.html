@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0;
+        }
+
+        .container {
+            position: relative;
+            height: 80vh;
+            width: 80vw;
+            background-color: rgb(194, 230, 173);
+            border: 2px solid;
+            position: relative;
+            top: 50px;
+            animation: bg 6s ease-out infinite alternate-reverse;
+        }
+        /* @keyframes bg {
+            0% {
+                background-color: red;
+            }
+            50% {
+                background-color: green;
+            }
+            100% {
+                background-color: blue;
+            }
+        } */
+
+        .box {
+            height: 121px;
+            width: 121px;
+            background-color: red;
+            border-radius: 70px;
+            border: 2px solid;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            animation: ball_x 4s linear infinite alternate,ball_y 1s ease-out infinite alternate ;
+            
+            
+        }
+        @keyframes ball_x {
+            from{
+                left: 0px;
+                
+            }
+            
+            
+            to{
+                left:1100px;
+                
+            }
+            
+        }
+        @keyframes ball_y {
+            from{
+                bottom: 0px;
+            }
+            to{
+                bottom:150px;
+            }
+        }
+
+        
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="box">
+        </div>
+    </div>
+
+</body>
+
+</html>

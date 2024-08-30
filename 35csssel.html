@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More on CSS Selectors</title>
+    <style>
+        /* .box:first-child{
+            background-color: red;
+        } */
+
+        /* .box::first-line{
+            color: yellow;
+        } */
+
+        /* .boxes *{
+            color: blue;
+            border: 2px solid black;
+        }
+
+        p, a, .box, [data-color="primary"]{
+            padding-top: 45px;
+        } */
+
+        /* .box:nth-child(odd){
+            background-color: blue;
+        } */
+
+        /* .box:nth-last-child(2){
+            background-color: red;
+        } */
+
+        .boxes::before {
+            content: "Harry is good";
+            color: blue;
+        }
+
+        .boxes::after {
+            content: "Sigma course is also good";
+            color: red;
+        }
+
+        ::selection {
+            background-color: black;
+            color: aqua;
+        }
+
+        .box::first-letter {
+            color: peru;
+            font-size: 45px;
+        }
+
+        input::placeholder {
+            color: rgb(84, 84, 88);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boxes">
+        <div data-color="primary" class="box">I am first box</div>
+        <div class="box">Hey I am a box</div>
+        <div class="box">Hey I am a box</div>
+        <input type="text" placeholder="Type your name here">
+    </div>
+    <div>
+        <h1>.box:first-child</h1>
+        <p>The <code>:first-child</code> selector targets the first child element within its parent. The rule
+            <code>.box:first-child { background-color: red; }</code> would apply the style to the first element with the
+            class <code>.box</code> inside its parent, changing its background color to red.</p>
+
+        <h1>.box::first-line</h1>
+        <p>The <code>::first-line</code> pseudo-element selector targets the first line of text within the selected
+            element. The rule <code>.box::first-line { color: yellow; }</code> would change the color of the first line
+            of text inside any <code>.box</code> element to yellow.</p>
+
+        <h1>.boxes *</h1>
+        <p>The universal selector <code>*</code> targets all elements. The rule
+            <code>.boxes * { color: blue; border: 2px solid black; }</code> would apply a blue color and a black border
+            to every element inside any element with the class <code>.boxes</code>.</p>
+
+        <h1>p, a, .box, [data-color="primary"]</h1>
+        <p>This selector group targets <code>&lt;p&gt;</code>, <code>&lt;a&gt;</code>, any element with the class
+            <code>.box</code>, and any element with the attribute <code>data-color="primary"</code>. The rule
+            <code>p, a, .box, [data-color="primary"] { padding-top: 45px; }</code> would add a padding of 45px to the
+            top of all these elements.</p>
+
+        <h1>.box:nth-child(odd)</h1>
+        <p>The <code>:nth-child(odd)</code> selector targets elements that are odd-numbered children within their
+            parent. The rule <code>.box:nth-child(odd) { background-color: blue; }</code> would apply a blue background
+            to every odd-numbered <code>.box</code> element within its parent.</p>
+
+        <h1>.box:nth-last-child(2)</h1>
+        <p>The <code>:nth-last-child(2)</code> selector targets the second-to-last child of a parent. The rule
+            <code>.box:nth-last-child(2) { background-color: red; }</code> would apply a red background to the
+            second-to-last <code>.box</code> element within its parent.</p>
+
+        <h1>.boxes::before</h1>
+        <p>The <code>::before</code> pseudo-element selector inserts content before the content of the selected element.
+            The rule <code>.boxes::before { content: "Harry is good"; color: blue; }</code> would insert the text "Harry
+            is good" before the content of any element with the class <code>.boxes</code>, with blue text color.</p>
+
+        <h1>.boxes::after</h1>
+        <p>The <code>::after</code> pseudo-element selector inserts content after the content of the selected element.
+            The rule <code>.boxes::after { content: "Sigma course is also good"; color: red; }</code> would insert the
+            text "Sigma course is also good" after the content of any element with the class <code>.boxes</code>, with
+            red text color.</p>
+
+        <h1>::selection</h1>
+        <p>The <code>::selection</code> pseudo-element selector targets the portion of an element that is selected by
+            the user. The rule <code>::selection { background-color: black; color: aqua; }</code> would change the
+            background color to black and text color to aqua for any text that the user selects.</p>
+
+        <h1>.box::first-letter</h1>
+        <p>The <code>::first-letter</code> pseudo-element selector targets the first letter of the selected element. The
+            rule <code>.box::first-letter { color: peru; font-size: 45px; }</code> would change the color of the first
+            letter of any <code>.box</code> element to peru and increase its font size to 45px.</p>
+
+        <h1>input::placeholder</h1>
+        <p>The <code>::placeholder</code> pseudo-element selector targets the placeholder text of an input field. The
+            rule <code>input::placeholder { color: rgb(84, 84, 88); }</code> would change the color of the placeholder
+            text inside any <code>input</code> element to the specified RGB color.</p>
+    </div>
+</body>
+
+</html>

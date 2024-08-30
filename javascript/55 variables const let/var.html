@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>
+        vairables in js
+    </h1>
+    <p>
+        definition -
+        A variable is a named location in memory used to store data. It has a specific type and can be changed
+        throughout the program.
+        syntax -
+        let variableName: data type = value;
+    </p>
+    <h2>
+        var
+    </h2>
+    <p>
+        var is function-scoped. It can be reassigned and redeclared within the same function.
+        syntax -
+        var variableName = value;
+    </p>
+    <h2>
+        let
+    </h2>
+    <p>
+        let is block-scoped. It cannot be reassigned and redeclared within the same block (i.e., a pair of curly braces
+        {}).
+        syntax -
+        let variableName = value;
+    </p>
+    <h2>
+        const
+    </h2>
+    <p>
+        const is block-scoped. It cannot be reassigned and redeclared within the same block. It can be used to declare a
+        constant value that cannot be changed.
+        syntax -
+        const variableName = value;
+    </p>
+    <h2>
+        typeof
+    </h2>
+    <p>
+        typeof operator returns the type of a variable.
+        syntax -
+        typeof variableName;
+    </p>
+    <h2>
+        rules and what kind of variable names are allowed or not
+    </h2>
+    <p>
+        - Variable names must start with a letter, an underscore (_), or a dollar sign ($). <br>
+        - Variable names can contain letters, numbers, underscores (_), and dollar signs ($). <br>
+        - Variable names are case-sensitive (e.g., myVariable and myvariable are different variables). <br>
+        - Variable names cannot be reserved keywords (e.g., let, var, const, class, etc.). <br>
+        - Variable names cannot start with a number. <br>
+        - Variable names cannot contain any spaces. <br>
+        - Variable names cannot contain any special characters other than underscore (_). <br>
+        - Variable names should be meaningful and easy to understand. <br>
+        - Variable names should not contain any consecutive underscores (_). <br>
+        example -
+        let myVariable = "Hello World!";
+        const PI = 3.14;
+        let _underscore_variable = "Hello World!";
+        let $dollar_variable = "Hello World!";
+        let my_variable = "Hello World!"; // not allowed because it contains spaces
+        let my-variable = "Hello World!"; // not allowed because it contains a hyphen
+        let let = "Hello World!"; // not allowed because it is a reserved keyword
+    </p>
+    <h2>
+        difference bw let var and const
+    </h2>
+    <p>
+        - let is block-scoped and can be reassigned and redeclared within the same block. <br>
+        - var is function-scoped and can be reassigned and redeclared within the same function. <br>
+        - const is block-scoped and cannot be reassigned. It can be used to declare a constant value that cannot be
+        changed. <br>
+        example -
+        let x = 10;
+        {
+        let x = 20;
+        console.log(x); // Output: 20
+        }
+        console.log(x); // Output: 10
+    </p>
+    <br>
+    <p>
+        let x = 10;
+        console.log(x);// This will print 10 to the console.
+        {
+        let x = 20;
+        console.log(x); // This will print 20 to the console.
+        //this is beacuse of block scope in JavaScript
+        }
+    </p> <br>
+    <h2>
+        Data Types & Objects
+    </h2>
+    <p>
+        - JavaScript supports different data types such as numbers, strings, booleans, null, undefined, symbol, bigint,
+        and object. <br>
+        - Objects are used to store data and behavior in JavaScript. Objects are created using object literals or by
+        using the `new` keyword followed by the constructor function. <br>
+        example -
+       <pre>
+        let myNumber = 10;
+        let myString = "Hello World!";
+        let myBoolean = true;
+        let myNull = null;
+        let myUndefined = undefined;
+        let mySymbol = Symbol("mySymbol");
+        let myBigInt = 10000000000000000000n;
+        let myObject = {
+        name: "John Doe",
+        age: 30
+        };
+       </pre>
+       null is considered as object 
+        example -
+        let myNullObject = null;
+    </p>
+    <h2>
+        object 
+    </h2>
+    <p>
+        - Objects are used to store data and behavior in JavaScript. Objects are created using object literals or by using the `new` keyword followed by the constructor function. <br>
+        - Object properties are key-value pairs separated by commas. <br>
+        - Object properties can be accessed using dot notation (e.g., obj.property) or square bracket notation (e.g., obj["property"]). <br>
+        - Objects can have methods, which are functions defined inside an object. <br>
+        - Objects can be nested within other objects. <br>
+        example -
+        <pre>
+        let person = {
+        name: "John Doe",
+        age: 30,
+        address: {
+        street: "123 Main St",
+        city: "New York",
+        country: "USA"
+        },
+        getAgeInYears: function() {
+        return this.age;
+        }
+        };
+        </pre>
+        person.getAge
+    </p>
+</body>
+
+</html>

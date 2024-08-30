@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 100ex;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is a form</h1>
+    <form action="post">
+        <div>
+            <label for="username"> Enter username </label >
+        <input type="text" name="username" id="username" placeholder="enter your name" autofocus>
+        
+        </div>
+        <div>
+            <label for="male">male</label>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="female">female</label>
+            <input type="radio" name="gender" id="female" value="female"> br
+            if is not same in label as in input tag then upon clicking on content will not fill the circle
+        </div>
+        <div>
+            <label for="subscribe"> please subscribe</label>
+            <input type="checkbox" name="subscribe" id="subscribe">
+        </div>
+        <div>
+            <label for="area">this is a writing area</label>
+            <textarea name="area" id="area" cols="30" rows="10">here you can add cotent...</textarea>
+        </div>
+        <div>
+            <select name="fruits" id="fruits">
+                <option value="apple">apple</option>
+                <option value="mango">mango</option>
+                <option value="banana">banana</option>
+            </select>
+        </div>
+
+    </form>
+    <form action="/action_page.php">
+        <input type="file" id="myFile" name="filename">
+        <input type="submit">
+      </form>
+</body>
+</html>

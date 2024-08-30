@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* child selector  */
+        div>span {
+            background-color: red;
+        }
+
+        div>span>p {
+            background-color: aqua;
+        }
+        /* descendant selector   */
+        div p {
+            background-color: yellow;   
+        }
+        span p{
+            background-color: green;
+        }
+        /* universal selector */
+        *{
+            background-color: white;
+        }
+        /* pseudo selector */
+        a:active{
+            background-color: rgb(255, 0, 51);
+        }
+        a:visited{
+            background-color: coral;
+        }
+        a:link{
+            background-color: rgb(255, 0, 119);
+        }
+        a:hover{
+            background-color: rgb(0, 128, 0);
+        }
+        a:focus{
+            background-color: rgb(255, 153, 0);
+        }
+        div:hover{
+            background-color: crimson;
+        }
+        /* child selector */
+        p:first-child{
+            background-color: brown;
+        }
+
+    </style>
+</head>
+
+<body><h1>child selector</h1>
+    <p>many way to include css by class and id whhich we know , but we will talk about child selector like if there is a
+        span inside a dix with diff class or etc than the syntax would be - div > span which mean ki div ke andar wale
+        span ko ..."{" ... it mean that span must be just acfter div if div > p then it will not work </p>
+    <div>
+        this is div
+        <span>
+            this is span
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum quia odio!</p>
+        </span>
+    </div> <hr>
+    <div> <h1>descendant selector</h1>
+         <p> now i want to directly add css in p inside c than ill use descendant selector which is eg - div p { ...
+
+         </p>
+        this is div 2 
+        <span>
+            this is span2 
+            <p> para 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum quia odio!</p>
+        </span>
+        
+    </div> <hr>
+    <div>
+        <h1>
+            universal selector
+        </h1>
+        <p>
+            to make all the tags inside html used same css we will use uni selector - * { ...}
+        </p>
+        <span>
+            this is span3
+            <p> para 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam harum quia odio!</p>
+        </span>
+    </div>
+    <div>
+        <h1>
+            pseudo selector
+        </h1>
+        <p>
+            pseudo selectors are used to style HTML elements based on their state, such as :hover, :active, :focus, etc. for specially anchor tag - a:active , visited , link etc or hover any tag like div{
+
+            }
+        </p>
+        <a href="https://www.google.com">this is google </a>
+        <a href="https://www.facebook.com">this is facebook </a>
+    </div>
+    <p> there is another type known as nth child selector</p>
+    <h2>n child</h2>
+    <p>
+        nth child selector is used to select elements based on their position in a parent element. It takes two arguments: the position (an integer) and the type (an optional selector). For example, nth-child(2) selects every second element. it means that what is the position of a certian tag inside a parent tag and then use css on that child. eg - p:first-child{
+            .....
+        } if p is 1st child then ...
+    </p>
+    <div class="child">
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque, omnis?
+        </p>
+    </div>
+</body>
+
+</html>

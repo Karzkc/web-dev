@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 600px;
+            height: 300px;
+            border: 2px solid black;
+            display: grid;
+            grid-template-columns: 120px 100px;
+            grid-template-rows: 100px 100px;
+            grid-gap: 20px;
+
+        }
+
+        .item {
+            border: 2px solid red;
+            height: 55px;
+            width: 55px;
+        }
+
+        .item-4 {
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+        }
+
+        .item-1 {
+            grid-row: 1 / 2;
+            grid-column: 1 / 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GRID</h1>
+    <p>
+
+        A CSS layout mode that arranges elements into a grid-based structure
+    </p>
+    <h2>
+        grid template - column and row
+    </h2>
+    <p>
+        grid-template-columns: 120px 120px 120px;
+        This means that there will be three equal-width columns <br>
+        grid tempalte row means : 120 px 100px;
+
+
+    <div class="container">
+        <div class="item item-1">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item item-4">4</div>
+        <div class="item">5</div>
+    </div>
+    <img src="https://www.freecodecamp.org/news/content/images/2022/05/CSS-GRID-3.png" alt="" height="300px">
+    </p>
+    <h2>
+        grid line , grid cell , grid track ,grid area -
+    </h2>
+    <p>
+    <p>
+        fundamental concepts in CSS Grid layout:
+    <ul>
+        <li>Grid line: The dividing lines that make up the grid structure.</li>
+        <li>Grid cell: The spaces between these lines, containing individual items.</li>
+        <li>Grid track: The horizontal and vertical lines that make up the grid structure, including the grid lines.
+        </li>
+        <li>Grid area: The rectangular areas formed by four grid lines, encompassing multiple grid cells.</li>
+    </ul>
+    <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--cesBcJ0z--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/t4174up8thke8meg0zxt.png"
+        alt="">
+    </p>
+
+    </p>
+    <h2>grid-row and -column </h2>
+    <p>
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        This means that the item will span across the first 2 columns and the first row.
+    <div class="container">
+        <div class="item item-1">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item item-4">4</div>
+        <div class="item">5</div>
+    </div>
+
+    </p>
+    <h2>
+        grid row start / end
+    </h2>
+    <p>
+        grid-row-start: 1;
+        grid-row-end: 2;
+        <br>same as <br>grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        This means that the item will span across the first to third rows.
+    <div class="container">
+        <div class="item item-1">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item item-4">4</div>
+        <div class="item">5</div>
+    </div>
+    </p>
+    <h2>
+        we can name cells and use them in css - grid-template-columns: [pehla] 120px [doosra] 100px [t];
+    </h2>
+    <p>
+        this means that -
+        pehla is a name for the first cell and doosra is a name for the third cell. <br>
+        grid-column: pehla/t ; <br>
+        grid-column: doosra/t ; <br>
+    </p>
+    <h2>
+        grid template areas  and grid area
+    </h2>
+    <p>
+        grid-template-areas: "header"  "header" "sidebar" "main"; <br>
+        This means that -
+        header area is named header and main area is named main. <br>
+        grid-area: header; <br>
+        grid-area: main; <br>
+    </p>
+    <h2>fr unit</h2>
+    <p>
+        grid-template-columns: 1fr 1fr 1fr; <br>
+        This means that -
+        first column will take 1/3 of the grid space. <br>
+        grid-template-rows: 1fr 1fr 1fr; <br>
+        This means that -
+        first row will take 1/3 of the grid space. <br>
+        grid-area: main; <br>
+        This means that -
+        main area will take 2/3 of the grid space. <br>
+        fr means - 
+        fractional units. <br>
+        repeat(5,1fr)- 
+        means 5 times 1fr unit. <br>
+        grid-template-columns: repeat(4, minmax(100px, 1fr));
+        This means that -
+        the grid will have 4 columns with minimum width of 100px and maximum width of 1fr. <br>
+        
+
+    </p>
+    <h2>
+        grid gap , row coulmn gap
+    </h2>
+    <p>
+
+        grid-gap: 20px; <br>
+        This means that -
+        there will be a 20px gap between the grid cells. <br>
+        grid-row-gap: 20px; <br>
+        This means that -
+        there will be a 20px gap between the grid rows. <br>
+        grid-column-gap: 20px; <br>
+        This means that -
+        there will be a 20px gap between the grid columns. <br>
+    </p>
+    <h2>
+        justify/ align/ place - items /content /self
+    </h2>
+    <p>
+        justify-items: center; <br>
+        This means that -
+        the grid items will be horizontally aligned to the center. <br>
+        align-items: center; <br>
+        This means that -
+        the grid items will be vertically aligned to the center. <br>
+        place-items: center; <br>
+        This means that -
+        the grid items will be horizontally and vertically aligned to the center. <br>
+        justify-content: center; <br>
+        This means that -
+        the grid will be horizontally aligned to the center. <br>
+        align-content: center; <br>
+        This means that -
+        the grid will be vertically aligned to the center. <br>
+        place-content: center; <br>
+        This means that -
+        the grid will be horizontally and vertically aligned to the center. <br>
+    </p>
+</body>
+
+</html>

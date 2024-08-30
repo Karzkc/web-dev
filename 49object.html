@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 460px;
+            width: 500px;
+            border: 2px solid;
+            
+        }
+        .box1 {
+            height: 460px;
+            width: 500px;
+            border: 2px solid;
+            background-image: url(mi.jpeg);
+            background-position: center center;
+            background-repeat: space;
+            background-clip: border-box;
+            
+
+        }
+
+        .first {
+            height: 460px;
+            width: 500px;
+            object-fit: cover;
+            border: 2px solid red;
+            object-position: top right;
+        }
+
+        .second {
+            height: 430px;
+            width: 430px;
+            object-fit: contain;
+            border: 2px solid red;
+        }
+
+        .third {
+            height: 430px;
+            width: 430x;
+            object-fit: fill;
+            border: 2px solid red;
+        }
+
+        .fourth {
+            height: 430px;
+            width: 430px;
+            object-fit: scale-down;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        object fit
+    </h1>
+    <p>
+        Object-fit allows you to scale images to fit a specified element's box without distorting the aspect ratio. It
+        can be used to maintain the aspect ratio of images while ensuring that they fit within the container without
+        cropping. <br>
+        suppose if we give h and w to a container or image its aspect ratio messes up then we can use object fit cover
+        to
+    </p>
+    <h2>
+        object fit - cover
+    </h2>
+    <p>
+        This property will scale the image to the largest size that will fit both its width and height within the
+        container's
+        dimensions, while maintaining its aspect ratio. The image will be centered within the container, and any parts
+        of it that
+        extend beyond the container's boundaries will be clipped. <br>
+
+    </p>
+    <br>
+    <div class="box">
+        <img src="mi.jpeg" alt="pic" class="first">
+    </div>
+    <hr>
+    <h2>
+        object-fit - contain
+    </h2>
+    <p>
+        This property will scale the image to the smallest size that will fit both its width and height within the
+        container's
+        dimensions, while maintaining its aspect ratio. The image will be centered within the container, and any parts
+        of it that
+        extend beyond the container's boundaries will be clipped. <br>
+    </p>
+    <div class="box">
+        <img src="mi.jpeg" alt="pic" class="second">
+    </div>
+    <hr>
+    <p>
+        Note: As the aspect ratio of the image changes, the size of the container changes, and the image will be scaled
+        accordingly.
+    </p>
+    <hr>
+    <h2>
+        object-fit - fill
+    </h2>
+    <p>
+        This property will scale the image to the largest size that will fit both its width and height within the
+        container's
+        dimensions, while maintaining its aspect ratio. The image will be positioned at the top left corner of the
+        container,
+        and any parts of it that extend beyond the container's boundaries will be clipped. <br>
+    </p>
+    <div class="box">
+        <img src="mi.jpeg" alt="pic" class="third">
+    </div>
+    <h2>
+        object-position
+    </h2>
+    <p>
+        object-position allows you to control the position of the object within its container. You can specify the
+        horizontal and vertical
+        alignment of the object using percentage values, as well as using keywords like "center". <br>
+        For example, object-position: 50% 50% will center the object horizontally and vertically within its container.
+        <br>
+        You can also specify multiple values, separated by spaces, to position the object along both axes. For example,
+        object-position: 50% 50% 10% will position the object 10% from the top and left edges of its container.
+    </p>
+    <div class="box">
+        <img src="mi.jpeg" alt="pic" class="first">
+    </div>
+    <p>
+        object-position: top right; means that -
+        the top edge of the image will be aligned with the top edge of the container, and the right edge of the image
+        will be aligned with the right edge of the container.
+        <br>
+        object-position: center; means that -
+        the image will be centered both horizontally and vertically within its container.
+        <br>
+        object-position: 50% 50% 10% will position the image 10% from the top and left edges of its container. <br>
+        object-position: 10px 20px will 
+        position the image 10px from the top and 20px from the left edges of its container.
+
+    </p>
+    <hr>
+    <h2>
+        object-fit - scale down
+    </h2>
+    <p>
+        This property will scale the image to the largest size that will fit both its width and height within the
+        container's
+        dimensions, while maintaining its aspect ratio. The image will be positioned at the top left corner of the
+        container,
+        and any parts of it that extend beyond the container's boundaries will be clipped. <br>
+        object-fit: scale-down; will scale the image down to fit the container while maintaining its aspect ratio. If
+        the image
+        is larger than the container, it will be centered within the container and any parts that extend beyond the
+        container's
+        boundaries will be clipped.
+    </p>
+    <div class="box">
+        <img src="mi.jpeg" alt="pic" class="fourth">
+    </div>
+    <h2>
+        onject fit - none
+    </h2>
+    <p>
+        This property will not scale the image. Instead, it will maintain its original size and position within the
+        container. <br>
+        object-fit: none; will not scale the image.
+    </p> <hr>
+    <h1>
+        background image and properties 
+    </h1>
+    <p>
+        The background-image property allows you to set an image as the background for an element. You can specify
+        multiple
+        background images using the background-image property, separated by commas. <br>
+        The background-position property allows you to control the position of the background image within the element.
+        You can specify
+        the horizontal and vertical alignment of the background image using percentage values, as well as using
+        keywords like
+        "center". <br>
+        For example, background-position: 50% 50% will center the background image horizontally and vertically within
+        the element.
+        <br>
+        You can also specify multiple values, separated by spaces, to position the background image along both axes. For
+        example, background-position: 50% 50% 10% will position the background image 10% from the top and left edges
+        of the element.
+    </p>
+    <hr>
+    <h2>
+        background - position 
+
+    </h2>
+    <p>
+        background-position: top right; means that -
+        the top edge of the background image will be aligned with the top edge of the element, and the right edge of the
+        background image will be aligned with the right edge of the element.
+        <br>
+        background-position: center; means that -
+        the background image will be centered both horizontally and vertically within the element.
+        <br>
+        background-position: 50% 50% 10% will position the background image 10% from the top and left edges of the element. <br>
+        background-position: 10px 20px will position the background image 10px from the top and 20px from the left edges of
+        the element.
+    </p>
+    <div class="box1">
+        
+    </div> <hr>
+    <h2>
+        background repeat 
+    </h2>
+    <p>
+        background-repeat allows you to control whether the background image repeats in both horizontal and vertical directions.
+        You can specify
+        the following values for background-repeat:
+        <ul>
+            <li>no-repeat - The background image will not repeat.</li>
+            <li>repeat - The background image will repeat both horizontally and vertically.</li>
+            <li>repeat-x - The background image will repeat horizontally, but not vertically.</li>
+            <li>repeat-y - The background image will repeat vertically, but not horizontally.</li>
+            <li>space - The background image will repeat with space between tiles.</li>
+            <li>round - The background image will repeat with rounding between tiles.</li>
+        </ul>
+        
+
+        
+        
+
+    </p> <hr>
+    <h2>
+        background clip - 
+    </h2>
+    <p>
+        background-clip allows you to control the area of the background that is visible. You can specify
+        the following values for background-clip:
+        <ul>
+            <li>border-box - The background is clipped to the border box of the element.</li>
+            <li>padding-box - The background is clipped to the padding box of the element.</li>
+            <li>content-box - The background is clipped to the content box of the element.</li>
+            <li>text - The background is clipped to the text content of the element.</li>
+        </ul>
+    </p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 2px solid lightgray;
+            background-color: white; /* Ensure the navbar has a background */
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Make sure the navbar stays on top of other content */
+            font-weight:bolder;
+        }
+
+        .box {
+            text-align: center;
+            font-size: small;
+        }
+
+        .box1 {
+            margin-right: 160px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+            font-weight: 390;
+            transition: color 400ms;
+            position: relative;
+        }
+
+        a:hover {
+            color: gray;
+        }
+
+        .dropdown-icon {
+            margin-left: 5px;
+            font-size: 0.8em;
+            position: absolute;
+            top: 3px;
+            right: -20px;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        .mainline {
+            font-weight: 100;
+            font-size: 45px;
+            margin-top: 50px;
+            text-align: center;
+            color: #333333;
+        }
+
+        .line2 {
+            text-align: center;
+            color: #333333;
+            font-size: 22px;
+        }
+
+        .btn1 {
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            height: 48px;
+            width: 256px;
+            background-color: #00b6d1;
+            border: none;
+            transition: 400ms;
+            font-weight: 750;
+            font-size: large;
+            color: white;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .btn1:hover {
+            background-color: #00b6d1;
+            color: black;
+        }
+
+        .ver {
+            position: relative;
+            top: 20px;
+            right: 200px;
+            font-size: 12px;
+            color: gray;
+            transition: color 0.3s ease;
+            word-spacing: 5px;
+        }
+
+        .verlogo {
+            position: relative;
+            top: 13px;
+            left: 5px;
+        }
+
+        .lower {
+            padding: 10px;
+            height: 100vh;
+            width: 61vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr ;
+            flex-wrap: wrap;
+            position: relative;
+            left: 250px;
+            top: 60px;
+            gap: 60px 75px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            font-weight: lighter;
+        }
+        @media screen and (max-width:1100px){
+            .lower{
+                grid-template-columns: 1fr ;
+            }
+        }
+
+        .lang {
+            height: 175px;
+            width: 250px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        h5 {
+            margin-top: 15px;
+            margin-bottom: 0;
+            position: relative;
+            top: -25px;
+            color: #333333;
+            font-weight: bold;
+            font-size: small;
+        }
+
+        .btn2 {
+            background-color: #5cb85c;
+            border: none;
+            color: white;
+            position: relative;
+            top: -20px;
+            border-radius: 6px;
+            font-size: 12px;
+            height: 30px;
+            padding: 10px;
+            text-align: center;
+            padding-bottom: 25px;
+        }
+        .btn2 a{
+            color: white;
+            font-weight: 700;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="box box1"><a href="#" style="color: gray;"><img src="logo.png" alt="logo" class="logo" height="90px"></a></div>
+        <div class="box box2"><a href="#" style="color: gray;">Products <span class="dropdown-icon" style="color: black;">▼</span></a></div>
+        <div class="box box3"><a href="#" style="color: gray;">Pricing<span class="dropdown-icon" style="color: black;">▼</span></a></div>
+        <div class="box box4"><a href="#" style="color: gray;">Resources<span class="dropdown-icon" style="color: black;">▼</span></a></div>
+        <div class="box box5"><a href="#" style="color: gray;">About Us<span class="dropdown-icon" style="color: black;">▼</span></a></div>
+        <div class="box box6"><a href="#" style="color: gray;">Security and Compliance</a></div>
+        <div class="box box7"><a href="#"><img src="https://logos-world.net/wp-content/uploads/2022/05/Google-Translate-Icon-Logo-January-August-2015.png" alt="Lang" height="30px"></a></div>
+    </nav>
+
+    <main>
+        <center>
+            <h1 class="mainline">Download <strong>UltraEdit</strong> for Windows &nbsp;&nbsp;&nbsp;<img decoding="async"
+                    src="https://www.ultraedit.com/wp-content/uploads/2022/10/Reviews.png" width="112" height="32"
+                    alt="Reviews" class="wp-image-1613 alignnone size-full"></h1><br>
+            <h3 class="line2">Download and try UltraEdit before you buy it! This download includes the full Windows <br>version of the text editor.</h3> <br>
+            <button class="btn1">Download mac or Linux version</button>
+        </center> <br>
+        <div class="ver">
+            <h3 class="line2"> <img class="verlogo" src="https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_0a47f56c0ae08c2bbc1cd48dbe10ab43/ultraedit.png" alt="" height=40px>
+                Download Ultraedit <small>v2024.0 (released 2024-04-19) |</small><a href="http://">Hotfix</a>
+            </h3>
+        </div>
+    </main>
+
+    <footer>
+        <div class="lower">
+            <div class="lang lang1">
+                <h3>English </h3><br>
+                <h5>
+                     
+               </h5><br>
+                <button class="btn2">
+                    <a href="https://downloads.ultraedit.com/main/ue/win/ue_english_64.exe?_gl=1*1dlg2mi*_gcl_au*NTY5ODg0ODcyLjE3MjM4NzU3MzQ.*_ga*MTA0NTY2NDUxMi4xNzIzODc1NzM0*_ga_QNXHVTPWNS*MTcyMzg5MTk2MC41LjEuMTcyMzg5MjE4NC41OC4wLjA.">Download 64-bit</a>
+                </button>
+            </div>
+            <div class="lang lang2">
+                <h3>Deutsch </h3> <br>
+                <h5>
+                     German
+                </h5><br>
+                <button class="btn2">
+                    <a href="https://downloads.ultraedit.com/main/ue/win/ue_english_64.exe?_gl=1*1dlg2mi*_gcl_au*NTY5ODg0ODcyLjE3MjM4NzU3MzQ.*_ga*MTA0NTY2NDUxMi4xNzIzODc1NzM0*_ga_QNXHVTPWNS*MTcyMzg5MTk2MC41LjEuMTcyMzg5MjE4NC41OC4wLjA.">Download 64-bit</a>
+                </button>
+            </div>
+            <div class="lang lang3">
+                <h3> Italiano</h3><br>
+                <h5>
+                    Italian
+                </h5><br>
+                <button class="btn2">
+                    <a href="https://downloads.ultraedit.com/main/ue/win/ue_english_64.exe?_gl=1*1dlg2mi*_gcl_au*NTY5ODg0ODcyLjE3MjM4NzU3MzQ.*_ga*MTA0NTY2NDUxMi4xNzIzODc1NzM0*_ga_QNXHVTPWNS*MTcyMzg5MTk2MC41LjEuMTcyMzg5MjE4NC41OC4wLjA.">Download 64-bit</a>
+                </button>
+            </div>
+            <div class="lang lang4">
+                <h3>Español </h3><br>
+                <h5>
+                    Spanish
+                </h5><br>
+                <button class="btn2">
+                    <a href="https://downloads.ultraedit.com/main/ue/win/ue_english_64.exe?_gl=1*1dlg2mi*_gcl_au*NTY5ODg0ODcyLjE3MjM4NzU3MzQ.*_ga*MTA0NTY2NDUxMi4xNzIzODc1NzM0*_ga_QNXHVTPWNS*MTcyMzg5MTk2MC41LjEuMTcyMzg5MjE4NC41OC4wLjA.">Download 64-bit</a>
+                </button>
+            </div>
+            <div class="lang lang5">
+                <h3>français </h3><br>
+                <h5>
+                    French
+                </h5><br>
+                <button class="btn2">
+                    <a href="https://downloads.ultraedit.com/main/ue/win/ue_english_64.exe?_gl=1*1dlg2mi*_gcl_au*NTY5ODg0ODcyLjE3MjM4NzU3MzQ.*_ga*MTA0NTY2NDUxMi4xNzIzODc1NzM0*_ga_QNXHVTPWNS*MTcyMzg5MTk2MC41LjEuMTcyMzg5MjE4NC41OC4wLjA.">Download 64-bit</a>
+                </button>
+            </div>
+            <div class="lang lang6">
+                <h3>Português brasileiro </h3><br>
+                <h5>
+                   Brazilian Portugese
+                </h5><br>
+                <button class="btn2">
+                    <a href="https://downloads.ultraedit.com/main/ue/win/ue_english_64.exe?_gl=1*1dlg2mi*_gcl_au*NTY5ODg0ODcyLjE3MjM4NzU3MzQ.*_ga*MTA0NTY2NDUxMi4xNzIzODc1NzM0*_ga_QNXHVTPWNS*MTcyMzg5MTk2MC41LjEuMTcyMzg5MjE4NC41OC4wLjA.">Download 64-bit</a>
+                </button>
+            </div>
+            <div class="lang lang7">
+                <h3>日本 </h3><br>
+                <h5>
+                    Japanese
+                </h5><br>
+                <button class="btn2">
+                    <a href="https://downloads.ultraedit.com/main/ue/win/ue_english_64.exe?_gl=1*1dlg2mi*_gcl_au*NTY5ODg0ODcyLjE3MjM4NzU3MzQ.*_ga*MTA0NTY2NDUxMi4xNzIzODc1NzM0*_ga_QNXHVTPWNS*MTcyMzg5MTk2MC41LjEuMTcyMzg5MjE4NC41OC4wLjA.">Download 64-bit</a>
+                </button>
+                
+            </div>
+            <div class="lang lang8">
+                <h3>한국어 </h3><br>
+                <h5>
+                    Korean
+                </h5><br>
+                <button class="btn2">
+                    <a href="https://downloads.ultraedit.com/main/ue/win/ue_english_64.exe?_gl=1*1dlg2mi*_gcl_au*NTY5ODg0ODcyLjE3MjM4NzU3MzQ.*_ga*MTA0NTY2NDUxMi4xNzIzODc1NzM0*_ga_QNXHVTPWNS*MTcyMzg5MTk2MC41LjEuMTcyMzg5MjE4NC41OC4wLjA.">Download 64-bit</a>
+                </button>
+            </div>
+            <div class="lang lang9">
+                <h3>中国 </h3><br>
+                <h5>
+                    Chinese
+                </h5><br>
+                <button class="btn2">
+                    <a href="https://downloads.ultraedit.com/main/ue/win/ue_english_64.exe?_gl=1*1dlg2mi*_gcl_au*NTY5ODg0ODcyLjE3MjM4NzU3MzQ.*_ga*MTA0NTY2NDUxMi4xNzIzODc1NzM0*_ga_QNXHVTPWNS*MTcyMzg5MTk2MC41LjEuMTcyMzg5MjE4NC41OC4wLjA.">Download 64-bit</a>
+                </button>
+            </div>
+            <div class="lang lang10">
+                <h3>中國 </h3><br>
+                <h5>
+                    Traditional Chinese
+                </h5><br>
+                <button class="btn2">
+                    <a href="https://downloads.ultraedit.com/main/ue/win/ue_english_64.exe?_gl=1*1dlg2mi*_gcl_au*NTY5ODg0ODcyLjE3MjM4NzU3MzQ.*_ga*MTA0NTY2NDUxMi4xNzIzODc1NzM0*_ga_QNXHVTPWNS*MTcyMzg5MTk2MC41LjEuMTcyMzg5MjE4NC41OC4wLjA.">Download 64-bit</a>
+                </button>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

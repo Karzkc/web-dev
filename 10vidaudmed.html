@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>video tag</h1>
+        <video src="MI.mp4" controls autopla loop muted poster="mi.jpeg" height="255" width="266"> </video>
+        <p> controls - all options , autoplay - autoplay when open web page , muted - muted video by default , poster - thumbnail </p>
+    </div>
+    <div>
+        <h1> audio tag</h1>
+        <audio src="mi.mp3" controls autoplay loop muted preload="metadata"></audio> 
+        <p>same tags as video , preload - none(default),metadata,auto , it means that kab audio load ho jaye , pehle se ya user ke enter hone ke baad </p>
+    </div>
+    <div>
+        <h1>svg file -Scalable Vector Graphics </h1>
+        <p>you can create your own image with prompt</p>
+        <h2>inline svg </h2>
+        <svg height="100" width="100">
+            <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+        </svg>
+        <h2>
+            using img tag and making a svg file
+        </h2>
+        <img src="image.svg" alt="Sample SVG">
+        <h2>
+            
+        </h2>
+
+    </div>
+    
+    <div>
+        <h1>using i frames </h1>
+        <p>here you  can add any website or youtube video url</p>
+        <iframe src="https://www.codewithharry.com/tutorial/html-iframes/" width="width" height="height"></iframe>
+        <p>
+            src: Specifies the URL of the page to embed.
+            height and width: Define the dimensions.
+            frameborder: Indicates whether to display a border.
+            scrolling: Controls the scrollbars.
+            name: For targeting the iFrame in JavaScript.
+        </p>
+    </div>
+</body>
+</html>

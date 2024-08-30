@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --1:rgb(127, 200, 182);
+            --2:rgb(84, 73, 174);
+            --3:yellow;
+            --4:blue;
+        }
+        nav{
+            border: 2px solid black;
+            background-color: var(--1);
+            width: 80vw;
+            margin: auto;
+            transition: 0.4s;
+            
+        }
+        nav:hover{
+            background-color: var(--2);
+            
+        }
+        nav ul {
+            display: flex;
+            justify-content:space-evenly;
+        }
+        nav ul li{
+            list-style: none;
+        }
+        nav ul li:hover{
+            color: var(--3);
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            transition: 0.45s;
+            
+        }
+        a:hover{
+            color: var(--3);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

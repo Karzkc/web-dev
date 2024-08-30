@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Float & Clear</title>
+    <style>
+        .cards {
+            border: 2px solid black;
+            display: flow-root;
+        }
+
+        img {
+            float: right;
+        }
+
+        .card {
+            border: 2px solid red;
+        }
+
+        .card:nth-child(3) {
+            background-color: aqua;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cards">
+        <img src="https://media.istockphoto.com/id/928826678/photo/two-men-relaxing-and-fishing.jpg?s=2048x2048&w=is&k=20&c=fSG5LG9kxLNzjG9_YI1bXdz3-gD7UW2e2bd9arD5Vm8="
+            alt="" width="230">
+        <div class="card">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi fugiat ab tenetur praesentium sequi,
+                nisi nesciunt officiis magnam ut at voluptatibus sapiente ducimus deleniti esse alias nihil. Soluta iure
+                ipsum voluptatibus assumenda ratione ut?</p>
+        </div>
+        <div class="card"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium vitae excepturi autem,
+            fuga ipsam facere quia corporis dicta nulla cumque. Sapiente et nesciunt modi vitae doloribus molestias
+            inventore voluptas reiciendis libero voluptates? Veritatis, voluptatum ad laborum, voluptatem soluta autem
+            harum consequatur voluptas nostrum maxime recusandae velit consequuntur impedit voluptatibus numquam ullam
+            odio eveniet, suscipit nemo est dolor similique quod. Officiis ipsam dolore corporis error nostrum. Cumque
+            expedita ullam eaque distinctio?</div>
+        <div class="card">Card 3</div>
+    </div>
+    <p>This demonstrates how the float property can be used to position elements side by side, and the clear property
+        can be used to remove any adverse effects caused by floated elements.</p>
+        <p>In this example, the third card is given a clear: both property to prevent it from floating to the left
+            of the last card, which could cause the content to overlap.</p>
+            float and clear is like used toadjust text wuth another div <br>
+            float left, right, top, bottom are used to adjust text within div <br>
+            <br>
+            display flow root - 
+            It is used to create a new formatting context, making it possible to position elements without affecting the positioning of other elements in the document. <br>
+            while clear is used to - 
+            Remove any adverse effects caused by floated elements.
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .papa {
+            margin: 10px;
+            padding: 34px;
+            border: 2px solid black;
+        }
+
+        .box {
+            border: 2px solid black;
+            height: 150px;
+            width: 80vw;
+            margin: 10px;
+            padding: 10px;
+            position: relative
+            ;
+        }
+
+        .box1 {
+            background-color: aqua;
+            /* position: sticky; */
+            top: 100px;
+            z-index: 1;
+
+        }
+
+        .box2 {
+            background-color: yellow;
+            top: 80px;
+            z-index: 2;
+
+        }
+
+        .box3 {
+            background-color: green;
+            /* position: fixed; */
+            top: 60px;
+            z-index: 4;
+
+
+        }
+
+        .box4 {
+            background-color: violet;
+            z-index: 6;
+            
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="papa">
+        <div class="box box1">Box1 </div>
+        <div class="box box2">Box2 </div>
+        <div class="box box3">Box3 </div>
+        <div class="box box4">Box4 </div>
+    </div>
+    <p>
+    <h2>
+        position
+    </h2>
+    The position property specifies the positioning of an element relative to its normal position.
+    by default its static . <br>
+    <h2>
+        static -
+
+    </h2>
+    <p>we cant apply top bottom left right z index on static we have to change
+        position to relative, absolute, fixed, sticky.
+    </p><br>
+    <h2>
+        relative
+    </h2>
+    <p>
+        The relative positioning of an element is unchanged by the positioning of other elements.
+        It maintains its original position relative to where it would have been if no positioning properties had been
+        applied. <br>
+        we can apply top bottom
+        left right z index on relative <br>
+        with top bottom left right we can add position <br>
+        relative mtlb apne purani pos se kitna dur
+
+
+    </p><br>
+    <h2>z index</h2>
+    <p>
+        The z-index property specifies the stack order of an element.
+        An element with a higher value will appear in front of an element with a lower value.
+        If two or more elements have the same stack order, their order is determined by the order they appear in the
+        HTML. <br>
+        isme jiski sbse jyada property wo utna upar
+    </p><br>
+    <h2>
+        absolute
+    </h2>
+    <p>
+        The absolute positioning of an element is related to its first positioned (not static) ancestor element.
+        if no such ancestor, then it is positioned relative to the viewport.
+        <br>
+        isme apne papa agar relative hai to uske reference se pos vrna body and at last html
+        - nearest position ancestor ke - if papa also absoulte then uske according
+
+
+    </p>
+    <h2>
+        fixed -
+    </h2>
+    <p>
+        The fixed positioning of an element is related to the viewport, meaning it stays in the same place even when
+        scrolling.
+        If no scrollbars are present, the fixed positioned element remains fixed relative to the viewport.
+        <br>
+        isme agar fixed kr diya to kuch bhi hojaye wahi pos rhegi even scroll kre to bhi
+    </p>
+    <h2>
+        sticky
+    </h2>
+    <p>
+        The sticky positioning of an element is relative to the nearest positioned ancestor,
+        but it will stop at a specified container when scrolling.
+        <br>
+        if sticky element is in the top then it will stop at the top of the container when scrolling down and from top
+        when scrolling up <br>
+        mtlb fixed me ek hinjgh rehta ha jb scorll krte hai isme pehle wahi rhega scroll krne pe move krega
+    </p>
+    <br>
+    <p>
+        jb tk ustk scroll na krdo tb tk wahi uske baad scroll
+    </p>
+    <h2>
+        note - relative absolute sticky aur fixed all 4 same kaam kregi as pos apne parent ke hisaab set hogi
+
+    </h2><br>
+    <h2>
+        transform filter or perspective property can also make
+        element responsive and interactive and element positioned
+        transform - translate(0) act as
+        same as
+        position absolute and relative property <br>
+
+
+    </h2>
+    <h2>
+        filter invert also act as 
+        position absolute and relative property <br>
+    </h2>
+    <h2>
+        perspective property also act as
+        position absolute and relative property - perspective - 0em<br>
+    </h2>
+
+
+</body>
+
+</html>

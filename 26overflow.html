@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border: 2px solid red;
+            height: 20vh;
+            width: 20vw;
+            overflow:scroll;
+            text-overflow: ellipsis;
+            white-space: nowrap ;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        overflow property -
+    </h1>
+    <p>
+        The overflow property specifies how to handle content that exceeds the boundaries of an element's box.
+        It can have the following values:
+    <ul>
+        <li>visible</li>
+        <li>hidden</li>
+        <li>scroll</li>
+        <li>auto</li>
+        <li>inherit</li>
+    </ul>
+    In this example, we will use the "scroll" value to make the text inside the paragraph scrollable if it exceeds the
+    boundaries of its box.
+    <br>
+    <br>
+    The default value is "visible".
+    <br>
+    suppose there is a box that contain more content than its limit so content will overflow for eg a div
+    </p>
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium officia quia modi, a ullam voluptatem
+        temporibus perferendis beatae perspiciatis fugit culpa! Beatae dolorum tempore, quidem sunt ducimus ratione
+        delectus quo porro, necessitatibus voluptates adipisci consectetur doloremque saepe nam laborum accusamus
+        aperiam similique asperiores, nesciunt expedita quisquam. Totam consequatur tempore ipsum!
+    </div>
+    <p>
+        overflow scroll means we can scroll 
+    </p>
+    <p>
+        overflow auto - 
+        If the content is too long to fit within the box, it will cause a scrollbar to appear else 
+        it will not.
+
+    </p>
+    <p>
+        overflow inherit -
+        It will inherit the overflow property from its parent element.
+    </p>
+    <p>
+        overflow none -
+        This will hide the overflowing content, but it will still take up space in the layout.
+    </p>
+    <p>
+        overflow visible -
+        This will show the overflowing content, but it will still take up space in the layout.
+    </p>
+
+    <p>
+        overflow hidden -
+        This will hide the overflowing content, and it will not take up space in the layout.
+    </p>
+
+    <p>
+        white space - nowrap 
+        This will prevent text from wrapping onto new lines.
+    </p>
+    <p>
+        
+        text-overflow - ellipsis -
+        This will add ellipsis (...) at the end of the overflowed text to indicate that it has been truncated. <br>
+        This property is used together with overflow property to show an ellipsis when text overflows the box.
+    </p>
+    <p>
+        clip --
+        This property is used to hide overflowing text. The text is not displayed, but it still takes up space in the layout.
+
+    </p>
+    <p>
+        overflow x and y - 
+        This property allows you to control the overflow behavior in both horizontal and vertical directions.
+        syntax - overflow - x prop y prop 
+        eg - overflow: scroll x auto y hidden;
+    </p>
+
+
+</body>
+
+</html>

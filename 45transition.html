@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1. transition-property */
+        #propertyExample {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            transition-property: background-color;
+        }
+
+        #propertyExample:hover {
+            background-color: coral;
+        }
+
+        /* 2. transition-duration */
+        #durationExample {
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+            transition-property: background-color;
+            transition-duration: 2s;
+        }
+
+        #durationExample:hover {
+            background-color: purple;
+        }
+
+        /* 3. transition-timing-function */
+        #timingFunctionExample {
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+            transition-property: transform;
+            transition-duration: 1s;
+            transition-timing-function: ease-in-out;
+        }
+
+        #timingFunctionExample:hover {
+            transform: rotate(45deg);
+        }
+
+        /* 4. transition-delay */
+        #delayExample {
+            width: 100px;
+            height: 100px;
+            background-color: lightyellow;
+            transition-property: transform;
+            transition-duration: 1s;
+            transition-delay: 0.5s;
+        }
+
+        #delayExample:hover {
+            transform: scale(1.5);
+        }
+
+        /* 5. transition (shorthand) */
+        #shorthandExample {
+            width: 100px;
+            height: 100px;
+            background-color: lightpink;
+            transition: background-color 1s ease-in-out 0.2s;
+        }
+
+        #shorthandExample:hover {
+            background-color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Transition in css
+    </h1>
+    <p>
+        In CSS, a transition allows you to change property values smoothly (over a given duration) rather than
+        instantly. This is particularly useful for creating interactive elements like buttons or links where you want to
+        add effects like changing color, size, or position when hovered or clicked.
+    </p> <br>
+    <pre>
+        <code>
+            selector {
+                transition: property duration timing-function delay;
+              }
+        </code>
+    </pre>
+    <hr>
+    <h2>
+        Example of CSS transition
+    </h2>
+    <p>
+        In this example, we have a button with a transition effect that changes its color from blue to red when hovered
+        over.
+        <br>
+        <button id="myButton">Hover me!</button>
+        <style>
+            #myButton:hover {
+                background-color: blue;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.5s ease;
+            }
+        </style>
+    </p>
+    <hr>
+    <h2>
+        Transition Properties -
+    </h2>
+    <h2>1. `transition-property`</h2>
+    <p>
+        <strong>Definition:</strong> Specifies the name of the CSS property to which the transition is applied.
+    </p>
+    <ul>
+        <li><code>all</code>: Applies the transition to all properties.</li>
+        <li><code>property-name</code>: Specifies a single property (e.g., <code>width</code>, <code>height</code>,
+            <code>background-color</code>).
+        </li>
+        <li><code>none</code>: No properties will transition.</li>
+    </ul>
+    <pre>
+        <code>
+transition-property: background-color;
+        </code>
+    </pre>
+    <div id="propertyExample">Hover me!</div>
+    <hr>
+    <h2>2. `transition-duration`</h2>
+    <p>
+        <strong>Definition:</strong> Defines how long the transition takes to complete.
+    </p>
+    <ul>
+        <li><code>time</code>: Duration in seconds (e.g., <code>0.5s</code>) or milliseconds (e.g., <code>500ms</code>).
+        </li>
+        <li><strong>Note:</strong> The default value is <code>0s</code> (no transition).</li>
+    </ul>
+    <pre>
+        <code>
+transition-duration: 1s;
+        </code>
+    </pre>
+    <div id="durationExample">Hover me!</div>
+    <hr>
+    <h2>3. `transition-timing-function`</h2>
+    <p>
+        <strong>Definition:</strong> Describes how the intermediate values of the transition are calculated.
+        Essentially, it controls the speed of the transition.
+    </p>
+    <ul>
+        <li><code>ease</code>: Starts slowly, then speeds up, and ends slowly. (default)</li>
+        <li><code>linear</code>: Maintains a constant speed from start to finish.</li>
+        <li><code>ease-in</code>: Starts slowly and then accelerates.</li>
+        <li><code>ease-out</code>: Starts quickly, then slows down.</li>
+        <li><code>ease-in-out</code>: Starts slowly, accelerates in the middle, and slows down again.</li>
+        <li><code>steps(number, direction)</code>: Splits the transition into <code>number</code> steps. The
+            <code>direction</code> can be <code>start</code> or <code>end</code>.
+        </li>
+        <li><code>cubic-bezier(x1, y1, x2, y2)</code>: Defines a custom timing function with control points.</li>
+    </ul>
+    <pre>
+        <img src="https://behind-the-scenes.net/wp-content/uploads/transition-timing-functions-all.jpg" alt="hi" height="200px">
+        <div id="timingFunctionExample">Hover me!</div>
+        <code>
+transition-timing-function: ease-in-out;
+        </code>
+    </pre>
+    <hr>
+    <h2>4. `transition-delay`</h2>
+    <p>
+        <strong>Definition:</strong> Specifies the time to wait before starting the transition.
+    </p>
+    <ul>
+        <li><code>time</code>: Delay in seconds (e.g., <code>0.5s</code>) or milliseconds (e.g., <code>500ms</code>).
+        </li>
+        <li><strong>Note:</strong> The default value is <code>0s</code> (no delay).</li>
+    </ul>
+    <pre>
+        <code>
+            transition-delay: 0.2s;
+        </code>
+    </pre>
+    <div id="delayExample">Hover me!</div>
+    <hr>
+    <h2>5. `transition` (Shorthand)</h2>
+    <p>
+        <strong>Definition:</strong> A shorthand for setting the four individual transition properties at once:
+        <code>transition-property</code>, <code>transition-duration</code>, <code>transition-timing-function</code>, and
+        <code>transition-delay</code>.
+    </p>
+    <ul>
+        <li><strong>Syntax:</strong></li>
+        <pre>
+            <code>
+transition: property duration timing-function delay;
+            </code>
+        </pre>
+        <li><strong>Example:</strong></li>
+        <pre>
+            <code>
+transition: background-color 1s ease-in-out 0.2s;
+            </code>
+        </pre>
+
+    </ul>
+    <div id="shorthandExample">Hover me!</div>
+    <hr>
+
+
+
+</body>
+
+</html>

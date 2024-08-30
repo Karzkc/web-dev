@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* The specificity of this selector is 1  */
+        h1 {
+            color: aqua;
+        }
+
+        /* The specificity of this selector is 10  */
+        .cpurple {
+            color: purple;
+        }
+
+        /* The specificity of this selector is 1 + 10 = 11  */
+        h1.yellow {
+            color: yellow;
+        }
+
+        /* This is an example of attribute selector. The specificity of this selector is 10 */
+        [data-x=a] {
+            color: maroon;
+        }
+
+        /* The specificity of this selector is 10  */
+        .cred {
+            color: red;
+        }
+
+        /* The specificity of this selector is 1 + 10 + 10 + 10 + 10 = 41  */
+        a.harryclass.rohan-class[href]:hover {
+            color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1 class="yellow cred cpurple" data-x="a">CSS Specificity</h1>
+        <p>
+            if there are more than one styles suppose color on one tag then what would be the priority order
+        </p>
+        <h1>
+            cascade algorithm -
+        </h1>
+        <p>
+            CSS stands for Cascading Stylesheets. The cascade is the algorithm for solving conflicts where multiple CSS
+            rules apply to an HTML element. It's the reason that the text of the button styled with the above CSS will
+            be purple.
+
+            Understanding the cascade algorithm helps you understand how the browser resolves conflicts like this. The
+            cascade algorithm has 4 distinct stages.
+
+            Position and order of appearance: the order in which your CSS rules appear
+            Specificity: an algorithm that determines which CSS selector has the strongest match
+            Origin: the order in which CSS appears and where it comes from, whether that is a browser style, CSS from a
+            browser extension, or your authored CSS
+            Importance: some CSS rules are weighted more heavily than others, especially with the !important rule type
+            Lets look into all these one by one
+        </p>
+        <p>
+            for same type of selector suppose class then whomsoever is latest or last written then it will be considered
+            and it will overwrite other ones
+        </p>
+        <p>if there is diff selector suppose element selector like h1{..}
+        </p>
+        <p><b>
+                So, the order of specificity is:
+
+                Inline Style > ID Selector > Class or Attribute Selector > Element Selector > Universal Selector
+            </b></p>
+        <p>
+        <pre>
+                inline means <code>
+                    &lt;p style="width: 0mm;"&gt; &lt;/p&gt;
+                </code>
+            </pre>
+        </p>
+    </div>
+    <b>
+        <p>attribute sel means -
+            h1 data-x=1
+            css - [data-x=1] { ...}
+
+        </p>
+    </b>
+    <h2>
+        <b>origin - </b>
+    </h2>
+    <p>
+        <b>
+            Browser Style:
+        </b> - These are styles that are automatically applied by the browser. For example, the browser applies
+        the default font, background color, and text color to all elements.
+    </p>
+    <p>
+        <b>
+            important!-
+        </b> - This rule makes a CSS rule take precedence over the browser's default styles. It's used to override
+        its syntax is -
+        <code>
+                &lt;p style="color: red!important;"&gt; &lt;/p&gt;
+            </code>
+        </b>
+    </p>
+    <p>
+        <b>
+            Specificity Calculation
+            To calculate specificity, assign a value to each part of the selector:
+
+            <pre>
+                Universal Selector: 0
+            Element selectors and pseudo-elements: 1
+            Class selectors, attribute selectors, and pseudo-classes: 10
+            ID selectors: 100
+            Inline styles: 1000
+            </pre>
+        </b>
+    <pre><b>
+            <p>this Calculation is for simple tags and selectors but if tehre is a complex selector like h1 p a{...} then - 
+                yhe specificityadds - 
+                <code>
+                    (h1 p a) = 1 (h1) + 1 (p) + 1 (a) = 3
+                </code>
+                if there is pseudo class like :hover then also 10 - 
+                <code>
+                    (h1 p a:hover) = 1 (h1) + 1 (p) + 1 (a) + 10 (hover) = 14
+                </code>
+            </p>
+        </b>
+            
+        </pre>
+    </p>
+    <h1 style="color: black;">
+        <b>
+            specificity number ↑ = priority ↑
+        </b>
+    </h1>
+</body>
+
+</html>

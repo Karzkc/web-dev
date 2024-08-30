@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: larger;
+        }
+        .main {
+            background-color: darkgoldenrod;
+        }
+
+        .box {
+            background-color: aqua;
+        }
+
+        .box1 {
+            color: red;
+            margin: 10px;
+            padding: 30px;
+            border: 2px solid black;
+            height: 20px;
+            box-sizing: border-box;
+            -webkit-margin-collapse: collapse;
+        }
+
+        .box2 {
+            color: purple;
+            margin: 10px;
+            padding: 30px;
+            border: 2px solid black;
+            height: 20px;
+            box-sizing: border-box;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <h1>about margin padding </h1>
+    <h2>
+        margin - inside box to content
+        padding - outside box
+        <img src="https://www.hubspot.com/hs-fs/hubfs/Update%20css%20margin%20vs%20padding-5%20.webp?width=650&height=470&name=Update%20css%20margin%20vs%20padding-5%20.webp"
+            alt="image" height="216">
+
+    </h2>
+    <div class="main">this is main box
+        <div class="box box1">this is box 1</div>
+        <div class="box box2">this is box 2</div>
+
+    </div>
+    <p>
+    <h1>box sizing border box</h1>
+    when we add height or width to an element , then total height of that container is mix of content height + border +
+    padding +margin . but when height/width added and we use box sizing border box then whole container will be covered
+    by content which mean that the height given includes all content with border margin padding and then this much
+    height .
+    </p>
+    <h1>margin collapse </h1>
+    <p>
+        when two or more adjacent boxes have margin , then it becomes one margin . so box 1 and box 2 have margin 10px
+        and box 3 and box 4 have margin 15px . box 1 and box 3 have margin 25px.
+        it means that after applyinh margin coll.. the space between two box must be of bigger marign
+    </p>
+    <img src="
+    https://miro.medium.com/v2/resize:fit:421/0*kAD00byJs8jdmXvr.png" alt="" height="196"> <br>In this example, instead
+    of having a 50px margin between the two boxes (20px + 30px), the margin will collapse to 30px, which is the larger
+    of the two margins.
+    there is no syntax but this feature is default
+
+
+
+</html>

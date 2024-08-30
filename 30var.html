@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --main-color: blue;
+            --second-color: rgb(118, 118, 70);
+            --third-color: green;
+        }
+        .box{
+            border:2px solid black;
+            margin: 10px;
+            color: var(--main-color);
+            --main-color: orange ;
+            
+        }
+        .cont{
+            border:2px solid black;
+            margin: 10px;
+            color: var(--second-color);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        css variables
+    </h1>
+    <p>
+        The var() function is used to insert the value of a CSS variable.
+
+        CSS variables have access to the DOM, which means that you can create variables with local or global scope,
+        change the variables with JavaScript, and change the variables based on media queries.
+
+        A good way to use CSS variables is when it comes to the colors of your design. Instead of copy and paste the
+        same colors over and over again, you can place them in variables.
+        <br>
+        syntax of root variable - 
+        --variable-name: value;
+
+    </p>
+    <p>
+        CSS variables are declared using the :root selector, which targets the root element of the document.
+        You can then use the var() function to reference the variable in your CSS rules.
+        <br>
+        :root is global var mtlb yha se kahi bhi use kro . we can also declare local variable iside a css of a tag which will overwrite global one <br>
+        suppose there is no such variable found upon calling - color: var(--main-color); or we are not confirme then <br> we can do - color: var(--main-color,color name); it will work only if - 
+        main-color variable is not declared or its value is not defined. <br> not only color we can store anything like padding etc.
+
+    </p>
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, rerum.
+    </div>
+    <div class="cont">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum ipsam veniam voluptate modi vitae autem
+        sapiente?
+    </div>
+
+</body>
+
+</html>
