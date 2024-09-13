@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="condition.js"></script>
+</head>
+<body>
+    <h1> About if else statement and some assignment operators</h1>
+    <br>
+    <h2>
+        1 - conditonal statement
+    </h2> <br>
+    <p>
+        <pre>
+            <code>
+                if(condition){
+                    // code to execute if condition is true
+                    // ex: console.log('Condition is true');
+                } else {
+                    
+                    // code to execute if condition is false
+                    // ex: console.log('Condition is false');
+                }
+            </code>
+        </pre> <br>
+        if else ladder - <br>
+        <pre>
+            <code>
+                if(condition1){
+                    // code to execute if condition1 is true
+                } else if(condition2){
+                    // code to execute if condition1 is false and condition2 is true
+                } else {
+                    // code to execute if condition1 and condition2 are false
+                }
+            </code>
+        </pre>
+    </p>
+    <br>
+    <h2>
+       2 -  now some operators 
+    </h2> <br>
+    <ul>
+        Mathematical oeprators - <br>
+        <li> + (addition) </li>
+        <li> - (subtraction) </li>
+        <li> * (multiplication) </li>
+        <li> / (division) </li>
+        <li> % (modulus) - gives remainder </li>
+        <li> ++ (increment) - increases the value by 1 </li>
+        <li> -- (decrement) - decreases the value by 1 </li>
+        <li> ** (exponentiation) - raises the first operand to the power of the second operand </li>
+        <pre>
+            <code>
+                var x = 10;
+                var y = 5;
+                console.log('x + y ='+ (x + y)); // x + y = 15
+                console.log('x - y ='+ (x - y)); // x - y = 5
+                console.log('x * y ='+ (x * y)); // x * y = 50
+                console.log('x / y ='+ (x / y)); // x / y = 2
+                console.log('x % y ='+ (x % y)); // x % y = 0
+                console.log('x++ ='+ (x++)); // x++ = 11
+                console.log('x ='+ x); // x = 11
+                console.log('x-- ='+ (x--)); // x-- = 11
+                console.log('x ='+ x); // x = 10
+                console
+            </code>
+        </pre> <br>
+        now assignment operators - <br>
+        <li> = (assignment) </li>
+        <li> += (addition and assignment) </li>
+        <li> -= (subtraction and assignment) </li>
+        <li> *= (multiplication and assignment) </li>
+        <li> /= (division and assignment) </li>
+        <li> %= (modulus and assignment) </li>
+        <li> **= (exponentiation and assignment) </li>
+        <br>
+        now comparison operators - <br>
+        <li> == (equality) </li>
+        <li> === (strict equality) - checks for value and type </li>
+        <li>!= (not equal) </li>
+        <li>!== (strict not equal) - checks for value and type </li>
+        <li> > (greater than) </li>
+        <li> < (less than) </li>
+        <li> >= (greater than or equal to) </li>
+        <li> <= (less than or equal to) </li>
+        <li>
+            ternary operator - ? this will put the execution only when  a certain condition is true 
+        </li>
+        <br>
+        example of given oeprators - <br>
+        <pre>
+            <code>
+                var x = 10;
+                var y = 5;
+                console.log('x == y ='+ (x == y)); // x == y = false
+                console.log('x === y ='+ (x === y)); // x === y = false
+                console.log('x!= y ='+ (x!= y)); // x!= y = true
+                console.log('x!== y ='+ (x!== y)); // x!== y = true
+                console.log('x > y ='+ (x > y)); // x > y = false
+                console.log('x < y ='+ (x < y)); // x < y = true
+                console.log('x >= y ='+ (x >= y)); // x >= y = false
+                console.log('x <= y ='+ (x <= y)); // x <= y = true
+                console.log('x > 5? x is greater than 5 : x)
+            </code>
+        </pre>
+    
+    </ul>
+</body>
+</html>

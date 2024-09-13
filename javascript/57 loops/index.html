@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Javascript loops
+    </h1>
+    <p>
+        loops -
+        loops are used to execute a block of code repeatedly. They are essential for performing tasks repeatedly, such
+        as iterating through arrays, counting, or performing calculations. <br>
+        JavaScript has three types of loops: for, while, and do-while.
+    </p> <br>
+    <h2>
+        for loop
+    </h2>
+    <p>
+        for loop is used to - 
+        iterate through a specified number of times. <br>
+        in for loop there are three types: for , for in , for of 
+    </p>
+    <ul>
+        <li>for loop -
+            syntax -
+            for (initialization; condition; increment/decrement) {
+                statement(s);
+            }
+        </li> <br>
+        <pre>
+            <code>
+                for (var i = 0; i < 5; i++) {
+                    console.log('Number is'+ i);
+                }
+            </code>
+        </pre>
+        <li>for in loop -
+            syntax -
+            for (variable in object) {
+                statement(s);
+            }
+        </li> <br>
+        <pre>
+            <code>
+                var arr = ['apple', 'banana', 'cherry'];
+                for (var i in arr) {
+                    console.log(arr[i]);
+                }
+            </code>
+        </pre>
+        <li>for of loop -
+            syntax -
+            for (variable of iterable) {
+                statement(s);
+            }
+        </li> <br>
+        <pre>
+            <code>
+                var fruits = ['apple', 'banana', 'cherry'];
+                for (var fruit of fruits) {
+                    console.log(fruit);
+                }
+                
+
+            </code>
+        </pre>
+    </ul>
+    <p>
+        difference betweeen these 3 - <br>
+        for loop - used when you know exactly how many times you want to iterate <br>
+        for in loop - used when you want to iterate through the properties of an object <br>
+        for of loop - used when you want to iterate through the values of an iterable object (such as an array or string) <br>
+        Note: for of loop is more efficient than for in loop when you need to iterate through the values of an array or string.
+    </p>
+    <br>
+    <h2>
+        while loop
+    </h2>
+    <p>
+        while loop is used to -
+        execute a block of code repeatedly as long as a specified condition is true. <br>
+        syntax -
+        while (condition) {
+            statement(s);
+        }
+    </p> <br>
+    <pre>
+        <code>
+            var i = 0;
+            while (i < 5) {
+                console.log('Number is'+ i);
+                i++;
+            }
+        </code>
+    </pre>
+    <br>
+    <p>
+        difference between while loop and for loop - <br>
+        while loop - used when you don't know exactly how many times you want to iterate <br>
+        for loop - used when you know exactly how many times you want to iterate <br>
+        Note: while loop is more flexible and easier to use when you don't know the exact number of iterations.
+    </p> <br>
+    <h2>
+        do-while loop
+    </h2>
+    <p>
+        do-while loop is used to -
+        execute a block of code once, and then repeatedly execute the block as long as a specified condition is true. <br>
+        syntax -
+        do {
+            statement(s);
+        } while (condition);
+    </p>
+    <br>
+    <pre>
+        <code>
+            var i = 0;
+            do {
+                console.log('Number is'+ i);
+                i++;
+            } while (i < 5);
+        </code>
+    </pre>
+    <p>
+        difference between do-while loop and while loop - <br>
+        do-while loop - used when you want to execute the block at least once <br>
+        while loop - used when you don't want to execute the block at least once <br>
+        Note: do-while loop is more flexible and easier to use when you want to execute the block at least once. <br>
+        Also nowadays do-while loop is not used as 
+         most developers prefer to use for, while, or for of loops.
+    </p>
+</body>
+
+</html>

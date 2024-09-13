@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        Javascript Functions
+    </h1>
+    <p>
+        A function is a block of code that performs a specific task. It can be reused multiple times in a program.
+        Here is an example of a function in JavaScript:
+        <br>
+        <code>
+            function greet() {
+                alert("Hello, World!");
+            }
+        </code>
+
+    </p> <br>
+    <h2>
+        components of a function
+    </h2>
+    <p>
+        - Function declaration: Defines a new function.
+        - Function name: The name that identifies the function.
+        - Function body: The code inside the function.
+        - Parameters: Optional input values that the function accepts.
+        - Return value: The value that the function returns.
+    </p> <br>
+    <pre>
+        <code>
+            function greet(name) {
+                alert("Hello, " + name + "!");
+            }
+            greet("John"); // Outputs: Hello, John!
+        </code>
+    </pre>
+    <br>
+    <h2>
+        Arrow function
+    </h2>
+    <p>
+        Arrow functions are a concise syntax for defining functions. They are shorter and have a more concise syntax
+        compared to regular functions.
+        <br>
+        
+
+    </p><br>
+
+    <pre>
+        <code>
+            const greet = (name) => {
+                alert("Hello, " + name + "!");
+            };
+            greet("John"); // Outputs: Hello, John!
+        </code>
+    </pre>
+    <br>
+    <p>
+        Arrow functions do not have their own "this" binding. Instead, they inherit the "this" binding from the
+        surrounding code.
+        
+        
+    </p><br>
+    <pre>
+        <code>
+            const obj = {
+                name: "John Doe",
+                greet: function() {
+                    console.log("Hello, " + this.name + "!");
+                }
+            };
+            
+            obj.greet(); // Outputs: Hello, John Doe!
+        </code>
+    </pre>
+</body>
+
+</html>
