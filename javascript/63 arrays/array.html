@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #61dafb;
+            text-align: center;
+        }
+
+        code {
+            background-color: #444;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        .output {
+            background-color: #20232a;
+            color: #61dafb;
+            padding: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #61dafb;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript Array Functions and Methods</h1>
+
+    <h2>Introduction to Arrays</h2>
+    <p>
+        Arrays in JavaScript are dynamic, meaning they can grow or shrink, and they can hold multiple data types. Below is
+        an array of numbers:
+    </p>
+    <pre><code>let arr = [1, 2, 3, 4, 5, 6];</code></pre>
+
+    <div class="output">
+        Output: [1, 2, 3, 4, 5, 6]
+    </div>
+
+    <p>
+        Arrays in JavaScript are technically objects, but they come with built-in methods that make working with ordered data
+        easier. Below, we will explore various array methods.
+    </p>
+
+    <h2>Array Methods</h2>
+    <p>Let's start with some basic methods for manipulating arrays:</p>
+
+    <h3>toString()</h3>
+    <p>The <code>toString()</code> method converts an array to a string.</p>
+    <pre><code>arr.toString();</code></pre>
+
+    <div class="output">
+        Output: "1,2,3,4,5,6"
+    </div>
+
+    <h3>join()</h3>
+    <p>The <code>join()</code> method joins all array elements into a string, with a custom separator if needed.</p>
+    <pre><code>arr.join(" # ");</code></pre>
+
+    <div class="output">
+        Output: "1 # 2 # 3 # 4 # 5 # 6"
+    </div>
+
+    <h3>pop() and push()</h3>
+    <p>The <code>pop()</code> method removes the last element, and <code>push()</code> adds an element at the end of the array.</p>
+    <pre><code>arr.pop(); // Removes the last element
+arr.push(69); // Adds 69 to the array</code></pre>
+
+    <div class="output">
+        Output after pop: [1, 2, 3, 4, 5]<br>
+        Output after push: [1, 2, 3, 4, 5, 69]
+    </div>
+
+    <h3>shift() and unshift()</h3>
+    <p>The <code>shift()</code> method removes the first element, and <code>unshift()</code> adds an element at the start of the array.</p>
+    <pre><code>arr.shift(); // Removes the first element
+arr.unshift(9); // Adds 9 to the start of the array</code></pre>
+
+    <div class="output">
+        Output after shift: [2, 3, 4, 5, 69]<br>
+        Output after unshift: [9, 2, 3, 4, 5, 69]
+    </div>
+
+    <h3>delete</h3>
+    <p><code>delete</code> removes the value but leaves the position undefined.</p>
+    <pre><code>delete arr[5];</code></pre>
+
+    <div class="output">
+        Output: [9, 2, 3, 4, 5, undefined]
+    </div>
+
+    <h2>Advanced Methods</h2>
+
+    <h3>concat()</h3>
+    <p>Concatenates arrays into a new array:</p>
+    <pre><code>let a = [1, 2, 3];
+let b = [4, 5, 6];
+let c = [7, 8, 9];
+a.concat(b, c);</code></pre>
+
+    <div class="output">
+        Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    </div>
+
+    <h3>splice()</h3>
+    <p><code>splice()</code> can be used to add or remove items from an array:</p>
+    <pre><code>arr.splice(1, 3); // Removes 3 items starting from index 1
+arr.splice(1, 3, 10, 11, 12); // Replaces 3 items starting at index 1 with 10, 11, and 12</code></pre>
+
+    <div class="output">
+        After removing: [9, undefined, 5]<br>
+        After replacing: [9, 10, 11, 12, 5]
+    </div>
+
+    <h3>slice()</h3>
+    <p>Returns a portion of the array without modifying it:</p>
+    <pre><code>arr.slice(1, 3);</code></pre>
+
+    <div class="output">
+        Output: [10, 11]
+    </div>
+
+    <h2>Looping through Arrays</h2>
+    <p>Arrays can be looped through using different loops:</p>
+
+    <h3>for Loop</h3>
+    <pre><code>for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}</code></pre>
+
+    <h3>forEach Loop</h3>
+    <p><code>forEach()</code> allows you to iterate over array elements with more details:</p>
+    <pre><code>arr.forEach((value, index, array) => {
+    console.log(value, index, array);
+});</code></pre>
+
+    <h2>Higher-Order Functions</h2>
+
+    <h3>map()</h3>
+    <p><code>map()</code> creates a new array by applying a function to every element:</p>
+    <pre><code>let newArr = arr.map(e => e ** 2);</code></pre>
+
+    <div class="output">
+        Output: [81, 100, 121, 144, 25]
+    </div>
+
+    <h3>filter()</h3>
+    <p><code>filter()</code> creates a new array with all elements that pass the test implemented by the provided function:</p>
+    <pre><code>let filteredArr = newArr.filter(e => e > 100);</code></pre>
+
+    <div class="output">
+        Output: [121, 144]
+    </div>
+
+    <h3>reduce()</h3>
+    <p><code>reduce()</code> applies a function against an accumulator to reduce all array elements to a single value:</p>
+    <pre><code>let sum = [1, 2, 3, 4].reduce((a, b) => a + b);</code></pre>
+
+    <div class="output">
+        Output: 10
+    </div>
+
+    <h3>Array.from()</h3>
+    <p>Converts an array-like object into an array:</p>
+    <pre><code>Array.from("kartik");</code></pre>
+
+    <div class="output">
+        Output: ['k', 'a', 'r', 't', 'i', 'k']
+    </div>
+
+</body>
+
+</html>

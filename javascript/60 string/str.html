@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript String Methods</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #f39c12;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #e74c3c;
+        }
+
+        p, ul {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        code {
+            background-color: #2c3e50;
+            padding: 5px;
+            border-radius: 5px;
+            color: #ecf0f1;
+        }
+
+        pre {
+            background-color: #2c3e50;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li::before {
+            content: '•';
+            color: #f39c12;
+            padding-right: 10px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Smooth hover effect */
+        pre code:hover {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        JavaScript String Methods
+    </h1>
+    <p>
+        Strings are sequences of characters used for storing and manipulating text in JavaScript. Here are some commonly used string methods:
+    </p>
+
+    <h2>Accessing Characters</h2>
+    <p>
+        You can access individual characters in a string using square brackets:
+    </p>
+    <pre>
+        <code>
+            let a = "hello";
+            console.log(a[0]); // Outputs: h
+        </code>
+    </pre>
+
+    <h2>Length</h2>
+    <p>
+        The <code>length</code> property returns the length of a string:
+    </p>
+    <pre>
+        <code>
+            console.log(a.length); // Outputs: 5
+        </code>
+    </pre>
+
+    <h2>Concatenation</h2>
+    <p>
+        Strings can be concatenated using the <code>+ </code> operator or template literals:
+    </p>
+    <pre>
+        <code>
+            let b = "world";
+            console.log("First word is " + a + " and second is " + b); // Using +
+            console.log(`First word is ${a} and second is ${b}`); // Using template literals
+        </code>
+    </pre>
+
+    <h2>Escape Sequences</h2>
+    <p>
+        Escape sequences allow you to include special characters in strings. For example:
+    </p>
+    <pre>
+        <code>
+            console.log("I\'m Kartik"); // Outputs: I'm Kartik
+        </code>
+    </pre>
+
+    <h2>String Methods</h2>
+    <ul>
+        <li><strong>toUpperCase()</strong>: Converts a string to uppercase.</li>
+        <li><strong>toLowerCase()</strong>: Converts a string to lowercase.</li>
+        <li><strong>slice()</strong>: Extracts a section of a string and returns it as a new string.</li>
+        <li><strong>replace()</strong>: Replaces the first occurrence of a substring with another substring.</li>
+        <li><strong>concat()</strong>: Concatenates two or more strings.</li>
+        <li><strong>trim()</strong>: Removes whitespace from both ends of a string.</li>
+        <li><strong>charAt()</strong>: Returns the character at the specified index.</li>
+        <li><strong>indexOf()</strong>: Returns the index of the first occurrence of a specified substring.</li>
+        <li><strong>startsWith()</strong>: Checks if a string starts with a specified substring.</li>
+        <li><strong>endsWith()</strong>: Checks if a string ends with a specified substring.</li>
+    </ul>
+
+    <pre>
+        <code>
+            let c = " im kartik hi hello";
+            console.log(c.toUpperCase()); // Outputs:  IM KARTIK HI HELLO
+            console.log(c.toLowerCase()); // Outputs:  im kartik hi hello
+            console.log(c.slice(1, 4)); // Outputs: im 
+            console.log(c.replace("hi", "bye")); // Outputs: im kartik bye hello
+            console.log(c.concat(" ", b)); // Outputs:  im kartik hi hello world
+            console.log(c.trim()); // Outputs: im kartik hi hello
+            console.log(c.charAt(4)); // Outputs: k
+            console.log(c.indexOf("kar")); // Outputs: 4
+            console.log(c.startsWith(" ")); // Outputs: true
+            console.log(c.endsWith("im")); // Outputs: false
+        </code>
+    </pre>
+
+</body>
+
+</html>
