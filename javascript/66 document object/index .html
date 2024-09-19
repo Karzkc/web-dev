@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM and BOM Documentation</title>
+    <style>
+        /* Dark theme background and font settings */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0d0d0d;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1, h2, h3 {
+            color: #39ff14;
+            text-shadow: 0 0 5px #39ff14;
+        }
+
+        p {
+            color: #f5f5f5;
+        }
+
+        /* Neon-styled code blocks */
+        pre {
+            background-color: #1a1a1a;
+            color: #00e6e6;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #00e6e6;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+        }
+
+        /* Neon effect for section dividers */
+        .output {
+            background-color: #111111;
+            color: #39ff14;
+            padding: 10px;
+            border-left: 5px solid #39ff14;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #39ff14;
+            margin-bottom: 20px;
+        }
+
+       
+        a {
+            color: #00ccff;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+        }
+
+        /* Header and paragraph glow */
+        h1:hover, h2:hover, h3:hover {
+            text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+        }
+
+        
+        .output:hover {
+            box-shadow: 0 0 20px #39ff14, 0 0 30px #39ff14;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript DOM and BOM Documentation</h1>
+
+    <h2>What is DOM?</h2>
+    <p>
+        The DOM (Document Object Model) is a programming interface for HTML and XML documents. It represents the document
+        as a tree of objects that can be manipulated with JavaScript. Each HTML tag is an object in the DOM tree, and these
+        objects can be accessed and modified using various DOM properties and methods.
+    </p>
+
+    <h3>DOM Example: Manipulating Document Properties</h3>
+    <p>Let's start by changing the document title and styling the body:</p>
+
+    <pre><code>
+// Change document title
+document.title = "New Title";
+console.log(document.title); // Logs the updated title
+
+// Access body and head elements
+console.log(document.body);  // Displays the content of the body
+console.log(document.head);  // Displays the content of the head
+
+// Change background color of the body
+document.body.style.backgroundColor = "aqua";
+    </code></pre>
+
+    <div class="output">
+        Output after changing the title: "New Title"<br>
+        Background color changes to aqua.
+    </div>
+
+    <h3>Accessing Selected HTML Element</h3>
+    <p>The <code>$0</code> variable in the browser console allows you to reference the currently selected element in the Elements panel of DevTools.</p>
+    <pre><code>
+// Select the currently highlighted element in the browser console
+$0.style.backgroundColor = "lightgreen";
+    </code></pre>
+
+    <div class="output">
+        The selected element's background color is changed to lightgreen.
+    </div>
+
+    <h2>What is BOM?</h2>
+    <p>
+        The BOM (Browser Object Model) allows JavaScript to interact with the browser window. It represents the browser environment, including the window, history, navigator, and other browser-related objects. Unlike the DOM, which focuses on the content of the webpage, the BOM is concerned with the browser and its features.
+    </p>
+
+    <h3>BOM Example: Accessing the Window Object</h3>
+    <p>With the BOM, you can manipulate the browser window, such as resizing, opening a new window, or accessing various window properties.</p>
+
+    <pre><code>
+// Access the window object
+console.log(window.document);  // Displays the document object
+
+// Resize the window
+window.resizeTo(800, 600);
+
+// Scroll the window
+window.scrollBy(0, 300);  // Scroll down by 300 pixels
+
+// Accessing the window's history
+console.log(window.history.length);  // Logs the number of entries in the browser history
+    </code></pre>
+
+    <div class="output">
+        Output: Window resized to 800x600 and scrolled down by 300 pixels. Logs the browser history length.
+    </div>
+
+    <h3>Accessing Browser Information</h3>
+    <p>You can use the <code>navigator</code> object to get information about the browser, such as the user's platform or the browser's version.</p>
+    <pre><code>
+// Access browser details using navigator
+console.log(window.navigator.userAgent);  // Logs the browser's user agent string
+console.log(window.navigator.platform);   // Logs the platform (e.g., "Win32" for Windows)
+    </code></pre>
+
+    <div class="output">
+        Output: Logs the browser's user agent and platform (e.g., "Win32").
+    </div>
+
+</body>
+
+</html>

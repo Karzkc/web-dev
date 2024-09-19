@@ -1,5 +1,5 @@
-let a = [5,6,7,8,9]
-// let new = []
+let a = [5,6,7,8,9];
+// let new = [];
 // for (let i = 0; i < a.length; i++) {
 //     const element = a[i]**2;
 //     new.push(element);
@@ -25,7 +25,7 @@ console.log(new_arr.filter(greater_than_10));
 
 
 // now we'll se about reduce function
-let x = [1,2,3,4]
+let x = [1,2,3,4];
 const redu = (a,b)=>{
     return a*b;
 }
