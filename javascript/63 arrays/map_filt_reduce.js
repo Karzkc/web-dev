@@ -35,3 +35,5 @@ console.log(x.reduce(redu)); // this will return product of all elemets
 // to conevrt any other object into strinf from func is used
 
 console.log(Array.from("kartik"));
+
+

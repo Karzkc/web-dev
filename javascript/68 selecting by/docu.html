@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Methods Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #282c34;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #61dafb;
+            text-align: center;
+        }
+
+        code {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 17px;
+        }
+
+        pre {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        .output {
+            background-color: #20232a;
+            color: #61dafb;
+            padding: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #61dafb;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .box {
+            border: 2px solid #61dafb;
+            background-color: #444;
+            color: #61dafb;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript DOM Methods</h1>
+
+    <h2>HTML Example with Boxes</h2>
+    <p>
+        Here's the structure of the HTML document we'll be manipulating using DOM methods:
+    </p>
+
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box" id="temp">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+
+    <h2>HTML Code</h2>
+    <pre><code>&lt;div class="container"&gt;
+    &lt;div class="box"&gt;1&lt;/div&gt;
+    &lt;div class="box" id="temp"&gt;2&lt;/div&gt;
+    &lt;div class="box"&gt;3&lt;/div&gt;
+    &lt;div class="box"&gt;4&lt;/div&gt;
+    &lt;div class="box"&gt;5&lt;/div&gt;
+&lt;/div&gt;
+    </code></pre>
+
+    <h2>JavaScript Code</h2>
+    <p>Now, let's look at how JavaScript DOM methods can interact with these HTML elements.</p>
+
+    <h3>1. <code>getElementsByClassName()</code></h3>
+    <p>Returns an array-like collection of all elements with a given class name:</p>
+    <pre><code>let boxes = document.getElementsByClassName("box");
+console.log(boxes);</code></pre>
+    <div class="output">
+        Output: HTMLCollection [div.box, div#temp.box, div.box, div.box, div.box]
+    </div>
+
+    <h3>2. <code>getElementById()</code></h3>
+    <p>Returns the element with the specified ID:</p>
+    <pre><code>let tempBox = document.getElementById("temp");
+tempBox.style.backgroundColor = "red";</code></pre>
+
+    <h3>3. <code>querySelector()</code></h3>
+    <p>Selects the first element that matches a given CSS selector:</p>
+    <pre><code>let firstBox = document.querySelector(".box");
+firstBox.style.backgroundColor = "purple";</code></pre>
+
+    <h3>4. <code>querySelectorAll()</code></h3>
+    <p>Returns all elements that match a given CSS selector:</p>
+    <pre><code>let allBoxes = document.querySelectorAll(".box");
+allBoxes.forEach(box => {
+    box.style.backgroundColor = "yellow";
+});</code></pre>
+
+    <h3>5. <code>getElementsByTagName()</code></h3>
+    <p>Returns a collection of all elements with a given tag name:</p>
+    <pre><code>let divs = document.getElementsByTagName("div");
+console.log(divs);</code></pre>
+    <div class="output">
+        Output: HTMLCollection [div.container, div.box, div#temp.box, div.box, div.box, div.box]
+    </div>
+
+    <h2>Other DOM Methods</h2>
+
+    <h3>6. <code>matches()</code></h3>
+    <p>Checks if the selected element matches a given selector:</p>
+    <pre><code>let isTemp = tempBox.matches("#temp");
+console.log(isTemp);</code></pre>
+    <div class="output">
+        Output: true
+    </div>
+
+    <h3>7. <code>closest()</code></h3>
+    <p>Finds the closest ancestor that matches a given selector:</p>
+    <pre><code>let closestTemp = tempBox.closest(".container");
+console.log(closestTemp);</code></pre>
+    <div class="output">
+        Output: &lt;div class="container"&gt;...&lt;/div&gt;
+    </div>
+
+    <h3>8. <code>contains()</code></h3>
+    <p>Checks if one element contains another:</p>
+    <pre><code>let containsBox = document.querySelector(".container").contains(tempBox);
+console.log(containsBox);</code></pre>
+    <div class="output">
+        Output: true
+    </div>
+
+</body>
+
+</html>

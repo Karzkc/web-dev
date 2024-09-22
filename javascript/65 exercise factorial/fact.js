@@ -16,14 +16,12 @@ function factorial(a){
     for (let i = 1; i < a+1; i++){
         fact.push(i)
     }
-    const redu = (a,b)=>{
+    
+    console.log(`factorial of number ${a} is ${fact.reduce(redu = (a,b)=>{
         return a*b
-    }
-    console.log(`factorial of number ${a} is ${fact.reduce(redu)}`);
+    })}`);
     
     
 }
 factorial(a)
-const kunsa = (x,y)=>{
-    
-}
+

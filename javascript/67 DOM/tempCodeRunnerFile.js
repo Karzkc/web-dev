@@ -1,0 +1,1 @@
+cont.lastElementChild.style.backgroundColor = "pink" 

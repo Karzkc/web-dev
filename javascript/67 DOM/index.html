@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM in JavaScript</title>
+    <style>
+        body {
+            background-color: #0D0D0D;
+            color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #9400D3;
+            text-shadow: 0px 0px 10px #9400D3;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            color: #00BFFF;
+            text-shadow: 0px 0px 5px #00BFFF;
+            font-size: 1.8em;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+
+        pre {
+            background-color: #1C1C1C;
+            border-left: 4px solid #9400D3;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #00BFFF;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #00FF7F;
+        }
+
+        .box {
+            border: 2px solid #00BFFF;
+            margin: 5px;
+            padding: 5px;
+            height: 40px;
+            width: 50px;
+            text-align: center;
+            background-color: #252525;
+            color: #00BFFF;
+        }
+
+        table {
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid #9400D3;
+        }
+
+        th, td {
+            border: 1px solid #00BFFF;
+            padding: 10px;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        th {
+            background-color: #282828;
+        }
+
+        td {
+            background-color: #333333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>DOM in JavaScript</h1>
+    <p>The Document Object Model (DOM) represents the structure of a web page, allowing JavaScript to access and manipulate HTML elements dynamically.</p>
+
+    <!-- Main Topic: Accessing DOM Elements -->
+    <h2>1. Accessing DOM Elements</h2>
+    <p>We can access various parts of the DOM using JavaScript methods like <code>document.body</code> and properties like <code>childNodes</code>.</p>
+
+    <pre><code>
+// Access the body of the document
+let bodyElement = document.body;
+
+// Get child nodes (including text and comment nodes)
+console.log(bodyElement.childNodes);
+
+// Access specific child node by index
+console.log(bodyElement.childNodes[1]);
+
+// Get only element children (ignores text/comments)
+console.log(bodyElement.children);
+    </code></pre>
+
+    <!-- Subtopic: Manipulating DOM Elements -->
+    <h2>2. Manipulating DOM Elements</h2>
+    <p>You can manipulate the DOM by changing element properties like <code>style</code>, <code>innerText</code>, and more.</p>
+
+    <pre><code>
+// Change background color of the first box
+let firstBox = document.body.firstElementChild.firstElementChild;
+firstBox.style.backgroundColor = 'purple';
+
+// Change text content of the last box
+let lastBox = document.body.firstElementChild.lastElementChild;
+lastBox.innerText = 'Modified Box';
+    </code></pre>
+
+    <!-- Main Topic: Traversing the DOM -->
+    <h2>3. Traversing the DOM</h2>
+    <p>You can navigate through the DOM tree using properties like <code>parentElement</code>, <code>nextElementSibling</code>, and <code>previousElementSibling</code>.</p>
+
+    <pre><code>
+// Get the parent of the first box
+console.log(firstBox.parentElement);
+
+// Access the next sibling element (Box 2)
+console.log(firstBox.nextElementSibling);
+
+// Access the previous sibling element of the second box
+let secondBox = firstBox.nextElementSibling;
+console.log(secondBox.previousElementSibling);
+    </code></pre>
+
+    <!-- Main Topic: Working with Tables -->
+    <h2>4. Working with Tables</h2>
+    <p>In a table, you can access rows and cells using properties like <code>rows</code> and <code>cells</code>.</p>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Kartik</td>
+            <td>69</td>
+        </tr>
+    </table>
+
+    <pre><code>
+// Access the table and its rows
+let table = document.querySelector('table');
+console.log(table.rows);
+
+// Access the first row
+let firstRow = table.rows[0];
+console.log(firstRow);
+
+// Access individual cell
+let firstCell = firstRow.cells[0];
+console.log(firstCell);
+    </code></pre>
+
+    <!-- Main Topic: Dynamic Creation of Elements -->
+    <h2>5. Dynamic Creation of Elements</h2>
+    <p>DOM allows you to create new HTML elements and insert them into the document dynamically.</p>
+
+    <pre><code>
+// Create a new div element
+let newDiv = document.createElement('div');
+newDiv.className = 'box';
+newDiv.innerText = 'New Box';
+
+// Append the new div to the container
+let container = document.querySelector('.container');
+container.appendChild(newDiv);
+    </code></pre>
+
+</body>
+
+</html>
