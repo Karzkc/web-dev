@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container temp class2 etc">
+        <div class="box" data-createdby="kartik" data-conceptedby="kk">
+            <p>
+                data-createdby="kartik" - this will ensure that the creator of a part tag is this
+            </p>
+            Hello this is box
+            <h1>
+                hi
+            </h1>
+            <p>
+                hi2
+
+            </p>
+            <span>
+                span
+            </span>
+
+        </div>
+    </div>
+    <div class="remove">
+        to be removed
+    </div>
+    <script>
+        // let div = document.createElement("div");
+        // div.innerHTML = "Inserted through js <b> by kk</b>"
+        // div.setAttribute("class", "created");
+        // document.querySelector(".container").append(div)
+        let cont = document.querySelector(".container");
+        cont.insertAdjacentHTML("afterbegin","<b> will add in starting element of html</b>")
+        cont.insertAdjacentHTML("afterend","will add html immediately after end")
+        cont.insertAdjacentHTML("beforeend","<p>will add html immediately after end</p>")
+        cont.insertAdjacentHTML("beforebegin","will add html immediately before start")
+
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

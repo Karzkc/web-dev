@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Card Maker</title>
+    <style>
+        body {
+            background-color: gray;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            background-color: rgb(15, 15, 15);
+            height: 200px;
+            width: 80% auto;
+            color: white;
+
+        }
+
+        .card {
+            display: flex;
+            gap: 200px;
+        }
+
+        .image {
+            /* background-color: #b8b8b8; */
+            height: 150px;
+            width: 270px;
+            position: absolute;
+            left: 50px;
+            top: 30px;
+            border-radius: 10px;
+            /* background-image: url(https://i.ytimg.com/vi/mCx5aSEK8YE/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLD0nnsOR8c-HQ0AYnnFDHnrACrK0A); */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            
+
+        }
+        
+
+        .text {
+            position: absolute;
+            top: 30px;
+            left: 350px;
+        }
+
+        .dur {
+            position: absolute;
+            bottom: 7px;
+            right: 10px;
+            background-color: black;
+            opacity: 0.8;
+            border-radius: 3.5px;
+            
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .lower {
+            position: relative;
+            font-size: 16px;
+            top: 20px;
+            display: flex;
+            gap: 5px;
+            color: rgb(135, 143, 136);
+            font-weight: 500;
+            word-spacing: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="image">
+                
+                <span class="dur">
+                    15:34
+                </span>
+            </div>
+            <div class="text">
+                <div class="title">
+                    <!-- JavaScript Exercise 13 - Dynamic Website Builder | Sigma Web Development Course - Tutorial #73 -->
+                </div>
+                <div class="lower">
+                    <span class="channel">
+                        <!-- CodeWithHarry  -->
+                    </span><b>·</b>
+                    <span class="views">
+                        34M views
+                    </span><b>·</b>
+                    <span class="ago">
+                        3 months ago
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
