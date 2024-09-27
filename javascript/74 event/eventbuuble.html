@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dada,
+        .papa,
+        .child {
+            border: 2px solid;
+
+        }
+
+        .dada {
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .papa {
+            height: 400px;
+            width: 1000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .child {
+            height: 200px;
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dada">
+        dada ji
+        <div class="papa">
+            papa
+            <div class="child">
+                I am child
+            </div>
+        </div>
+    </div>
+    <script>
+
+        document.querySelector(".child").addEventListener("click", (e) => {
+            e.stopPropagation()
+            document.querySelector(".child").style.backgroundColor = "cyan"
+        })
+        document.querySelector(".papa").addEventListener("click", (e) => {
+            e.stopPropagation()
+            document.querySelector(".papa").style.backgroundColor = "pink"
+        })
+        document.querySelector(".dada").addEventListener("click", (e) => {
+            e.stopPropagation()
+            document.querySelector(".dada").style.backgroundColor = "green"
+        })
+
+
+        // with event propogation event only distributed to child not to parent
+        // now set interval
+        function rand() {
+            let a = Math.floor(Math.random() * 255)
+            let b = Math.floor(Math.random() * 255)
+            let c = Math.floor(Math.random() * 255)
+            return `rgb(${a},${b},${c})`
+        }
+        let boxes = document.querySelectorAll(".box")
+        boxes.forEach(e => {
+            e.style.color = rand();
+            e.style.backgroundColor = rand();
+
+        })
+        setInterval((e) => {
+
+            document.querySelector(".child").style.backgroundColor = rand()
+        }, 1000);
+        setInterval((e) => {
+
+            document.querySelector(".dada").style.backgroundColor = rand()
+        }, 1000);
+
+        let a = setInterval((e) => {
+
+            document.querySelector(".papa").style.backgroundColor = rand()
+        }, 1000);
+
+        // in same way there are clearinterval cleartimeout sset timeout 
+
+    </script>
+</body>
+
+</html>

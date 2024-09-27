@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1b1b2f;
+            color: #f0f0f5;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #39ff14;
+        }
+
+        h3 {
+            color: #00ffff;
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #121212;
+            padding: 20px;
+            box-shadow: 0 2px 15px rgba(0, 255, 255, 0.3);
+            border-radius: 8px;
+        }
+
+        pre {
+            background-color: #24243e;
+            color: #00ffcc;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #ff00ff;
+        }
+
+        ul {
+            background-color: #24243e;
+            color: #ffffff;
+            padding: 15px;
+            border-left: 4px solid #39ff14;
+            border-radius: 4px;
+        }
+
+        .note {
+            background-color: #2f2f4f;
+            padding: 10px;
+            border-left: 4px solid #ffa500;
+            border-radius: 4px;
+            margin-top: 15px;
+            color: #ffff99;
+            font-size: 0.9em;
+        }
+
+        .example {
+            background-color: #24243e;
+            padding: 10px;
+            border-left: 4px solid #32cd32;
+            border-radius: 4px;
+            margin-top: 15px;
+            color: #adff2f;
+            font-size: 0.9em;
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>JavaScript Events Documentation</h1>
+
+        <p>This document provides a detailed overview of important JavaScript event listeners, event bubbling, and timer functions, including <code>setInterval</code> and <code>setTimeout</code>. Each section includes definitions, examples, and expected outputs.</p>
+
+        <h2>Event Listeners</h2>
+        <p>Event listeners are functions that run in response to specific events occurring on an element (such as a click, keyboard input, etc.). Below are some commonly used event listeners:</p>
+
+        <h3>1. Click Event Listener</h3>
+        <p>The <code>click</code> event listener triggers when the user clicks on the element.</p>
+
+        <pre><code>document.getElementById('myButton').addEventListener('click', function() {
+    alert('Button clicked!');
+});</code></pre>
+
+        <div class="example">
+            <b>Example:</b> Clicking a button triggers an alert box that says "Button clicked!".
+        </div>
+
+        <h3>2. Context Menu Event Listener</h3>
+        <p>The <code>contextmenu</code> event triggers when the user right-clicks on an element, opening the context menu.</p>
+
+        <pre><code>document.getElementById('myDiv').addEventListener('contextmenu', function(e) {
+    e.preventDefault();  // Prevents the default right-click menu
+    alert('Right-click detected!');
+});</code></pre>
+
+        <div class="example">
+            <b>Example:</b> Right-clicking on a specified element displays an alert and prevents the browser’s default context menu.
+        </div>
+
+        <h3>3. Keydown Event Listener</h3>
+        <p>The <code>keydown</code> event fires whenever the user presses a key on the keyboard. You can access the key's value and its <code>keyCode</code>.</p>
+
+        <pre><code>document.addEventListener('keydown', function(event) {
+    alert('Key pressed: ' + event.key + ' (code: ' + event.keyCode + ')');
+});</code></pre>
+
+        <div class="example">
+            <b>Example:</b> When a key is pressed, an alert shows the key and its <code>keyCode</code>.
+        </div>
+
+        <h2>Event Bubbling</h2>
+        <p>Event bubbling describes how an event propagates from the target element to its parent elements. It allows events to be captured at the element where they originated, and then bubble up to the document’s root.</p>
+
+        <h3>Example of Event Bubbling:</h3>
+        <p>The following example illustrates how click events propagate from a child element to its parents, but we stop the propagation using <code>stopPropagation()</code>:</p>
+
+        <pre><code>// Stopping the propagation at the child level
+document.querySelector(".child").addEventListener("click", function(e) {
+    e.stopPropagation();
+    this.style.backgroundColor = "cyan";
+});
+
+document.querySelector(".papa").addEventListener("click", function(e) {
+    this.style.backgroundColor = "pink";
+});
+
+document.querySelector(".dada").addEventListener("click", function(e) {
+    this.style.backgroundColor = "green";
+});</code></pre>
+
+        <div class="example">
+            <b>Example:</b> Clicking on the child changes its background color without affecting the parent elements, thanks to <code>stopPropagation()</code>.
+        </div>
+
+        <h3>Output:</h3>
+        <ul>
+            <li><b>Click on the child element:</b> Only the child changes color (cyan).</li>
+            <li><b>Click on the parent element:</b> The parent changes color (pink) and so does the grandparent (green), unless <code>stopPropagation()</code> is used.</li>
+        </ul>
+
+        <h2>Timers</h2>
+        <p>Timers in JavaScript allow you to delay or repeat the execution of a function after a certain amount of time. The two main timer functions are <code>setTimeout</code> and <code>setInterval</code>.</p>
+
+        <h3>1. setTimeout</h3>
+        <p><code>setTimeout</code> is used to execute a function after a specific delay, measured in milliseconds.</p>
+
+        <pre><code>setTimeout(function() {
+    console.log('Executed after 2 seconds');
+}, 2000);</code></pre>
+
+        <div class="example">
+            <b>Example:</b> Logs the message "Executed after 2 seconds" to the console after a 2-second delay.
+        </div>
+
+        <h3>2. setInterval</h3>
+        <p><code>setInterval</code> repeatedly calls a function at specified intervals (in milliseconds).</p>
+
+        <pre><code>setInterval(function() {
+    console.log('Repeating every second');
+}, 1000);</code></pre>
+
+        <div class="example">
+            <b>Example:</b> Logs "Repeating every second" to the console every second until <code>clearInterval</code> is called.
+        </div>
+
+        <h3>Clearing Timers</h3>
+        <p>You can stop a timer using <code>clearTimeout</code> or <code>clearInterval</code> by storing the timer ID returned from <code>setTimeout</code> or <code>setInterval</code>.</p>
+
+        <pre><code>let intervalId = setInterval(function() {
+    console.log('Repeating');
+}, 1000);
+
+// To stop the interval after 5 seconds
+setTimeout(function() {
+    clearInterval(intervalId);
+    console.log('Interval stopped');
+}, 5000);</code></pre>
+
+        <div class="example">
+            <b>Example:</b> The interval runs every second but is stopped after 5 seconds.
+        </div>
+
+        <div class="note">
+            <b>Note:</b> Always use <code>clearInterval</code> or <code>clearTimeout</code> to stop timers when they are no longer needed to avoid memory leaks.
+        </div>
+    </div>
+</body>
+
+</html>
