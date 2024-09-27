@@ -18,13 +18,18 @@ document.querySelector(".box").innerHTML = "Hello this is modified" // will the 
 
 document.querySelector("h1").hasAttribute("style") // whether if carry following attribute or not
 document.querySelector("h1").getAttribute("style") // will tell which attribute is there
+<<<<<<< HEAD
 document.querySelector("h1").setAttribute("style", "color: red") // will set the change in a tag
+=======
+document.querySelector("h1").setAttribute("style","color: red") // will set the change in a tag
+>>>>>>> df6f4e47b51eb66f5f9baf98a1813e6b6f32a374
 document.querySelector("h1").attributes
 document.querySelector("h1").removeAttribute("style")
 document.designMode = "on" // is like god mod for website by accessing anything on  a webpage
 // data-createdby="kartik" can be also accessed  
 document.querySelector(".box").dataset // return data creator - DOMStringMap {createdby: 'kartik'}
 
+<<<<<<< HEAD
 // for inside script
 let div = document.createElement("div");
 div.innerHTML = "Inserted through js <b> by kk</b>"
@@ -52,4 +57,6 @@ document.querySelector(".container").classList.toggle("new")
 
 // will toggle new class to the container if there then remove if not create one
 
+=======
+>>>>>>> df6f4e47b51eb66f5f9baf98a1813e6b6f32a374
 
