@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async JavaScript Documentation</title>
+<style>
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #16a085;
+        }
+
+        pre {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            color: #2c3e50;
+        }
+
+        code {
+            background-color: #e7e9eb;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .note {
+            background-color: #dff9fb;
+            border-left: 4px solid #16a085;
+            padding: 10px;
+            margin-top: 10px;
+        }
+</style>
+</head>
+
+<body>
+
+    <h1>Understanding Asynchronous JavaScript, Async/Await, and Fetch API</h1>
+
+    <h2>1. Asynchronous Nature of JavaScript</h2>
+    <p>
+        JavaScript executes code in a single thread, meaning one thing happens at a time. When you run a long task, it can
+        block the execution of other tasks, making the page unresponsive. However, with asynchronous functions, JavaScript
+        can perform tasks like fetching data from a server without stopping the entire flow.
+    </p>
+    <p>
+        Here's an example showing the async nature of JavaScript:
+    </p>
+    <pre>
+<code>
+console.log("1st task - Synchronous code starts");
+
+setTimeout(() => {
+    console.log("3rd task - Asynchronous code executed after 2 seconds");
+}, 2000);
+
+console.log("2nd task - Synchronous code continues immediately");
+</code>
+    </pre>
+
+    <h2>2. What is an Async Function?</h2>
+    <p>
+        An <code>async</code> function in JavaScript is a special type of function that allows asynchronous code to be written
+        in a cleaner way. With an async function, you can pause the execution of code using the <code>await</code> keyword and wait
+        for asynchronous tasks to complete.
+    </p>
+    <p>
+        Example of an <code>async</code> function:
+    </p>
+    <pre>
+<code>
+async function fetchData() {
+    console.log("Fetching data...");
+    let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+    let data = await response.json();
+    console.log("Data received:", data);
+}
+fetchData();
+</code>
+    </pre>
+    <p>
+        In the above code, the function pauses at the <code>await</code> line until the data is fetched. The execution continues
+        only after the data has been received.
+    </p>
+
+    <h2>3. What is <code>await</code>?</h2>
+    <p>
+        The <code>await</code> keyword is used inside an async function to pause the execution of the function until a Promise is resolved.
+        It makes sure the code after it runs only when the awaited Promise has finished.
+    </p>
+    <p>
+        If we remove <code>await</code>, the Promise would remain in the "pending" state, and the subsequent code would run before the 
+        asynchronous task finishes.
+    </p>
+
+    <h2>4. Fetch API</h2>
+    <p>
+        The Fetch API is used to make HTTP requests in JavaScript, which are asynchronous by nature. You can use fetch to get or send data
+        to a server. It returns a Promise that resolves to the Response object representing the completion of the request.
+    </p>
+
+    <h3>4.1 Fetch API - GET Request</h3>
+    <p>
+        A GET request is used to retrieve data from a server. Here's an example using the Fetch API to fetch data:
+    </p>
+    <pre>
+<code>
+async function getData() {
+    let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+    let data = await response.json();
+    console.log("GET request data:", data);
+}
+getData();
+</code>
+    </pre>
+    <p>
+        This fetches data from a placeholder API (JSONPlaceholder), and <code>await</code> ensures the data is retrieved before logging it.
+    </p>
+
+    <h3>4.2 Fetch API - POST Request</h3>
+    <p>
+        A POST request is used to send data to the server. This can be useful when submitting form data or sending data in JSON format.
+        Here's an example of a POST request:
+    </p>
+    <pre>
+<code>
+async function postData() {
+    let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify({
+            title: 'foo',
+            body: 'bar',
+            userId: 1,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    });
+    let data = await response.json();
+    console.log("POST request response:", data);
+}
+postData();
+</code>
+    </pre>
+    <p>
+        In this example, we send some JSON data to the server using the POST method, and the server responds with the newly created data.
+    </p>
+
+    <h2>5. Differences between GET and POST Requests</h2>
+    <p>
+        <b>GET Request</b>: Retrieves data from the server. It's mainly used to access resources and doesn't alter data on the server.
+        <br><b>POST Request</b>: Sends data to the server, often used to submit forms or upload data. It can modify the server's data.
+    </p>
+
+    <h3>Example Data:</h3>
+    <pre>
+<code>
+{
+  "userId": 1,
+  "id": 1,
+  "title": "delectus aut autem",
+  "completed": false
+}
+</code>
+    </pre>
+
+    <h2>Conclusion</h2>
+    <p>
+        Asynchronous programming in JavaScript using async functions, await, and the Fetch API provides a more efficient way to
+        handle tasks like fetching data from a server. Understanding the difference between GET and POST requests is key when 
+        working with APIs.
+    </p>
+
+    <script src="async.js"></script>
+</body>
+
+</html>

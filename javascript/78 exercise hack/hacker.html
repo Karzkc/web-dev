@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(https://i.makeagif.com/media/5-20-2018/iS2N04.gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 160px;
+        }
+
+        .box {
+            background-color: white;
+            height: 300px;
+            width: 500px;
+            border: 2px solid black;
+
+        }
+        .btn{
+           
+            width: 100px;
+            height: 33px;
+            border: 2px solid rgb(23,129,214);
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+            cursor: pointer;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .btn:hover{
+            background-color: rgb(23,129,214) ;
+            color: white;
+            transition: 200ms ease-in;
+            border: 2px solid ;
+        }
+        img{
+            position: relative;
+            top: 12px;
+            right: 5px;
+        }
+        .bottom{
+            height: 80px;
+            width: 100%;
+            background-color: rgb(240,240,240);
+            position: relative;
+            top: 130px;
+        }
+        .head{
+            text-align: center;
+            position: relative;
+            top: 10px;
+            left: 10px;
+            font-size: 18px;
+            width: 600px;
+        }
+        
+        .content{
+            text-align: center;
+            position: relative;
+            top: 80px;
+            left: 40px;
+            
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+        }
+        .cross{
+            
+            background: none;
+            height: 20px;
+            width: 20px;
+            font-size:20px ;
+            cursor: pointer;
+            position: relative;
+            right: -330px;
+            bottom: 5px;
+            border: none;
+        }
+        #dot{
+            position: relative;
+            top: 18px;
+            left: -40px;
+            width: 100px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <span class="head">Error Occured!! <button class="cross" type="button"> X </button></span>
+            <div class="content">
+                <img src="https://cdn.pixabay.com/photo/2017/02/12/21/29/false-2061131_1280.png" height="35px" alt="">
+                <p class="text"></p> <span id="dot"></span>
+            </div>
+            
+            <div class="bottom">
+                <button type="button" class="btn">Ok</button>
+            </div>
+            
+
+        </div>
+
+    </div>
+    <!-- Create a hacking simulator which has green background and it shows these messages with random delay of 1 to 7 seconds 
+    
+    Initializing Hacking...
+    Reading your Files...
+    Password files Detected...
+    Sending all passwords and personal files to server...
+    Cleaning up...
+
+    The three dots must blink so that it looks like a real terminal
+    -->
+
+</body>
+<script src="script.js"></script>
+
+</html>

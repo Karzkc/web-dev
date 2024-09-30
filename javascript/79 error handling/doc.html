@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Error Handling Documentation</title>
+    <style>
+        body {
+            background-color: #e6f9e6;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        h1, h2 {
+            color: #006400;
+        }
+
+        code {
+            background-color: #dfffdf;
+            padding: 2px 4px;
+            font-size: 1.1em;
+            border-radius: 4px;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .example {
+            background-color: #f0fff0;
+            padding: 15px;
+            border-left: 4px solid #00cc00;
+            margin-bottom: 20px;
+        }
+
+        .example pre {
+            background-color: #dfffdf;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .highlight {
+            color: #006600;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Error Handling Documentation</h1>
+
+    <h2>1. Introduction to Error Handling</h2>
+    <p>Error handling in JavaScript ensures your code doesn't break unexpectedly. JavaScript uses <span class="highlight">try-catch</span> blocks to handle errors gracefully. By using these blocks, you can manage unexpected situations and avoid app crashes.</p>
+    <p>Let’s explore the most common techniques:</p>
+
+    <ul>
+        <li><strong>try-catch block</strong> – to catch and handle runtime errors.</li>
+        <li><strong>finally block</strong> – runs code regardless of success or failure.</li>
+        <li><strong>throw statement</strong> – allows you to create custom errors.</li>
+    </ul>
+
+    <h2>2. Example: Throwing an Error for Invalid Input</h2>
+    <p>Let's start by catching input errors, like non-numeric inputs:</p>
+    <div class="example">
+        <pre>
+let a = prompt('num1: ');
+let b = prompt('num2: ');
+
+if (isNaN(a) || isNaN(b)) {
+    throw new SyntaxError("Invalid input: Please enter a valid number.");
+}
+
+let c = parseInt(a) + parseInt(b);
+console.log("Result:", c);
+        </pre>
+    </div>
+    <p>This code prompts the user for two numbers. If the input is not a number, it throws a custom error using the <code>throw</code> statement.</p>
+
+    <h2>3. Handling Errors with try-catch</h2>
+    <p>The <span class="highlight">try-catch</span> block allows you to handle errors in a controlled way. If an error occurs in the <code>try</code> block, it’s caught in the <code>catch</code> block.</p>
+    <div class="example">
+        <pre>
+try {
+    let d = c + x; // 'x' is not defined
+    console.log(d);
+} catch (error) {
+    console.log("Error occurred:", error.message);
+} finally {
+    console.log("This always runs, regardless of the error.");
+}
+        </pre>
+    </div>
+    <p>The <code>finally</code> block always executes, whether or not an error occurred. It’s useful for cleanup tasks or final actions that must run in any scenario.</p>
+
+    <h2>4. Overview of try-catch-finally</h2>
+    <p>Here's how JavaScript handles error scenarios:</p>
+    <ul>
+        <li><strong>try:</strong> Tests the block of code for errors.</li>
+        <li><strong>catch:</strong> Executes when an error is found in the try block.</li>
+        <li><strong>finally:</strong> Always executes after try-catch, regardless of the outcome.</li>
+    </ul>
+
+    <h2>5. When to Use throw</h2>
+    <p>The <code>throw</code> statement is used when you want to manually trigger an error. For example, when the input doesn’t meet your requirements.</p>
+
+    <h2>6. Conclusion</h2>
+    <p>By using <code>try</code>, <code>catch</code>, <code>finally</code>, and <code>throw</code>, JavaScript provides robust mechanisms for managing errors and preventing your application from crashing due to unexpected inputs or runtime issues.</p>
+
+</body>
+</html>

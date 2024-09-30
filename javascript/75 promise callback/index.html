@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+    <script src="promise.js"></script>
+</head>
+
+<body>
+    
+    <h1>
+        A synchronous nature of js
+    </h1>
+    <p>
+        JavaScript is single-threaded, meaning it executes code in a single sequential flow. This means that only one
+        piece of code can be executed at a time, preventing concurrent execution.
+        <br>
+        This makes the execution of JavaScript code blocking, meaning that the execution of one script will halt until
+        the other script has finished.
+        <br>
+        This can lead to performance issues, as it makes the browser unresponsive during script execution.
+        <br>
+        For example, consider the following code:
+        <br>
+        <code>
+            for (let i = 0; i < 1000000; i++) {
+                console.log(i);
+            }
+        </code>
+        <br>
+        In this code, the loop will take a long time to complete, making the browser unresponsive until it finishes.
+        <br>
+        To improve performance, asynchronous programming techniques can be used, such as callbacks, promises, or
+        async/await
+    </p>
+    <p>
+        for eg in script js when we use set timeout the js will execute everything but set time on last to save time and
+        memory , even if time is set 0 still it will be loaded at last due to asynchronous nature of js
+    </p>
+    <p>
+        console log was synchronous so it was executed firstly unlike set timeout
+    </p>
+    <!-- <script src="script.js"></script> -->
+</body>
+
+</html>

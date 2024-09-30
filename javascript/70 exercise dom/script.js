@@ -1,4 +1,4 @@
-// ***** Method 1 - 
+
 
 // let color = ["red", "yellow", "green", "blue", "pink", "orange", "purple", "brown", "gray", "cyan", "magenta", "lime", "maroon", "navy", "olive", "silver", "teal",
 //     "violet", "yellowgreen", "darkmagenta", "darkolive", "darkred", "darksalmon", "darkslategray", "darkturquoise", "darkviolet", "deeppink", "firebrick", "floralwhite", "ghostwhite", "honeydew", "indianred", "ivory", "khaki", "lavender", "lawngreen", "lemonchiffon", "lightblue", "lightcoral", "lightcyan", "lightgoldenrodyellow", "lightgray", "lightgreen", "lightpink", "lightsalmon", "lightseagreen", "lightskyblue", "lightslategray", "lightsteelblue", "light"

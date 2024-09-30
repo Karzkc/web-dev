@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        data ko aane me time lgta hai isiliye hm promise use krte hai taaki tb tkye dikhaade
+        isme agar time jyada ho to sirf promise pending rhwega lekin niche wale statements print ho jayenge due to
+        async nature of js
+        agar hme ye rokna hai to we will use then - ye hojaye "then" ye krdo , yha pe v ek value hai, isme jab data
+        true ho jaye fulfill ho jaye tb(then) ye print kro joki js ke async nature ko rokra hai , this is one way but hm
+        async use krenge joki particluarly isi ke liye bnaya hai , we will simply add kust before function
+        hm async lgadenge to sb execute hoga aur wo func bg me chlta rhega , aisa na ho uske liye hme await function use
+        krna hoga aur saare statements and data new func me daalna hoga <br>
+        <b>simulate getting data from a server</b>
+    </p>
+    <p>
+        after creating await next codes will wait for that function to execute , we can use await inside an async function  aur promise statement ki jgh resolve desc statement show krega
+    </p>
+    <p>
+        hm json placeholder se ek temp api code leke aaenge aur ek new func bnaenge jo api se data fetch krke laaega aur a me store krega joki fir json se access krke data se hm show kr paaenge joki us promise ko show krdega
+    </p>
+    <p>
+        fetch api pehle data ko process krne ki promise krega fir json se parse krne ki , agar hm json ki jdg text krdenge to wo ek string return krega as - <pre>
+            {
+                "userId": 1,
+                "id": 1,
+                "title": "delectus aut autem",
+                "completed": false
+              }
+        </pre> 
+        agar hm await nhi lagaenge to promise pending rhega
+    </p> 
+
+    <p>
+        <b>
+            settle means resolve or reject
+        </b> <br>
+        <b>
+            resolve - promise settled successfully 
+            reject - promise not settled successfully 
+        </b>
+    </p>
+    <p>
+        ab hmne json placeholder pe se ek get request ka example liya fetch api us json se data fetch krke show krega
+    </p>
+    <p>
+        get request wo hoti hai jo data ko excess krne me kaam aati hai on general basis but post me data submit krne me kaam aati hai
+    </p>
+    <script src="async.js"></script>
+</body>
+
+</html>

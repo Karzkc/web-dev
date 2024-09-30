@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Asynchronicity, Callbacks, and Promises Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #00e6e6;
+        }
+
+        code {
+            background-color: #333;
+            color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        pre {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            color: #00e6e6;
+        }
+
+        .example {
+            background-color: #292929;
+            padding: 15px;
+            border-left: 5px solid #00e6e6;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Asynchronicity, Callbacks, and Promises</h1>
+
+    <p>
+        JavaScript is single-threaded, meaning it executes code in a single sequential flow. This can lead to performance 
+        issues when working with long-running tasks. To handle these tasks without blocking the main thread, 
+        JavaScript introduces asynchronous behavior using techniques like callbacks, promises, and <code>async/await</code>.
+    </p>
+
+    <h2>1. Asynchronous Nature of JavaScript</h2>
+    <p>
+        JavaScript runs code synchronously by default, but asynchronous functions like <code>setTimeout</code> allow tasks 
+        to be scheduled without blocking other code from running.
+    </p>
+
+    <div class="example">
+        <h3>Example: Synchronous vs Asynchronous Code</h3>
+        <pre><code>console.log("This will be shown 1st");
+console.log("This will be shown 2nd");
+
+setTimeout(() => {
+    console.log("This will be shown 4th after 2 seconds");
+}, 2000);
+
+console.log("This will be shown 3rd");
+</code></pre>
+        <p><strong>Explanation:</strong> The first and second <code>console.log</code> statements run synchronously. The <code>setTimeout</code> function 
+        is asynchronous, so its code runs after the delay (2 seconds).</p>
+    </div>
+
+    <h2>2. Callback Functions</h2>
+    <p>
+        A callback function is passed to another function and is executed after the completion of a task. This is commonly 
+        used for asynchronous operations like loading scripts, handling user input, or making network requests.
+    </p>
+
+    <div class="example">
+        <h3>Example: Using a Callback Function</h3>
+        <pre><code>const loadScript = (src, callback) => {
+    let script = document.createElement('script');
+    script.src = src;
+    script.onload = () => callback("Script loaded successfully");
+    document.head.append(script);
+};
+
+const handleScriptLoad = (message) => {
+    console.log(message);
+};
+
+// Load script and call the callback function
+loadScript("https://example.com/script.js", handleScriptLoad);
+</code></pre>
+        <p><strong>Explanation:</strong> The <code>loadScript</code> function adds a new script to the document. Once the script is loaded, 
+        it executes the callback <code>handleScriptLoad</code> with a message.</p>
+    </div>
+
+    <h2>3. Promises in JavaScript</h2>
+    <p>
+        Promises represent the eventual completion (or failure) of an asynchronous operation and its resulting value. 
+        A promise can be in one of three states:
+    </p>
+    <ul>
+        <li><code>Pending</code>: The operation has not completed yet.</li>
+        <li><code>Fulfilled</code>: The operation completed successfully.</li>
+        <li><code>Rejected</code>: The operation failed.</li>
+    </ul>
+
+    <div class="example">
+        <h3>Example: Basic Promise</h3>
+        <pre><code>let promise = new Promise((resolve, reject) => {
+    let success = true; // Simulating a task
+    if (success) {
+        resolve("Task completed successfully");
+    } else {
+        reject("Task failed");
+    }
+});
+
+promise.then((message) => {
+    console.log(message);
+}).catch((error) => {
+    console.error(error);
+});
+</code></pre>
+        <p><strong>Explanation:</strong> The promise checks if the task is successful. If so, it resolves with a message; 
+        otherwise, it rejects with an error. The <code>then</code> method handles success, while <code>catch</code> handles failures.</p>
+    </div>
+
+    <h3>Promise Methods</h3>
+    <ul>
+        <li><code>Promise.all()</code>: Resolves when all promises in the array resolve.</li>
+        <li><code>Promise.allSettled()</code>: Resolves after all promises have settled (fulfilled or rejected).</li>
+        <li><code>Promise.race()</code>: Resolves or rejects as soon as one of the promises in the array does.</li>
+        <li><code>Promise.any()</code>: Resolves as soon as one of the promises is fulfilled.</li>
+    </ul>
+
+    <div class="example">
+        <h3>Example: Promise.all()</h3>
+        <pre><code>let promise1 = new Promise((resolve) => setTimeout(resolve, 1000, "Promise 1 resolved"));
+let promise2 = new Promise((resolve) => setTimeout(resolve, 2000, "Promise 2 resolved"));
+
+Promise.all([promise1, promise2]).then((values) => {
+    console.log(values); // ["Promise 1 resolved", "Promise 2 resolved"]
+});
+</code></pre>
+        <p><strong>Explanation:</strong> <code>Promise.all</code> waits for all promises to resolve before executing the <code>then</code> block.</p>
+    </div>
+
+    <div class="example">
+        <h3>Example: Promise.race()</h3>
+        <pre><code>let promise1 = new Promise((resolve) => setTimeout(resolve, 1000, "Promise 1 resolved"));
+let promise2 = new Promise((resolve) => setTimeout(resolve, 2000, "Promise 2 resolved"));
+
+Promise.race([promise1, promise2]).then((value) => {
+    console.log(value); // "Promise 1 resolved"
+});
+</code></pre>
+        <p><strong>Explanation:</strong> <code>Promise.race</code> returns the result of the first promise that settles (either resolves or rejects).</p>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>
+        Asynchronous programming in JavaScript allows us to handle tasks without blocking the main thread. Callback functions, 
+        promises, and methods like <code>Promise.all</code> and <code>Promise.race</code> help manage complex asynchronous code.
+    </p>
+
+</body>
+
+</html>

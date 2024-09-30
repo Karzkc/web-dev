@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Manipulation Documentation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #f0f0f5;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #39ff14;
+        }
+
+        h3 {
+            color: #00ffff;
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1b1b2f;
+            padding: 20px;
+            box-shadow: 0 2px 15px rgba(0, 255, 255, 0.3);
+            border-radius: 8px;
+        }
+
+        pre {
+            background-color: #24243e;
+            color: #00ffcc;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #ff00ff;
+            
+        }
+
+        ul {
+            background-color: #24243e;
+            color: #ffffff;
+            padding: 15px;
+            border-left: 4px solid #39ff14;
+            border-radius: 4px;
+        }
+
+        .note {
+            background-color: #2f2f4f;
+            padding: 10px;
+            border-left: 4px solid #ffa500;
+            border-radius: 4px;
+            margin-top: 15px;
+            color: #ffff99;
+        }
+
+        .example {
+            background-color: #24243e;
+            padding: 10px;
+            border-left: 4px solid #32cd32;
+            border-radius: 4px;
+            margin-top: 15px;
+            color: #adff2f;
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>JavaScript DOM Manipulation Documentation</h1>
+
+        <p>This documentation covers the various ways to manipulate the DOM using JavaScript, including querying elements, modifying attributes, and creating or removing elements. Below are the explanations and examples for each method.</p>
+
+        <h2>Querying Elements</h2>
+
+        <h3>1. <code>document.querySelector()</code></h3>
+        <p>Finds the first matching element based on the selector provided. This method can be used with class names, tag names, or attribute selectors.</p>
+        <pre><code>document.querySelector('.container');</code></pre>
+
+        <div class="example">
+            <b>Example:</b> Selects the first element with the class <code>.container</code>.
+        </div>
+
+        <h3>2. <code>innerHTML</code> vs <code>innerText</code></h3>
+        <p><code>innerHTML</code> retrieves or sets the HTML content inside an element, while <code>innerText</code> retrieves or sets only the text content without the HTML tags.</p>
+        <pre><code>document.querySelector('.box').innerHTML;  // Returns HTML content
+document.querySelector('.box').innerText;  // Returns only text</code></pre>
+
+        <h3>3. <code>outerHTML</code> vs <code>outerText</code></h3>
+        <p><code>outerHTML</code> retrieves or sets the HTML of the element including the element itself, while <code>outerText</code> retrieves or sets the text of the element including the element itself.</p>
+        <pre><code>document.querySelector('.container').outerHTML;
+document.querySelector('.container').outerText;</code></pre>
+
+        <h2>Attributes and Properties</h2>
+
+        <h3>1. Accessing and Modifying Attributes</h3>
+        <p>You can use the following methods to interact with element attributes:</p>
+
+        <ul>
+            <li><code>hasAttribute()</code>: Checks if the element has the specified attribute.</li>
+            <li><code>getAttribute()</code>: Retrieves the value of an attribute.</li>
+            <li><code>setAttribute()</code>: Sets the value of an attribute.</li>
+            <li><code>removeAttribute()</code>: Removes the specified attribute from an element.</li>
+        </ul>
+
+        <pre><code>document.querySelector('h1').hasAttribute('style');  // Returns true/false
+document.querySelector('h1').getAttribute('style');  // Returns attribute value
+document.querySelector('h1').setAttribute('style', 'color: red');  // Sets new style
+document.querySelector('h1').removeAttribute('style');  // Removes style attribute</code></pre>
+
+        <h3>2. Dataset Attributes</h3>
+        <p>Custom data attributes (like <code>data-createdby="kartik"</code>) can be accessed using the <code>dataset</code> property. This stores data attributes in a DOMStringMap object.</p>
+        <pre><code>document.querySelector('.box').dataset;  // Returns DOMStringMap object</code></pre>
+
+        <div class="example">
+            <b>Example:</b> Access the custom data attribute <code>data-createdby</code>:
+            <pre><code>document.querySelector('.box').dataset.createdby;  // Returns 'kartik'</code></pre>
+        </div>
+
+        <h2>Inserting and Removing Elements</h2>
+
+        <h3>1. Creating New Elements</h3>
+        <p>You can dynamically create new elements in the DOM using <code>createElement</code> and insert them using <code>append</code>, <code>prepend</code>, <code>before</code>, and <code>after</code>.</p>
+
+        <pre><code>let newDiv = document.createElement('div');
+newDiv.innerHTML = 'New content added';
+document.querySelector('.container').append(newDiv);</code></pre>
+
+        <div class="example">
+            <b>Example:</b> Creates a new <code>div</code> element with content and appends it to the container.
+        </div>
+
+        <h3>2. <code>insertAdjacentHTML()</code></h3>
+        <p>This method inserts HTML code at specified positions relative to the element. The positions can be:</p>
+        <ul>
+            <li><code>beforebegin</code>: Before the element.</li>
+            <li><code>afterbegin</code>: Just inside the element, before its first child.</li>
+            <li><code>beforeend</code>: Just inside the element, after its last child.</li>
+            <li><code>afterend</code>: After the element.</li>
+        </ul>
+
+        <pre><code>let container = document.querySelector('.container');
+container.insertAdjacentHTML('afterbegin', '<p>Added at the start</p>');
+container.insertAdjacentHTML('beforeend', '<p>Added at the end</p>');</code></pre>
+
+        <div class="example">
+            <b>Example:</b> Inserts HTML content inside the container at the beginning and the end.
+        </div>
+
+        <h3>3. Removing Elements</h3>
+        <p>You can remove an element using the <code>remove()</code> method:</p>
+        <pre><code>let elementToRemove = document.querySelector('.remove');
+elementToRemove.remove();</code></pre>
+
+        <h2>Class Manipulation</h2>
+
+        <h3>1. <code>classList</code> Methods</h3>
+        <p>The <code>classList</code> property allows you to add, remove, or toggle classes on elements. It returns a DOMTokenList of all classes assigned to the element.</p>
+        <pre><code>document.querySelector('.container').classList;  // Returns a list of all classes</code></pre>
+
+        <ul>
+            <li><code>add()</code>: Adds a new class to the element.</li>
+            <li><code>remove()</code>: Removes a class from the element.</li>
+            <li><code>toggle()</code>: Toggles a class on or off (if present, removes it; if absent, adds it).</li>
+        </ul>
+
+        <pre><code>document.querySelector('.container').classList.add('new-class');
+document.querySelector('.container').classList.remove('old-class');
+document.querySelector('.container').classList.toggle('active');</code></pre>
+
+        <h2>Document Editing Mode</h2>
+
+        <h3>1. <code>document.designMode</code></h3>
+        <p>When <code>document.designMode</code> is set to <code>"on"</code>, you can edit the entire page as if it were a text document.</p>
+        <pre><code>document.designMode = "on";</code></pre>
+
+        <div class="note">
+            <b>Note:</b> This is often used for debugging or modifying web pages for quick edits.
+        </div>
+    </div>
+</body>
+
+</html>
