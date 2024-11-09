@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js FS and Path Modules Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9fb;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #00509e;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #00a676;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .code-block {
+            background-color: #1e272e;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-family: monospace;
+        }
+
+        .highlight {
+            color: #ff5733;
+            font-weight: bold;
+        }
+        code{
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Node.js FS and Path Modules Documentation</h1>
+
+    <p>The Node.js <span class="highlight">FS (File System)</span> module provides functionality to interact with the file system, while the <span class="highlight">Path</span> module handles and manipulates file paths. These modules are essential for working with files and directories in Node.js.</p>
+
+    <h2>1. Introduction to the FS Module</h2>
+    <p>The <span class="highlight">FS (File System)</span> module allows you to perform various file operations, such as reading, writing, appending, and deleting files.</p>
+    <p>Here’s how you import the <code>fs</code> module:</p>
+
+    <div class="code-block">
+        <code>const fs = require('fs');</code>
+    </div>
+
+    <h2>2. Writing Files</h2>
+    <p>To create or write to a file, you can use <code>fs.writeFileSync()</code> (synchronous) or <code>fs.writeFile()</code> (asynchronous):</p>
+
+    <div class="code-block">
+        <code>fs.writeFileSync('File.txt', 'This is a new file with some text');</code><br><br>
+        <code>fs.writeFile('File2.txt', 'This is also a new file', (err) => {<br>
+            &nbsp;&nbsp;if (!err) console.log('Write successful!');<br>
+        });</code>
+    </div>
+
+    <h2>3. Reading Files</h2>
+    <p>Use <code>fs.readFile()</code> (asynchronous) or <code>fs.readFileSync()</code> (synchronous) to read files:</p>
+
+    <div class="code-block">
+        <code>fs.readFile('File2.txt', (err, data) => {<br>
+            &nbsp;&nbsp;if (!err) console.log(data.toString());<br>
+        });</code>
+    </div>
+
+    <h2>4. Appending Data to Files</h2>
+    <p>The <code>fs.appendFile()</code> method allows you to add content to an existing file without overwriting it:</p>
+
+    <div class="code-block">
+        <code>fs.appendFile('File2.txt', '\\nAppended line', (err) => {<br>
+            &nbsp;&nbsp;if (!err) console.log('Append successful!');<br>
+        });</code>
+    </div>
+
+    <h2>5. Deleting Files</h2>
+    <p>To delete files, you can use <code>fs.unlink()</code>:</p>
+
+    <div class="code-block">
+        <code>fs.unlink('File2.txt', (err) => {<br>
+            &nbsp;&nbsp;if (!err) console.log('File deleted');<br>
+        });</code>
+    </div>
+
+    <h2>6. FS Module Additional Methods</h2>
+    <p>Other important FS module methods include:</p>
+    <ul>
+        <li><code>fs.mkdir()</code>: Create a new directory.</li>
+        <li><code>fs.rmdir()</code>: Remove a directory.</li>
+        <li><code>fs.rename()</code>: Rename a file.</li>
+        <li><code>fs.stat()</code>: Get file statistics.</li>
+    </ul>
+
+    <h2>7. Introduction to the Path Module</h2>
+    <p>The <span class="highlight">Path</span> module allows you to work with file paths and helps in manipulating and resolving paths efficiently. Import the <code>path</code> module as follows:</p>
+
+    <div class="code-block">
+        <code>const path = require('path');</code>
+    </div>
+
+    <h2>8. Working with File Paths</h2>
+    <p>Some useful methods in the <code>path</code> module:</p>
+    <ul>
+        <li><code>path.extname()</code>: Returns the extension of the file.</li>
+        <li><code>path.basename()</code>: Returns the last portion of a path (file name).</li>
+        <li><code>path.dirname()</code>: Returns the directory name of a path.</li>
+        <li><code>path.join()</code>: Joins multiple segments into a single path.</li>
+    </ul>
+
+    <div class="code-block">
+        <code>let filePath = 'D:/Projects/file.js';<br><br>
+            console.log(path.extname(filePath)); // .js<br>
+            console.log(path.basename(filePath)); // file.js<br>
+            console.log(path.dirname(filePath)); // D:/Projects<br>
+            console.log(path.join('D:/', 'Projects', 'file.js')); // Joins path segments
+        </code>
+    </div>
+
+    <h2>9. Practical Examples of FS and Path Modules</h2>
+    <p>Here’s how you can combine the <code>fs</code> and <code>path</code> modules for various tasks:</p>
+    <div class="code-block">
+        <code>const fs = require('fs');<br>
+        const path = require('path');<br><br>
+
+        let filePath = path.join(__dirname, 'File.txt');<br>
+
+        fs.writeFile(filePath, 'Hello, world!', (err) => {<br>
+            &nbsp;&nbsp;if (!err) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;fs.readFile(filePath, (err, data) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!err) console.log(data.toString());<br>
+                &nbsp;&nbsp;});<br>
+            }<br>
+        });</code>
+    </div>
+
+    <h2>10. Summary</h2>
+    <p>The <code>FS</code> module provides powerful functionality to read, write, and manipulate files, while the <code>Path</code> module simplifies file path management. Both are foundational for handling files in Node.js.</p>
+</body>
+
+</html>

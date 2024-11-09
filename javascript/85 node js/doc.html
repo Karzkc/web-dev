@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js and NPM Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            color: #00ffcc;
+        }
+
+        code {
+            background-color: #2d2d2d;
+            padding: 2px 4px;
+            border-radius: 4px;
+            color: #f5f5f5;
+        }
+
+        .section {
+            margin: 20px 0;
+        }
+
+        .example {
+            background-color: #2d2d2d;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Node.js and NPM Documentation</h1>
+
+    <div class="section">
+        <h2>Introduction to Node.js</h2>
+        <p>Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to build server-side applications using JavaScript. With Node.js, you can handle backend logic, process requests, and manage files and databases.</p>
+    </div>
+
+    <div class="section">
+        <h2>Creating a Simple Server in Node.js</h2>
+        <p>Below is an example of how to create a simple HTTP server in Node.js using the <code>http</code> module.</p>
+        <div class="example">
+            <code>
+                const { createServer } = require('node:http');<br><br>
+                const hostname = '127.0.0.1';<br>
+                const port = 3000;<br><br>
+                const server = createServer((req, res) => {<br>
+                    &nbsp;&nbsp;res.statusCode = 200;<br>
+                    &nbsp;&nbsp;res.setHeader('Content-Type', 'text/plain');<br>
+                    &nbsp;&nbsp;res.end('Hello World');<br>
+                });<br><br>
+                server.listen(port, hostname, () => {<br>
+                    &nbsp;&nbsp;console.log(`Server running at http://${hostname}:${port}/`);<br>
+                });
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Introduction to NPM</h2>
+        <p>NPM (Node Package Manager) is a tool that comes with Node.js to help you install, manage, and use external libraries or packages. You can use it to manage the dependencies in your projects.</p>
+    </div>
+
+    <div class="section">
+        <h2>How to Use NPM</h2>
+        <p>To start using NPM, initialize your project using:</p>
+        <div class="example">
+            <code>npm init</code>
+        </div>
+        <p>This command generates a <code>package.json</code> file where project details and dependencies are stored.</p>
+    </div>
+
+    <div class="section">
+        <h2>Example of a package.json File</h2>
+        <p>Below is an example of a simple <code>package.json</code> file that stores your project's metadata, scripts, and dependencies:</p>
+        <div class="example">
+            <code>
+            {<br>
+                &nbsp;&nbsp;"name": "kartik",<br>
+                &nbsp;&nbsp;"version": "1.0.0",<br>
+                &nbsp;&nbsp;"description": "Amazing package, new to JS",<br>
+                &nbsp;&nbsp;"main": "index.js",<br>
+                &nbsp;&nbsp;"scripts": {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"test": "echo 'Error: no test specified' && exit 1"<br>
+                &nbsp;&nbsp;},<br>
+                &nbsp;&nbsp;"author": "Kartik",<br>
+                &nbsp;&nbsp;"license": "ISC",<br>
+                &nbsp;&nbsp;"dependencies": {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"express": "^4.21.1",<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"slugify": "^1.6.6"<br>
+                &nbsp;&nbsp;}<br>
+            }
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Installing Libraries via NPM</h2>
+        <p>To install a library via NPM, use the command:</p>
+        <div class="example">
+            <code>npm install [library-name]</code>
+        </div>
+        <p>For example, to install <code>express</code> or <code>slugify</code>:</p>
+        <div class="example">
+            <code>npm install express<br>npm install slugify</code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Using Libraries in Your Code</h2>
+        <p>Once you install libraries, you can import them into your code using <code>require</code>. Here's how you can use <code>slugify</code>:</p>
+        <div class="example">
+            <code>
+                let slugify = require('slugify');<br><br>
+                let a = slugify("my name is kartik", ",");<br>
+                console.log(a);<br><br>
+                let b = slugify("@#$%^&*", ",");<br>
+                console.log(b);
+            </code>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Popular NPM Packages</h2>
+        <p>Some popular packages you may use frequently in Node.js projects are:</p>
+        <ul>
+            <li><strong>Express</strong>: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.</li>
+            <li><strong>Lodash</strong>: A modern JavaScript utility library that delivers modularity, performance, and extras.</li>
+            <li><strong>Slugify</strong>: A package used to generate URL-friendly slugs from strings, useful for URLs and filenames.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Conclusion</h2>
+        <p>Node.js combined with NPM is a powerful tool for building modern applications. By using packages and modules, you can extend the functionality of your projects with minimal effort, allowing you to focus on your application's logic and development.</p>
+    </div>
+</body>
+
+</html>

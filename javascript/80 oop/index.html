@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript OOP Concepts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #9acd32;
+        }
+
+        pre {
+            background-color: #1e1e1e;
+            border-left: 4px solid #9acd32;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #dcdcdc;
+        }
+
+        code {
+            color: #ff6ec7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            background-color: #292929;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Object-Oriented Programming (OOP)</h1>
+        <p>
+            In JavaScript, OOP allows us to create objects and define their structure using <code>classes</code> and <code>constructors</code>. Let's walk through the key OOP concepts:
+        </p>
+
+        <h2>1. Object Creation</h2>
+        <p>
+            An object in JavaScript is simply a collection of key-value pairs. Here's an example:
+        </p>
+        <pre><code>let car = {
+    "brand": "Tesla",
+    "year": 2023
+};
+console.log(car);</code></pre>
+        <p>
+            This creates an object <code>car</code> with properties <code>brand</code> and <code>year</code>.
+        </p>
+
+        <h2>2. Constructor</h2>
+        <p>
+            A <strong>constructor</strong> is a special method that gets called when a new object is created from a class. It is used to initialize properties of the new object. Example:
+        </p>
+        <pre><code>class Vehicle {
+    constructor(brand) {
+        this.brand = brand;
+        console.log("Vehicle created!");
+    }
+}
+let myCar = new Vehicle("Tesla");
+console.log(myCar.brand);</code></pre>
+        <p>
+            The constructor in the <code>Vehicle</code> class sets the <code>brand</code> property when a new object is created using <code>new</code>.
+        </p>
+
+        <h2>3. Getters and Setters</h2>
+        <p>
+            Getters and setters are special methods to get and set the values of object properties. Example:
+        </p>
+        <pre><code>class User {
+    constructor(name) {
+        this._name = name;
+    }
+    get name() {
+        return this._name;
+    }
+    set name(value) {
+        if (value.length < 3) {
+            console.log("Name is too short!");
+            return;
+        }
+        this._name = value;
+    }
+}
+let user = new User("Kartik");
+console.log(user.name); // "Kartik"
+user.name = "Jo"; // "Name is too short!"</code></pre>
+        <p>
+            Getters and setters are defined using <code>get</code> and <code>set</code> keywords.
+        </p>
+
+        <h2>4. Inheritance</h2>
+        <p>
+            <strong>Inheritance</strong> allows one class to extend the properties and methods of another class. Example:
+        </p>
+        <pre><code>class Animal {
+    constructor(type) {
+        this.type = type;
+    }
+    speak() {
+        console.log(`${this.type} makes a sound.`);
+    }
+}
+class Dog extends Animal {
+    constructor(type, breed) {
+        super(type); // Calls the parent constructor
+        this.breed = breed;
+    }
+    bark() {
+        console.log(`${this.breed} is barking.`);
+    }
+}
+let myDog = new Dog("Mammal", "Labrador");
+myDog.speak(); // "Mammal makes a sound."
+myDog.bark();  // "Labrador is barking."</code></pre>
+        <p>
+            Here, <code>Dog</code> extends the <code>Animal</code> class and inherits its <code>speak</code> method.
+        </p>
+
+        <h2>5. Prototype and __proto__</h2>
+        <p>
+            JavaScript objects have a hidden <code>__proto__</code> property, which links to another object (its prototype). Example:
+        </p>
+        <pre><code>let electronics = {
+    poweredOn: true
+};
+let phone = {
+    brand: "Apple"
+};
+phone.__proto__ = electronics;
+console.log(phone.poweredOn); // true</code></pre>
+        <p>
+            The <code>phone</code> object inherits the <code>poweredOn</code> property from the <code>electronics</code> object using the <code>__proto__</code> link.
+        </p>
+
+        <h2>6. Instance of Operator</h2>
+        <p>
+            The <code>instanceof</code> operator checks if an object is an instance of a class or a constructor. Example:
+        </p>
+        <pre><code>let isDog = myDog instanceof Dog; // true
+let isAnimal = myDog instanceof Animal; // true</code></pre>
+        <p>
+            This shows that <code>myDog</code> is an instance of both <code>Dog</code> and <code>Animal</code>.
+        </p>
+
+        <h2>Conclusion</h2>
+        <p>
+            JavaScript OOP concepts such as constructors, inheritance, and prototype chains allow for creating reusable and scalable code. These concepts are crucial in organizing and structuring code in complex applications.
+        </p>
+    </div>
+</body>
+</html>

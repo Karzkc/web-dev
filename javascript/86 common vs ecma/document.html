@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMAScript vs CommonJS</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        code {
+            background-color: #e0e0e0;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #e0f7fa;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .highlight {
+            color: #0288d1;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>ECMAScript vs CommonJS</h1>
+
+        <h2>1. Introduction</h2>
+        <p>
+            JavaScript has two primary module systems: <span class="highlight">ECMAScript Modules (ESM)</span> and <span
+                class="highlight">CommonJS</span>. ESM was introduced in ES6 (2015) and is the modern way of handling
+            modules in JavaScript, especially in the browser. CommonJS is the older system primarily used in Node.js.
+            Let’s dive into the differences between these two systems.
+        </p>
+
+        <h2>2. Key Differences</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>ECMAScript Modules (ESM)</th>
+                    <th>CommonJS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Syntax</td>
+                    <td><code>import</code> / <code>export</code></td>
+                    <td><code>require()</code> / <code>module.exports</code></td>
+                </tr>
+                <tr>
+                    <td>Support</td>
+                    <td>Native in modern browsers & Node.js (with <code>"type": "module"</code>)</td>
+                    <td>Default in Node.js</td>
+                </tr>
+                <tr>
+                    <td>File Extension</td>
+                    <td><code>.mjs</code> or <code>.js</code> with <code>"type": "module"</code></td>
+                    <td><code>.js</code></td>
+                </tr>
+                <tr>
+                    <td>Asynchronous</td>
+                    <td>Yes, ESM is asynchronous.</td>
+                    <td>No, CommonJS is synchronous.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>3. Code Examples</h2>
+
+        <h3>3.1 ECMAScript Modules (ESM)</h3>
+        <pre><code>// export.js
+export let a = 5;
+export let b = 6;
+
+// default export
+let obj = {
+    a: 5,
+    b: 6,
+    c: 7
+};
+export default obj;
+        </code></pre>
+
+        <pre><code>// import.js
+import { a, b } from './export.js';
+import obj from './export.js';
+
+console.log(a, b); // Output: 5 6
+console.log(obj);  // Output: { a: 5, b: 6, c: 7 }
+        </code></pre>
+
+        <h3>3.2 CommonJS</h3>
+        <pre><code>// export.js
+let a = 5;
+let b = 6;
+
+module.exports = {
+    a: a,
+    b: b
+};
+        </code></pre>
+
+        <pre><code>// import.js
+const { a, b } = require('./export.js');
+
+console.log(a, b); // Output: 5 6
+        </code></pre>
+
+        <h2>4. The "type": "module" in JSON</h2>
+        <p>
+            In Node.js, by default, CommonJS is used. However, to use ECMAScript Modules, you need to specify
+            <code>"type": "module"</code> in your <code>package.json</code> file. Here’s an example:
+        </p>
+        <pre><code>{
+  "name": "my-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+        </code></pre>
+        <p>
+            By adding the <code>"type": "module"</code> key, Node.js will interpret your JavaScript files as ECMAScript
+            Modules.
+        </p>
+
+        <h2>5. Conclusion</h2>
+        <p>
+            Both ECMAScript Modules and CommonJS serve the purpose of modularizing code, but they operate differently.
+            ECMAScript Modules (ESM) are the modern standard, more suitable for frontend and newer Node.js projects,
+            while CommonJS remains a stable and widely-used system in existing Node.js applications.
+        </p>
+    </div>
+</body>
+
+</html>

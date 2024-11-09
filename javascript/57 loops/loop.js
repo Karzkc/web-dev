@@ -40,10 +40,16 @@
 // } while (i<10);
 
 // this loop will execute the code at least once and then check the condition before executing again.
-let i = 10 ;
-do {
-    console.log(i)
-    i++;
-} while (i<5);
+// let i = 10 ;
+// do {
+//     console.log(i)
+//     i++;
+// } while (i<5);
 
 // this loop will execute the code at least once and then check the condition before executing again.
+let str = "hello "
+for (let i in str) {
+    console.log(i);
+    i++
+    
+}
