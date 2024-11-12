@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpressJS Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #2a9d8f;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+        }
+
+        p,
+        code {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        code {
+            background-color: #e9ecef;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            line-height: 1.4;
+            font-size: 0.95em;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ExpressJS Documentation</h1>
+
+    <div class="section">
+        <h2>1. Introduction to ExpressJS Methods</h2>
+        <p>ExpressJS provides a variety of HTTP methods to interact with the server:</p>
+        <ul>
+            <li><b>GET</b> - Retrieves data from the server.</li>
+            <li><b>POST</b> - Sends data to the server to create a new resource.</li>
+            <li><b>PUT</b> - Updates an existing resource on the server.</li>
+            <li><b>DELETE</b> - Deletes a resource on the server.</li>
+            <li><b>LISTEN</b> - Specifies the port on which the server should listen.</li>
+        </ul>
+        <pre><code>const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => res.send('GET request example'));
+app.post('/', (req, res) => res.send('POST request example'));
+app.put('/', (req, res) => res.send('PUT request example'));
+app.listen(port, () => console.log(`Server running on port ${port}`));</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>2. Setting Up Static Files with Public Folder</h2>
+        <p>Using <code>express.static</code>, you can serve static files such as HTML, CSS, and JS files. In this
+            example, all files inside the <code>public</code> folder will be accessible publicly.</p>
+        <pre><code>app.use(express.static('path/to/public'));</code></pre>
+        <p>Example file structure:</p>
+        <pre><code>project-folder/
+    public/
+        index.html
+        style.css
+        script.js</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>3. Routing in ExpressJS</h2>
+        <p>Express provides easy-to-use routing. Here are some examples:</p>
+        <pre><code>app.get('/path', (req, res) => res.send('GET response'));
+app.post('/path', (req, res) => res.send('POST response'));
+
+// Parameterized routes
+app.get('/user/:id', (req, res) => res.send(`User ID: ${req.params.id}`));</code></pre>
+        <p>Example of routing in modules:</p>
+        <pre><code>const blog = require('./routes/blog');
+app.use('/blog', blog);</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>4. Interconnecting Files and Templates</h2>
+        <p>To serve HTML files, use <code>res.sendFile</code>:</p>
+        <pre><code>app.get('/index', (req, res) => {
+    res.sendFile('/templates/index.html', { root: __dirname });
+});</code></pre>
+        <p>This allows you to send specific HTML files based on routes.</p>
+    </div>
+
+    <div class="section">
+        <h2>5. Using JSON Responses</h2>
+        <p>Express allows easy JSON responses:</p>
+        <pre><code>app.get('/api', (req, res) => {
+    res.json({
+        name: "Kartik",
+        version: "1.0.0",
+        description: "Amazing package"
+    });
+});</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Using Postman for HTTPS Servers and Requests</h2>
+        <p><b>Postman</b> is a powerful tool that allows developers to test, document, and manage APIs efficiently. It
+            provides a user-friendly interface for creating and managing workspaces, which can be used to handle HTTPS
+            servers and make various types of requests.</p>
+            <img src="https://blog.postman.com/wp-content/uploads/2019/02/pm-logo-vert.jpg" alt="img" height="200px">
+        <h3>Getting Started with Postman</h3>
+        <p>To start using Postman, download and install the application from the <a
+                href="https://www.postman.com/">official Postman website</a>. Once installed, you can create a new
+            workspace or import an existing one.</p>
+
+        <h3>Creating a Workspace</h3>
+        <p>Workspaces in Postman allow you to group related requests, environments, and other resources together. To
+            create a workspace:</p>
+        <ol>
+            <li>Open Postman and click on the "Workspaces" tab.</li>
+            <li>Click the "Create Workspace" button.</li>
+            <li>Provide a name and description for your workspace, and configure the visibility and other settings as
+                needed.</li>
+            <li>Click "Create Workspace" to finalize.</li>
+        </ol>
+
+        <h3>Making HTTPS Requests</h3>
+        <p>Postman simplifies the process of making HTTPS requests. Follow these steps to make your first request:</p>
+        <ol>
+            <li>Open your workspace and click on the "New" button.</li>
+            <li>Select "HTTP Request" from the menu.</li>
+            <li>In the new request tab, enter the URL of the server you want to request data from.</li>
+            <li>Choose the request method (GET, POST, PUT, DELETE, etc.) from the dropdown menu.</li>
+            <li>Add any necessary headers, body parameters, and query parameters.</li>
+            <li>Click the "Send" button to make the request.</li>
+        </ol>
+        <p>The response from the server will be displayed in the lower pane, providing detailed information about the
+            status, headers, and body of the response.</p>
+
+        <h3>Using Collections and Environments</h3>
+        <p>Postman allows you to organize requests into collections and use environments to manage different variables
+            for development, staging, and production.</p>
+        <ul>
+            <li><b>Collections:</b> Group related requests together for easy access and management.</li>
+            <li><b>Environments:</b> Define environments with different sets of variables (e.g., base URLs,
+                authentication tokens) for seamless switching between different stages of development.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>Postman is an essential tool for developers working with APIs, providing powerful features for testing,
+            documenting, and managing API requests and responses. By leveraging workspaces, collections, and
+            environments, you can efficiently handle complex scenarios and ensure your API workflows are smooth and
+            error-free.
+        </p>
+
+
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpressJS Documentation</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            padding: 20px;
+            line-height: 1.8;
+        }
+        h1, h2, h3 {
+        font-size: 2pc;
+            color: #007bff;
+            margin-top: 20px;
+        }
+        code {
+            display: block;
+            background: #e9ecef;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+        p {
+            margin: 10px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ExpressJS Documentation</h1>
+    <p><b>Express</b> is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. This documentation covers the basics of setting up an Express server, handling routes, and utilizing static files through the <code>public</code> folder.</p>
+
+    <h2>Getting Started with Express</h2>
+    <p>To use Express, install it via npm:</p>
+    <code>npm install express</code>
+
+    <h3>Basic Server Setup</h3>
+    <p>In Express, you can create a server with just a few lines of code. Here's a basic setup:</p>
+    <code>
+        const express = require('express');<br>
+        const app = express();<br>
+        const port = 3000;<br><br>
+        app.listen(port, () => {<br>
+            console.log(`Server running at http://localhost:${port}/`);<br>
+        });
+    </code>
+
+    <h2>Serving Static Files with the Public Folder</h2>
+    <p>Express allows you to serve static files, such as HTML, CSS, and JavaScript, using the <code>express.static</code> middleware. You can place these files in a <code>public</code> folder, making them accessible to the client.</p>
+    <p>To serve files from a directory, use:</p>
+    <code>app.use(express.static('path/to/public/folder'));</code>
+    <p>In the code example:</p>
+    <code>
+        app.use(express.static('d:\\Kartik Khiriya\\own\\new\\web dev\\javascript\\88 express\\public'));
+    </code>
+    <p>Now, any files in the <code>public</code> directory, such as a text file, image, or script, are accessible to anyone who visits your server's URL.</p>
+
+    <h2>Routing in Express</h2>
+    <p>Express provides an easy way to handle different routes in your application. In the setup below, a basic route handler listens on the <code>/</code> route:</p>
+    <code>
+        app.get('/', (req, res) => {<br>
+            res.send('Hello World! how are you');<br>
+        });
+    </code>
+
+    <h3>Dynamic Routes with URL Parameters</h3>
+    <p>Dynamic routes allow you to capture values from the URL. In the code example:</p>
+    <code>
+        app.get('/:slug/:second', (req, res) => {<br>
+            res.send(`hello this is ${req.params.slug} and ${req.params.second}`);<br>
+            console.log(req.params); // { slug: 'value', second: 'value' }<br>
+            console.log(req.query);<br>
+        });
+    </code>
+    <p>This route captures the values passed as <code>slug</code> and <code>second</code> in the URL, enabling you to handle specific values dynamically.</p>
+
+    <h2>Additional Features in Express</h2>
+    <ul>
+        <li><b>Query Parameters:</b> <code>req.query</code> allows access to query strings in the URL (e.g., <code>?dark=true</code>).</li>
+        <li><b>Middleware:</b> Middleware functions like <code>express.static</code> can handle file serving, logging, authentication, etc., within your application.</li>
+        <li><b>Error Handling:</b> You can add custom error-handling middleware to manage errors and exceptions more effectively.</li>
+    </ul>
+
+    <h3>Starting the Server</h3>
+    <p>To start your server, run:</p>
+    <code>node filename.js</code>
+    <p>The server will be accessible at <code>http://localhost:3000</code>.</p>
+
+    <h2>Conclusion</h2>
+    <p>This covers the basics of ExpressJS, including serving static files, routing, and utilizing the <code>public</code> folder. Express allows efficient handling of server-side routes and makes it easy to create dynamic and responsive web applications.</p>
+
+</body>
+</html>

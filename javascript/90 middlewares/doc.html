@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express.js Middleware - Comprehensive Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #4a90e2;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-size: larger;
+            color: #00e9e1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .middleware-type {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e0f7fa;
+            font-size: larger;
+            border-left: 5px solid #074046;
+            border-radius: 5px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Express.js Middleware - Comprehensive Guide</h1>
+        <div class="image-container">
+            <img src="https://cdn.prod.website-files.com/6320125ace536b6ad148eca3/66502d746f57d299fe0e0c31_Image%201-Express.js.webp"
+                alt="Express.js Logo" />
+        </div>
+        <p>This document covers all types of middleware in Express.js, with examples to demonstrate each type.
+            Middleware functions have access to the request object, response object, and the <code>next</code> function
+            in Express’s request-response cycle.</p>
+
+        <h2>Types of Middleware</h2>
+        <div class="image-container">
+            <img src="https://expressjs.com/images/express-mw.png" alt="Middleware Overview Diagram" />
+        </div>
+        <p>Express provides five main types of middleware:</p>
+
+        <div class="middleware-type">
+            <h3>1. Application-Level Middleware</h3>
+            <p>Application-level middleware binds to an instance of <code>express()</code> and is commonly used across
+                the application. This middleware can access and modify requests before passing them to routes.</p>
+            <pre><code>
+// Example: Application-level middleware for logging
+app.use((req, res, next) => {
+    console.log('M1: Logging middleware');
+    const date = new Date();
+    fs.appendFileSync("./log.txt", `\n${date} - ${req.method} request`);
+    next(); // Pass control to the next middleware
+});
+      </code></pre>
+        </div>
+
+        <div class="middleware-type">
+            <h3>2. Router-Level Middleware</h3>
+            <p>Router-level middleware is used to bind middleware to an instance of <code>express.Router()</code>,
+                making it specific to certain routes.</p>
+            <pre><code>
+// Example: Router-level middleware for specific routes
+const router = express.Router();
+
+const timeLog = (req, res, next) => {
+  console.log('Router-Level Middleware - Time: ', Date.now());
+  next();
+};
+
+router.use(timeLog); // Apply to all routes in this router
+
+// Define routes
+router.get('/', (req, res) => res.send('Birds Home Page'));
+router.get('/about', (req, res) => res.send('About Birds'));
+
+app.use('/birds', router);
+      </code></pre>
+            
+        </div>
+
+        <div class="middleware-type">
+            <h3>3. Error-Handling Middleware</h3>
+            <p>Error-handling middleware allows you to define custom error handling logic by providing four arguments
+                (error, req, res, next).</p>
+            <pre><code>
+// Example: Error-handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+      </code></pre>
+
+        </div>
+
+        <div class="middleware-type">
+            <h3>4. Built-In Middleware</h3>
+            <p>Express offers built-in middleware functions like <code>express.static</code> for serving static files,
+                or <code>express.json</code> for parsing JSON payloads.</p>
+            <pre><code>
+// Example: Serving static files from a directory
+app.use(express.static('public'));
+      </code></pre>
+        </div>
+
+        <div class="middleware-type">
+            <h3>5. Third-Party Middleware</h3>
+            <p>Third-party middleware modules can be installed via npm and added to your Express app. Common examples
+                include <code>morgan</code> for logging and <code>body-parser</code> for parsing request bodies.</p>
+            <pre><code>
+// Example: Using morgan for logging
+const morgan = require('morgan');
+app.use(morgan('tiny'));
+      </code></pre>
+        </div>
+
+        <h2>Example Code</h2>
+        <p>Here’s a complete code example that demonstrates application-level and router-level middleware, along with a
+            few custom implementations:</p>
+        <pre><code>const express = require('express');
+const app = express();
+const port = 3000;
+const fs = require('fs');
+const router = express.Router();
+
+// Application-level middleware
+app.use((req, res, next) => {
+    console.log('M1: Logging middleware');
+    const date = new Date();
+    fs.appendFileSync("./log.txt", `\n${date} - ${req.method} request`);
+    req.customVar = "Set by middleware"; // Example of modifying request object
+    next();
+});
+
+// Additional middleware
+app.use((req, res, next) => {
+    console.log('M2: Additional Middleware');
+    next();
+});
+
+// Router-level middleware
+router.use((req, res, next) => {
+  console.log('Router Middleware - Time:', Date.now());
+  next();
+});
+
+router.get('/', (req, res) => res.send('Birds Home Page'));
+router.get('/about', (req, res) => res.send('About Birds'));
+app.use('/birds', router);
+
+app.listen(port, () => console.log(`App listening on port ${port}`));
+      </code></pre>
+    </div>
+</body>
+
+</html>
