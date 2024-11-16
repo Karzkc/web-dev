@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB Documentation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0e1117;
+            color: #c9d1d9;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 2rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #58a6ff;
+        }
+        h2,h3{
+            font-size: 1.5rem;
+        }
+
+        code {
+            background-color: #161b22;
+            color: #58a6ff;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.2rem;
+        }
+
+        .code-block {
+            background-color: #161b22;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .card {
+            background-color: #21262d;
+            border: none;
+        }
+
+        .btn {
+            background-color: #238636;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background-color: #2ea043;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="margin-bottom: 50px; ">MongoDB Documentation</h1>
+
+        <h2>Introduction to MongoDB</h2>
+        <p>MongoDB is a NoSQL database that is highly scalable and flexible. It stores data in collections of JSON-like
+            documents, making it suitable for handling large amounts of unstructured data. If you're familiar with
+            JavaScript, MongoDB’s JSON format and syntax make it particularly easy to learn.</p>
+
+        <h2>Using MongoDB Compass</h2>
+        <p><strong>MongoDB Compass</strong> is a graphical interface for MongoDB that allows users to visualize, manage,
+            and query their data without writing commands in a terminal.</p>
+
+        <div class="code-block">
+            <h4>Steps to Connect MongoDB Compass:</h4>
+            <ol>
+                <li>Open MongoDB Compass and click "New Connection."</li>
+                <li>Enter the connection string for your MongoDB server (e.g., <code>mongodb://localhost:27017</code>).
+                </li>
+                <li>Click "Connect" to view all available databases.</li>
+            </ol>
+        </div>
+
+        <h3>Common Compass Features</h3>
+        <ul>
+            <li><strong>View Collections</strong>: See all documents in a collection, filter data, and apply
+                projections.</li>
+            <li><strong>Indexes</strong>: Create and manage indexes to optimize query performance.</li>
+            <li><strong>Schema Analysis</strong>: Analyze document structure within a collection.</li>
+        </ul>
+        <img src="https://www.gtech.com.tr/wp-content/uploads/2020/09/mongodb-nedir-1.png" alt="MongoDB Compass"
+            class="img-fluid mt-2 mb-3">
+
+        <h2>Using MongoDB in VSCode with MongoDB Extension</h2>
+        <p>The MongoDB extension in Visual Studio Code enables you to work with MongoDB directly in the editor. You can
+            connect to databases, query data, and use MongoDB Playground for interactive commands.</p>
+
+        <div class="code-block">
+            <h4>Connecting to MongoDB in VSCode:</h4>
+            <ol>
+                <li>Install the <strong>MongoDB for VSCode</strong> extension.</li>
+                <li>Open the MongoDB panel in VSCode and add a new connection.</li>
+                <li>Enter the MongoDB connection string (e.g., <code>mongodb://localhost:27017</code>).</li>
+                <li>Now you can browse databases and collections directly from VSCode.</li>
+            </ol>
+        </div>
+
+        <h2>MongoDB Playground</h2>
+        <p>The MongoDB Playground is a feature within the VSCode MongoDB extension that lets you write and run MongoDB
+            scripts interactively. This is especially useful for testing queries and managing data.</p>
+
+        <div class="code-block">
+            <h4>Example MongoDB Playground Script:</h4>
+            <code>
+        use('TEMP'); <br>
+        db.getCollection('courses').insertMany([ /* Insert courses here */ ]);
+      </code>
+        </div>
+
+        <h2>MongoDB Shell (mongosh)</h2>
+        <p><strong>mongosh</strong> is the MongoDB shell, which you can use to interact with the MongoDB server via
+            command line. It’s a powerful tool for performing database operations directly.</p>
+
+        <div class="code-block">
+            <h4>Common mongosh Commands:</h4>
+            <ul>
+                <li><code>show dbs</code> - Lists all databases</li>
+                <li><code>use &lt;dbName&gt;</code> - Switches to a specific database</li>
+                <li><code>db.createCollection('collectionName')</code> - Creates a new collection</li>
+                <li><code>db.collection.find()</code> - Retrieves all documents in a collection</li>
+            </ul>
+        </div>
+
+        <h2>Example MongoDB Script</h2>
+        <p>The following script is an example of inserting data into a MongoDB collection using JavaScript syntax in the
+            MongoDB Playground.</p>
+
+        <div class="code-block">
+            <pre>
+use('TEMP');
+
+db.getCollection('courses').insertMany([
+  { "id": 1, "course_name": "Python Basics", "instructor_name": "John Doe", "price": "Free" },
+  { "id": 2, "course_name": "Web Development 101", "instructor_name": "Jane Smith", "price": "Free" },
+  { "id": 3, "course_name": "Advanced JavaScript", "instructor_name": "Michael Brown", "price": "$50" },
+  { "id": 4, "course_name": "Machine Learning Basics", "instructor_name": "Emily Davis", "price": "$100" },
+  { "id": 5, "course_name": "React for Beginners", "instructor_name": "Chris Wilson", "price": "$30" },
+  { "id": 6, "course_name": "Node.js Essentials", "instructor_name": "Sarah Johnson", "price": "$40" },
+  { "id": 7, "course_name": "Full-Stack Web Development", "instructor_name": "David Lee", "price": "$200" },
+  { "id": 8, "course_name": "Data Science Crash Course", "instructor_name": "Jessica Martinez", "price": "$150" },
+  { "id": 9, "course_name": "Introduction to Algorithms", "instructor_name": "Robert Anderson", "price": "$75" },
+  { "id": 10, "course_name": "UI/UX Design Principles", "instructor_name": "Laura Thomas", "price": "$25" }
+]);
+
+console.log("All data inserted successfully!!!");
+      </pre>
+        </div>
+
+        <h2>Conclusion</h2>
+        <p>MongoDB is a versatile and powerful database system, particularly when used with tools like MongoDB Compass
+            and VSCode. With a bit of JavaScript knowledge, MongoDB’s query language and document structure make it
+            intuitive and easy to learn.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
