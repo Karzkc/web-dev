@@ -4,185 +4,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Async JavaScript Documentation</title>
-<style>
-      body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+    <title>Mongoose ODM Documentation</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
             color: #333;
-            line-height: 1.6;
-            margin: 20px;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
         }
 
         h1 {
-            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
         }
 
         h2 {
-            color: #16a085;
+            font-size: 2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            margin: 10px 0;
         }
 
         pre {
-            background-color: #ecf0f1;
-            padding: 10px;
+            background-color: #e8f0f9;
+            padding: 15px;
             border-radius: 5px;
-            color: #2c3e50;
+            font-size: 1em;
+            overflow-x: auto;
         }
 
         code {
-            background-color: #e7e9eb;
-            padding: 2px 5px;
-            border-radius: 4px;
+            background-color: #eaf2f8;
+            padding: 5px;
+            border-radius: 3px;
+            color: #2c3e50;
+            font-size: 1.1rem;
         }
 
         .note {
-            background-color: #dff9fb;
-            border-left: 4px solid #16a085;
-            padding: 10px;
-            margin-top: 10px;
+            background-color: #fef9e7;
+            border-left: 5px solid #f5c542;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
         }
-</style>
+    </style>
 </head>
 
 <body>
 
-    <h1>Understanding Asynchronous JavaScript, Async/Await, and Fetch API</h1>
+    <h1>Mongoose ODM Documentation</h1>
 
-    <h2>1. Asynchronous Nature of JavaScript</h2>
+    <h2>Introduction</h2>
     <p>
-        JavaScript executes code in a single thread, meaning one thing happens at a time. When you run a long task, it can
-        block the execution of other tasks, making the page unresponsive. However, with asynchronous functions, JavaScript
-        can perform tasks like fetching data from a server without stopping the entire flow.
-    </p>
-    <p>
-        Here's an example showing the async nature of JavaScript:
-    </p>
-    <pre>
-<code>
-console.log("1st task - Synchronous code starts");
-
-setTimeout(() => {
-    console.log("3rd task - Asynchronous code executed after 2 seconds");
-}, 2000);
-
-console.log("2nd task - Synchronous code continues immediately");
-</code>
-    </pre>
-
-    <h2>2. What is an Async Function?</h2>
-    <p>
-        An <code>async</code> function in JavaScript is a special type of function that allows asynchronous code to be written
-        in a cleaner way. With an async function, you can pause the execution of code using the <code>await</code> keyword and wait
-        for asynchronous tasks to complete.
-    </p>
-    <p>
-        Example of an <code>async</code> function:
-    </p>
-    <pre>
-<code>
-async function fetchData() {
-    console.log("Fetching data...");
-    let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-    let data = await response.json();
-    console.log("Data received:", data);
-}
-fetchData();
-</code>
-    </pre>
-    <p>
-        In the above code, the function pauses at the <code>await</code> line until the data is fetched. The execution continues
-        only after the data has been received.
+        Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It provides a simple and straightforward
+        way to manage data relationships, validate schema structures, and interact with MongoDB using JavaScript objects.
     </p>
 
-    <h2>3. What is <code>await</code>?</h2>
-    <p>
-        The <code>await</code> keyword is used inside an async function to pause the execution of the function until a Promise is resolved.
-        It makes sure the code after it runs only when the awaited Promise has finished.
-    </p>
-    <p>
-        If we remove <code>await</code>, the Promise would remain in the "pending" state, and the subsequent code would run before the 
-        asynchronous task finishes.
-    </p>
+    <h2>Basic Setup</h2>
+    <p>To start using Mongoose in your project, install it via npm:</p>
+    <pre><code>npm install mongoose</code></pre>
 
-    <h2>4. Fetch API</h2>
+    <h2>Connecting to MongoDB</h2>
     <p>
-        The Fetch API is used to make HTTP requests in JavaScript, which are asynchronous by nature. You can use fetch to get or send data
-        to a server. It returns a Promise that resolves to the Response object representing the completion of the request.
+        Mongoose makes connecting to MongoDB straightforward. Use the <code>mongoose.connect()</code> method to establish a connection:
     </p>
+    <pre><code>import mongoose from 'mongoose';
 
-    <h3>4.1 Fetch API - GET Request</h3>
-    <p>
-        A GET request is used to retrieve data from a server. Here's an example using the Fetch API to fetch data:
-    </p>
-    <pre>
-<code>
-async function getData() {
-    let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-    let data = await response.json();
-    console.log("GET request data:", data);
-}
-getData();
-</code>
-    </pre>
-    <p>
-        This fetches data from a placeholder API (JSONPlaceholder), and <code>await</code> ensures the data is retrieved before logging it.
-    </p>
+const connection = await mongoose.connect('mongodb://localhost:27017/todo', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+console.log("Database connected!");
+</code></pre>
 
-    <h3>4.2 Fetch API - POST Request</h3>
+    <h2>Defining a Schema</h2>
     <p>
-        A POST request is used to send data to the server. This can be useful when submitting form data or sending data in JSON format.
-        Here's an example of a POST request:
+        A Mongoose schema defines the structure of the documents within a MongoDB collection. For example:
     </p>
-    <pre>
-<code>
-async function postData() {
-    let response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify({
-            title: 'foo',
-            body: 'bar',
-            userId: 1,
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    });
-    let data = await response.json();
-    console.log("POST request response:", data);
-}
-postData();
-</code>
-    </pre>
+    <pre><code>import mongoose from 'mongoose';
+
+const TodoSchema = new mongoose.Schema({
+    title: { type: String, required: true, default: "Default Title" },
+    desc: String,
+    isDone: Boolean,
+    date: Number
+});
+
+export const Todo = mongoose.model('Todo', TodoSchema);
+</code></pre>
+
+    <h2>CRUD Operations</h2>
+
+    <h3>Create</h3>
     <p>
-        In this example, we send some JSON data to the server using the POST method, and the server responds with the newly created data.
+        Use the model's <code>save()</code> method to create new documents in the collection.
     </p>
+    <pre><code>const todo = new Todo({
+    desc: "This is my first todo",
+    isDone: false,
+    date: 3
+});
 
-    <h2>5. Differences between GET and POST Requests</h2>
+await todo.save();
+console.log("Document saved!");
+</code></pre>
+
+    <h3>Read</h3>
     <p>
-        <b>GET Request</b>: Retrieves data from the server. It's mainly used to access resources and doesn't alter data on the server.
-        <br><b>POST Request</b>: Sends data to the server, often used to submit forms or upload data. It can modify the server's data.
+        Fetch data using methods like <code>find()</code>, <code>findOne()</code>, and more.
     </p>
+    <pre><code>const allTodos = await Todo.find({});
+const singleTodo = await Todo.findOne({ desc: "This is my first todo" });
+console.log("All Todos:", allTodos);
+console.log("Single Todo:", singleTodo);
+</code></pre>
 
-    <h3>Example Data:</h3>
-    <pre>
-<code>
-{
-  "userId": 1,
-  "id": 1,
-  "title": "delectus aut autem",
-  "completed": false
-}
-</code>
-    </pre>
-
-    <h2>Conclusion</h2>
+    <h3>Update</h3>
     <p>
-        Asynchronous programming in JavaScript using async functions, await, and the Fetch API provides a more efficient way to
-        handle tasks like fetching data from a server. Understanding the difference between GET and POST requests is key when 
-        working with APIs.
+        Update data using methods like <code>updateOne()</code> or <code>updateMany()</code>:
     </p>
+    <pre><code>await Todo.updateOne({ desc: "This is my first todo" }, { $set: { desc: "Updated todo" } });
+console.log("Document updated!");
+</code></pre>
 
-    <script src="async.js"></script>
+    <h3>Delete</h3>
+    <p>Delete data using methods like <code>deleteOne()</code> or <code>deleteMany()</code>:</p>
+    <pre><code>await Todo.deleteOne({ desc: "Updated todo" });
+console.log("Document deleted!");
+</code></pre>
+
+    <h2>Advanced Topics</h2>
+    <p>Mongoose provides several advanced features:</p>
+    <ul>
+        <li>Middleware (pre/post hooks)</li>
+        <li>Virtuals for computed properties</li>
+        <li>Schema validation</li>
+        <li>Population for referencing documents in other collections</li>
+    </ul>
+
+    <h2>Notes</h2>
+    <div class="note">
+        <p>Every time you refresh the server with the <code>/</code> route, new data is added to the database.
+        Use caution to avoid creating duplicate entries unintentionally.</p>
+    </div>
+
 </body>
 
 </html>

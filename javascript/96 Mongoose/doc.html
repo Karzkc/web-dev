@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mongoose ODM Documentation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1e1e2f;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      width: 90%;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      background: #282846;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #00e5ff;
+    }
+    h3 {
+      color: #ff80ab;
+    }
+    code {
+      display: block;
+      background-color: #343451;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #00e5ff;
+      font-size: 1.2em;
+      color: #e0e0e0;
+      border-radius: 5px;
+    }
+    .note {
+      background-color: #3c3c5c;
+      padding: 10px;
+      margin: 15px 0;
+      border-left: 5px solid #ff9100;
+      font-size: 1.1em;
+      font-style: italic;
+      border-radius: 5px;
+    }
+    ul {
+      margin: 15px 0;
+      padding: 0 20px;
+    }
+    li {
+      margin: 10px 0;
+    }
+    a {
+      color: #00e5ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mongoose ODM Documentation</h1>
+    <p><b>Mongoose</b> is an Object Data Modeling (ODM) library for MongoDB and Node.js. It provides a schema-based solution for modeling application data and offers built-in data validation and query capabilities.</p>
+    
+    <h2>1. Initial Setup</h2>
+    <p>To use Mongoose, you need to install it in your Node.js application:</p>
+    <code>
+npm install mongoose
+    </code>
+    <p>In your code, import Mongoose using:</p>
+    <code>
+import mongoose from 'mongoose';
+    </code>
+    <p>Also, make sure you have <code>MongoDB</code> running locally or in the cloud.</p>
+
+    <h2>2. Connecting to MongoDB</h2>
+    <p>Mongoose provides the <code>connect</code> method to establish a connection with a MongoDB database:</p>
+    <code>
+let conn = await mongoose.connect("mongodb://localhost:27017/todo");
+    </code>
+    <p>This creates a connection to the <code>todo</code> database on your local MongoDB instance. If the database does not exist, MongoDB will create it automatically.</p>
+    <div class="note">Note: Always handle errors while connecting to the database using a <code>try-catch</code> block or <code>.catch()</code> for asynchronous connections.</div>
+
+    <h2>3. Defining a Schema</h2>
+    <p>A schema in Mongoose defines the structure of documents within a MongoDB collection. Here's the schema used in your code:</p>
+    <code>
+const TodoSchema = new mongoose.Schema({<br>
+&nbsp;&nbsp;title: { type: String, required: true, default: "Default value" },<br>
+&nbsp;&nbsp;desc: String,<br>
+&nbsp;&nbsp;isDone: Boolean,<br>
+&nbsp;&nbsp;date: Number<br>
+});
+    </code>
+    <p><b>Explanation:</b></p>
+    <ul>
+      <li><code>title</code>: A required string with a default value of "Default value".</li>
+      <li><code>desc</code>: A string field for the description.</li>
+      <li><code>isDone</code>: A boolean to indicate the completion status of the task.</li>
+      <li><code>date</code>: A number representing the day or any numeric value.</li>
+    </ul>
+    <div class="note">Tip: You can add custom validations, default values, and more options to schema fields.</div>
+
+    <h2>4. Creating a Model</h2>
+    <p>A model is a compiled version of the schema and provides an interface to interact with the collection:</p>
+    <code>
+export let Todo = mongoose.model('Todo', TodoSchema);
+    </code>
+    <p>This creates a model named <code>Todo</code> for the <code>todos</code> collection in the database.</p>
+
+    <h2>5. Express Integration</h2>
+    <p>Mongoose works seamlessly with Express. Here's how:</p>
+    <h3>Basic Express Setup:</h3>
+    <code>
+import express from 'express';<br>
+const app = express();<br>
+const port = 3000;<br>
+<br>
+app.listen(port, () => {<br>
+&nbsp;&nbsp;console.log(`App listening on port ${port}`);<br>
+});
+    </code>
+    <h3>Adding Routes:</h3>
+    <p><b>1. Saving a New Todo:</b></p>
+    <code>
+app.get('/', (req, res) => {<br>
+&nbsp;&nbsp;const todo = new Todo({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;desc: "This is my first todo",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;isDone: false,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;date: 3<br>
+&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;todo.save();<br>
+&nbsp;&nbsp;res.send('Hello World!');<br>
+});
+    </code>
+    <p><b>2. Fetching a Todo:</b></p>
+    <code>
+app.get('/todo', async (req, res) => {<br>
+&nbsp;&nbsp;let todo = await Todo.findOne({});<br>
+&nbsp;&nbsp;res.json({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;title: todo.title,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;desc: todo.desc,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;done: todo.isDone,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;days: todo.date<br>
+&nbsp;&nbsp;});<br>
+});
+    </code>
+
+    <h2>6. Important Notes</h2>
+    <ul>
+      <li>The <code>await</code> keyword ensures asynchronous operations complete before continuing.</li>
+      <li>Each refresh of the route <code>/</code> creates a new entry in the database. To prevent duplication, consider adding unique fields or checks.</li>
+      <li>You can replace <code>findOne</code> with <code>find</code> to fetch all documents in the collection.</li>
+    </ul>
+
+    <h2>7. Additional Features</h2>
+    <p>Mongoose also offers:</p>
+    <ul>
+      <li>Middleware for pre/post hooks.</li>
+      <li>Advanced query options like <code>$gte</code>, <code>$lte</code>, etc.</li>
+      <li>Virtual properties and custom methods on schemas.</li>
+    </ul>
+
+    <h2>8. Conclusion</h2>
+    <p>Mongoose simplifies database interactions by providing schema-based validation, powerful query building, and seamless integration with Express. Use it to manage your MongoDB collections efficiently!</p>
+  </div>
+</body>
+</html>

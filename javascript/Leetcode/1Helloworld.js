@@ -4,26 +4,27 @@
 */
 
 var expect = function (val) {
-    return Obj = {
+    return {
         toBe: function (val2) {
             if (val !== val2) {
                 throw new Error("Not Equal");
-
-            }
-            else {
+            } else {
                 return true;
             }
         },
         notToBe: function (val2) {
             if (val === val2) {
                 throw new Error("Equal");
-            }
-            else {
-                return true
+            } else {
+                return true;
             }
         }
-    }
-}
-func = () => { expect(5).toBe(5) }
-console.log(func());
+    };
+};
+
+const func = () => {
+    return expect(5).toBe(5); 
+};
+
+
 

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MongoDB CRUD Operations</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    h3 {
+      color: #333;
+    }
+    code {
+      display: block;
+      background-color: #f0f0f0;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 4px solid #4CAF50;
+      white-space: pre-wrap;
+      font-size: 1.1em;
+    }
+    .note {
+      background-color: #fff3cd;
+      border-left: 5px solid #ffecb5;
+      padding: 10px;
+      margin: 10px 0;
+      font-style: italic;
+    }
+    .important {
+      background-color: #e6f7ff;
+      border-left: 5px solid #91d5ff;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MongoDB CRUD Operations</h1>
+    <p>This documentation explains CRUD (Create, Read, Update, Delete) operations in MongoDB, step-by-step, with examples and best practices.</p>
+    
+    <h2>Create</h2>
+    <p>Use the <code>insertOne</code> or <code>insertMany</code> methods to create new documents in a collection.</p>
+    <h3>Example: Insert One</h3>
+    <code>
+use("CRUD_DB");<br>
+db.createCollection("New_Courses");<br>
+db.New_Courses.insertOne({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "JavaScript",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"language": "JS"<br>
+});<br>
+console.log("Data inserted!");
+    </code>
+    <h3>Example: Insert Many</h3>
+    <code>
+db.New_Courses.insertMany([<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"name": "Python", "language": "Python"},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{"name": "HTML", "language": "HTML"}<br>
+]);<br>
+console.log("Multiple data inserted!");
+    </code>
+    <p class="note">Note: <code>insertMany</code> returns an array of inserted document IDs.</p>
+    
+    <h2>Read</h2>
+    <p>Use <code>find</code> or <code>findOne</code> to retrieve data from a collection.</p>
+    <h3>Example: Find All</h3>
+    <code>
+let allDocs = db.New_Courses.find();<br>
+console.log(allDocs);
+    </code>
+    <h3>Example: Find One</h3>
+    <code>
+let singleDoc = db.New_Courses.findOne({"name": "Python"});<br>
+console.log(singleDoc);
+    </code>
+    <p class="note">Tip: Use <code>.count()</code> to count documents in a result set.</p>
+
+    <h2>Update</h2>
+    <p>Use <code>updateOne</code> or <code>updateMany</code> to modify existing documents.</p>
+    <h3>Example: Update Many</h3>
+    <code>
+db.New_Courses.updateMany({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "Python"<br>
+}, {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$set: { "name": "Updated Python" }<br>
+});<br>
+console.log("Documents updated successfully!");
+    </code>
+    <p class="important">Always verify your update query to avoid unintended changes.</p>
+
+    <h2>Delete</h2>
+    <p>Use <code>deleteOne</code> or <code>deleteMany</code> to remove documents.</p>
+    <h3>Example: Delete Many</h3>
+    <code>
+db.New_Courses.deleteMany({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"name": "Updated Python"<br>
+});<br>
+console.log("Documents deleted successfully!");
+    </code>
+    <p class="note">Deleting documents is irreversible. Use caution while running delete commands.</p>
+
+    <h2>Important Notes</h2>
+    <ul>
+      <li>MongoDB commands can be repeated if run multiple times, so double-check before executing them.</li>
+      <li>CRUD operations are the foundation of interacting with any database.</li>
+      <li>Always back up your database before running major operations like updates or deletions.</li>
+    </ul>
+
+    <h2>Summary</h2>
+    <p>This documentation covers the basic CRUD operations in MongoDB. With proper understanding and precautions, MongoDB provides a powerful and flexible way to manage data efficiently.</p>
+  </div>
+</body>
+</html>
