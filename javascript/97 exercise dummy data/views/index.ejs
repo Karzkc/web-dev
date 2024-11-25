@@ -28,13 +28,26 @@
             Exercise - Dummy Data generator
         </h1>
         <p class="fs-4">
-            Click the button to generate and insert dummy data to database collection, and click again to Clear
+            Click the green button to generate and insert dummy data to database collection, and click red one to Clear
             and delete all data.
         </p>
-        <button type="button" class="hero btn btn-outline-success w-25">
-            <p class="text">Insert Data!!</p>
+        <button type="button" class="hero_green text btn btn-outline-success">
+            Insert Data!!
+        </button><br>
+        <button type="button" class="hero_red text btn btn-outline-danger">
+            Delete all Data!!
         </button>
         <br>
+        <div class="count">
+            No of Records:- <span id="record-count">
+                <%= tex %>
+            </span> <br>
+            <div id="data" style="margin-top: 20px;">
+                <h4>10 New Data Records:</h4>
+                <ul id="data-list"></ul>
+            </div>
+        </div>
+
 
     </div>
 </body>
@@ -42,19 +55,41 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 <script>
+    let btn_green = document.querySelector(".hero_green");
+    let btn_red = document.querySelector(".hero_red");
+    let recordCount = document.getElementById("record-count");
+    let dataList = document.getElementById("data-list");
 
-    let btn = document.querySelector(".hero")
-    let text = document.querySelector(".text")
-    btn.addEventListener(("click"), async (e) => {
-        console.log("Clicked!!!");
-        console.log(e.detail);
-        
-        text.innerHTML = "Only 10 Records Inserted Click Again to Reinsert new Records"
-        let fet = await fetch("/insert")
-        let data = await fet.json()
-        console.log(data);
+    btn_green.addEventListener("click", async () => {
+        console.log("Insert button clicked!");
 
-    })
+        let response = await fetch("/insert");
+        let result = await response.json();
+        console.log(result);
+
+        recordCount.textContent = result.count;
+
+        dataList.innerHTML = "";
+        result.data.forEach(record => {
+            let li = document.createElement("li");
+            li.textContent = `Name: ${record[0]}, Salary: ${record[1]}, Language: ${record[2]}, City: ${record[3]}, Manager: ${record[4]}`;
+            dataList.appendChild(li);
+        });
+    });
+
+    btn_red.addEventListener("click", async () => {
+        console.log("Delete button clicked!");
+
+        let response = await fetch("/delete");
+        let result = await response.json();
+        console.log(result);
+
+        recordCount.textContent = result.count;
+
+
+        dataList.innerHTML = "";
+    });
+
 
 </script>
 
