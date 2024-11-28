@@ -1,0 +1,67 @@
+/* 1. start selector - will apply property on all  */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Group selectors  */
+h1,p,span{
+    color: black;
+}
+
+/* 3. adjacent sibling combinator - only applies to box2 */
+
+.box1 + .box2{
+    color: green;
+}
+
+/* 4. general sibling combinator - will se the nearest box3 to box1  */
+.box1 ~ .box3{
+    display: contents;
+}
+
+/* 5. direct child combinator > - only apply if child is in parent and its the first offspring  */
+.parent > .child{
+    height: 1%;
+}
+
+/* 6. descendent combinator - only applies if child is in parent regardless how nested it is  */
+.parent .child{
+    background-color: aliceblue;
+}
+/* 7. css nesting - descendent combinator can be defined alternatively, both 6,7 are same  */
+.parent {
+    .child{
+        color: yellow;
+    }
+    color: aqua;
+} 
+
+/* 8. compound selector - will find intersection (only applies if all selectors are of same element) */
+span.box.container{ /* if all these are on such span */
+    width: auto; 
+}
+/* 9. selection by attribute  */
+
+/* i. only attribute  */
+ [required] {/* only to required anywhere no matter where  */
+    color: aquamarine;
+}
+
+/* ii. element attribute - any attribute following after the selector  */
+input[required]{
+    border-right-width: 0cap;
+}
+/* iii. attribute="value"  */
+button[type="submit"]{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/* iv. attribute^="value" - only on which start with a specifictext or value  */
+a[href^="https"]{
+    color: white;
+}
+/* v. attribute*="value"  - only who have value with be affected  */
+a[href*="google"]{
+    text-align: center;
+}
+
