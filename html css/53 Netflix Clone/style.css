@@ -433,7 +433,8 @@ select option{
     border-radius: 3%;
     width: 300px;
     height: 305px;
-   
+    display: flex;
+    flex-direction: column;
     background: linear-gradient(149deg, #192247 0%, #210e17 96.86%);;
 
 }
