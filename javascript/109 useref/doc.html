@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Documentation: States, Props, and Hooks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background-color: #1e1e1e;
+      color: #f9f9f9;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    body.dark-mode .container {
+      background: #2c2c2c;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+      color: #f9f9f9;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: monospace;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode code {
+      background: #444;
+      color: #f9f9f9;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode pre {
+      background: #444;
+      color: #f9f9f9;
+    }
+    .code-block {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode .code-block {
+      background: #444;
+      color: #f9f9f9;
+    }
+    .note {
+      background: #e3f2fd;
+      padding: 10px;
+      border-left: 4px solid #2196f3;
+      margin: 10px 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode .note {
+      background: #1c2a33;
+      color: #f9f9f9;
+    }
+    .toggle-dark-mode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #2c3e50;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    body.dark-mode .toggle-dark-mode {
+      background: #f9f9f9;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-dark-mode" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  <div class="container">
+    <h1>React Documentation: States, Props, and Hooks</h1>
+
+    <h2>Introduction</h2>
+    <p>This documentation provides an overview of React states, props, and hooks, along with examples from your code. It covers the usage of <code>useState</code>, <code>useEffect</code>, and <code>useRef</code> hooks.</p>
+
+    <h2>React States</h2>
+    <p>In React, <strong>state</strong> is used to manage data that changes over time. The <code>useState</code> hook is used to create and manage state in functional components.</p>
+    <div class="code-block">
+      <pre><code>const [count, setCount] = useState(0);</code></pre>
+    </div>
+    <p>Here, <code>count</code> is the state variable, and <code>setCount</code> is the function to update it.</p>
+
+    <h2>React Props</h2>
+    <p><strong>Props</strong> (short for properties) are used to pass data from a parent component to a child component. Props are read-only and cannot be modified by the child component.</p>
+    <div class="code-block">
+      <pre><code>&lt;Navbar name={"kartik " + "Khiriya"} /&gt;</code></pre>
+    </div>
+    <p>In this example, the <code>name</code> prop is passed to the <code>Navbar</code> component.</p>
+
+    <h2>React Hooks</h2>
+    <p>Hooks are functions that let you "hook into" React state and lifecycle features from functional components.</p>
+
+    <h3>useState</h3>
+    <p>The <code>useState</code> hook is used to declare a state variable and its updater function.</p>
+    <div class="code-block">
+      <pre><code>const [count, setCount] = useState(0);</code></pre>
+    </div>
+
+    <h3>useEffect</h3>
+    <p>The <code>useEffect</code> hook is used to perform side effects in functional components, such as fetching data or updating the DOM.</p>
+    <div class="code-block">
+      <pre><code>useEffect(() => {
+  console.log("This will run only when count changes");
+}, [count]);</code></pre>
+    </div>
+    <p>The second argument (<code>[count]</code>) is an array of dependencies. If any dependency changes, the effect runs again.</p>
+
+    <h3>useRef</h3>
+    <p>The <code>useRef</code> hook is used to persist values across renders without causing re-renders. It can also be used to access DOM elements directly.</p>
+    <div class="code-block">
+      <pre><code>const ref = useRef();
+useEffect(() => {
+  ref.current.style.backgroundColor = "cyan";
+}, [count]);</code></pre>
+    </div>
+    <p>Here, <code>ref</code> is used to change the background color of a button when the state changes.</p>
+
+    <h2>Your Code Examples</h2>
+
+    <h3>App Component</h3>
+    <div class="code-block">
+      <pre><code>import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;&gt;
+      &lt;div&gt;
+        count is {count} &lt;br /&gt;
+        &lt;button onClick={() =&gt; { setCount(count + 1); }}&gt;
+          click me
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/&gt;
+  );
+}
+
+export default App;</code></pre>
+    </div>
+
+    <h3>App Component with useEffect</h3>
+    <div class="code-block">
+      <pre><code>import React from 'react';
+import { useState, useEffect } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import Navbar from './components/Navbar';
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log("This will run only when count changes");
+  }, [count]);
+
+  return (
+    &lt;&gt;
+      &lt;Navbar name={"kartik " + "Khiriya"} /&gt;
+      &lt;div&gt;
+        &lt;a href="https://vite.dev" target="_blank"&gt;
+          &lt;img src={viteLogo} className="logo" alt="Vite logo" /&gt;
+        &lt;/a&gt;
+        &lt;a href="https://react.dev" target="_blank"&gt;
+          &lt;img src={reactLogo} className="logo react" alt="React logo" /&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;h1&gt;Vite + React&lt;/h1&gt;
+      &lt;div className="card"&gt;
+        &lt;button onClick={() =&gt; setCount((count) =&gt; count + 1)}&gt;
+          count is {count}
+        &lt;/button&gt; &lt;br /&gt; &lt;br /&gt;
+        &lt;p&gt;
+          Edit &lt;code&gt;src/App.jsx&lt;/code&gt; and save to test HMR
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;p className="read-the-docs"&gt;
+        Click on the Vite and React logos to learn more
+      &lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+
+export default App;</code></pre>
+    </div>
+
+    <h3>Navbar Component</h3>
+    <div class="code-block">
+      <pre><code>import React from 'react';
+import { useEffect } from 'react';
+
+const Navbar = ({ name }) => {
+  useEffect(() => {
+    console.log("This will run on every render");
+  });
+
+  useEffect(() => {
+    console.log("This will run only once");
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      console.log("This will run when the parent component is unmounted");
+    };
+  }, []);
+
+  return (
+    &lt;div&gt;
+      yo bro , my name is {name}
+    &lt;/div&gt;
+  );
+};
+
+export default Navbar;</code></pre>
+    </div>
+
+    <h3>App Component with useRef</h3>
+    <div class="code-block">
+      <pre><code>import { useState, useEffect, useRef } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+
+function App() {
+  const [count, setCount] = useState(0);
+  const ref = useRef();
+
+  useEffect(() => {
+    console.log("only for first render");
+    ref.current.style.backgroundColor = "cyan";
+  }, [count]);
+
+  return (
+    &lt;&gt;
+      &lt;div&gt;
+        &lt;a href="https://vite.dev" target="_blank"&gt;
+          &lt;img src={viteLogo} className="logo" alt="Vite logo" /&gt;
+        &lt;/a&gt;
+        &lt;a href="https://react.dev" target="_blank"&gt;
+          &lt;img src={reactLogo} className="logo react" alt="React logo" /&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;h1&gt;Vite + React&lt;/h1&gt;
+      &lt;div className="card"&gt;
+        &lt;button ref={ref} onClick={() =&gt; setCount((count) =&gt; count + 1)}&gt;
+          count is {count}
+        &lt;/button&gt;
+        &lt;p&gt;
+          Edit &lt;code&gt;src/App.jsx&lt;/code&gt; and save to test HMR
+        &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;p className="read-the-docs"&gt;
+        Click on the Vite and React logos to learn more
+      &lt;/p&gt;
+    &lt;/&gt;
+  );
+}
+
+export default App;</code></pre>
+    </div>
+
+    <div class="note">
+      <p><strong>Note:</strong> If StrictMode is enabled in <code>main.jsx</code>, some effects may run twice in development mode. This is to help identify side effects.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle("dark-mode");
+      const button = document.querySelector(".toggle-dark-mode");
+      if (body.classList.contains("dark-mode")) {
+        button.textContent = "☀️ Light Mode";
+      } else {
+        button.textContent = "🌙 Dark Mode";
+      }
+    }
+  </script>
+</body>
+</html>
