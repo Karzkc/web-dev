@@ -1,0 +1,24 @@
+@import "tailwindcss";
+body{
+  background-color: black;
+  color: white;
+}
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+
+}
+.card{
+  padding: 2px;
+  position: relative;
+}
+.card h1{
+  font-size: 21px;
+  position: absolute;
+  left: 5px;
+  top: 0;
+}
+.card span{
+  font-size: larger;
+  color: yellow;
+}
