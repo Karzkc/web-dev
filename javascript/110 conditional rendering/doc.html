@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Conditional Rendering & State Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>React Conditional Rendering & State Management</h1>
+        
+        <div class="section">
+            <h2>1. Introduction</h2>
+            <p>This documentation explains React concepts like <code>useState</code>, conditional rendering, and <code>.map()</code> for rendering dynamic lists.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. useState Hook</h2>
+            <p>The <code>useState</code> hook is used to manage state in functional components.</p>
+            <pre><code>const [count, setCount] = useState(0);</code></pre>
+            <p>Here, <code>count</code> holds the state value, and <code>setCount</code> updates it.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. Conditional Rendering</h2>
+            <p>React provides multiple ways to conditionally render elements:</p>
+            
+            <h3>3.1 Using Logical AND (&&)</h3>
+            <pre><code>{toggle && <button>Button is ON</button>}</code></pre>
+            <p>The button appears only if <code>toggle</code> is true.</p>
+
+            <h3>3.2 Using Ternary Operator</h3>
+            <pre><code>{toggle ? <button>ON</button> : <button>OFF</button>}</code></pre>
+            <p>This renders a different button based on <code>toggle</code>'s value.</p>
+        </div>
+
+        <div class="section">
+            <h2>4. Rendering Lists with .map()</h2>
+            <p>React's <code>.map()</code> is used to dynamically render a list of items.</p>
+            <pre><code>{tasks.map((item) => {
+    return <Hello key={item.title} title={item.title} desc={item.desc} />;
+})}</code></pre>
+            <p>Here, the <code>tasks</code> array is mapped to render multiple <code>Hello</code> components dynamically.</p>
+        </div>
+    </div>
+</body>
+</html>

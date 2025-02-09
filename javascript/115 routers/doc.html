@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Router Documentation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+            font-size: 18px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .note {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        .toggle-dark-mode {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #2c3e50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>React Router Documentation</h1>
+
+        <h2>Core Concepts</h2>
+        <p>React Router enables client-side routing in React applications. It helps manage navigation and URL changes without full page reloads.</p>
+
+        <h3>Key Components</h3>
+        
+        <h4>1. createBrowserRouter</h4>
+        <p>Creates a router configuration for web browsers. Handles dynamic client-side routing.</p>
+        <pre><code>import { createBrowserRouter } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: &lt;HomePage /&gt;
+  },
+  {
+    path: "/about",
+    element: &lt;AboutPage /&gt;
+  }
+]);</code></pre>
+
+        <h4>2. RouterProvider</h4>
+        <p>Makes the router available to your entire application:</p>
+        <pre><code>import { RouterProvider } from 'react-router-dom';
+
+function App() {
+  return &lt;RouterProvider router={router} /&gt;;
+}</code></pre>
+
+        <h4>3. Link & NavLink</h4>
+        <p>Navigation components that prevent full page reloads:</p>
+        <pre><code>import { Link, NavLink } from 'react-router-dom';
+
+// Basic Link
+&lt;Link to="/about"&gt;About&lt;/Link&gt;
+
+// NavLink with active styling
+&lt;NavLink 
+  to="/about" 
+  style={({ isActive }) => ({
+    color: isActive ? 'blue' : 'black'
+  })}
+&gt;
+  About
+&lt;/NavLink&gt;</code></pre>
+
+        <div class="note">
+            <strong>Key Differences:</strong>
+            <ul>
+                <li><code>Link</code>: Basic navigation link</li>
+                <li><code>NavLink</code>: Adds automatic active state tracking</li>
+            </ul>
+        </div>
+
+        <h3>Route Configuration</h3>
+        <p>Route objects contain:</p>
+        <ul>
+            <li><code>path</code>: URL path pattern</li>
+            <li><code>element</code>: Component to render</li>
+            <li><code>children</code>: Nested routes</li>
+        </ul>
+
+        <h4>Dynamic Routing Example</h4>
+        <pre><code>{
+  path: "/user/:username",
+  element: &lt;UserProfile /&gt;
+}</code></pre>
+        <p>Access parameters with <code>useParams()</code>:</p>
+        <pre><code>import { useParams } from 'react-router-dom';
+
+function UserProfile() {
+  const { username } = useParams();
+  return &lt;h1&gt;Profile: {username}&lt;/h1&gt;;
+}</code></pre>
+
+        <h3>Navigation Props</h3>
+        <p><code>to</code> prop usage examples:</p>
+        <pre><code>// Absolute path
+&lt;Link to="/about"&gt;About&lt;/Link&gt;
+
+// Relative path
+&lt;Link to="../parent"&gt;Go Up&lt;/Link&gt;
+
+// With parameters
+&lt;Link to="/user/123"&gt;User Profile&lt;/Link&gt;
+
+// With query parameters
+&lt;Link to="/products?sort=price"&gt;Products&lt;/Link&gt;</code></pre>
+
+        <h3>Best Practices</h3>
+        <ul>
+            <li>Use <code>createBrowserRouter</code> for web applications</li>
+            <li>Wrap root component with <code>RouterProvider</code></li>
+            <li>Use <code>NavLink</code> for navigation menus</li>
+            <li>Organize routes in a central configuration</li>
+            <li>Use lazy loading for large components</li>
+        </ul>
+
+        <div class="note">
+            <strong>Remember:</strong>
+            <ul>
+                <li>Router components must be used within a <code>RouterProvider</code></li>
+                <li>Always define a root route (<code>path: "/"</code>)</li>
+                <li>Use error boundaries for error handling</li>
+            </ul>
+        </div>
+    </div>
+
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const button = document.querySelector('.toggle-dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                button.textContent = '☀️ Light Mode';
+                document.body.style.backgroundColor = '#1a1a1a';
+                document.body.style.color = '#ffffff';
+                document.querySelector('.container').style.backgroundColor = '#2d2d2d';
+            } else {
+                button.textContent = '🌙 Dark Mode';
+                document.body.style.backgroundColor = '#f8f9fa';
+                document.body.style.color = '#333';
+                document.querySelector('.container').style.backgroundColor = '#ffffff';
+            }
+        }
+    </script>
+</body>
+</html>
