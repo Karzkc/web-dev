@@ -1,0 +1,29 @@
+
+
+* {
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+}
+
+.light-mode {
+  background-color: white !important;
+  color: black !important;
+}
+
+.dark-mode {
+  background-color: black !important;
+  color: white !important;
+}
+
+.content {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
+}
