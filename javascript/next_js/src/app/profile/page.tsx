@@ -1,11 +1,10 @@
-import React from 'react'
-
-const ProfilePage= () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default ProfilePage
+function profile() {
+    return (
+      <div className="flex flex-col justify-center items-center min-h-screen border">
+        Profile Page
+      </div>
+    );
+  }
+  
+  export default profile;
+  

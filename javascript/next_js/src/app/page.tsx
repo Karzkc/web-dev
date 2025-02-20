@@ -1,9 +1,13 @@
+import React from "react";
+
 
 
 export default function Home() {
   return (
     <>
-    Home Page
+    <div>
+      Home page
+    </div>
     </>
   );
 }
