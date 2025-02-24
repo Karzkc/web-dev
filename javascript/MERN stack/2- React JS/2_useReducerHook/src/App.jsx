@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react'
+import { useReducer, } from 'react'
 
 import './App.css'
 
@@ -15,7 +15,6 @@ function App() {
       state = 0
     }
     return state
-
   }
   const [count, dispatch] = useReducer(reducer, 0)
 
