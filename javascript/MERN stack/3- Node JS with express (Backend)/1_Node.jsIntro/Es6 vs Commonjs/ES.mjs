@@ -3,6 +3,7 @@
 // ES6 modules provide a standardized way to organize and reuse code in JavaScript.
 //Exports , Require wont work here 
 
+
 let num = 10;
 
 // Named export: You can export multiple values by their names.

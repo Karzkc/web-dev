@@ -3,6 +3,7 @@
 // CommonJS modules provide a standardized way to organize and reuse code in JavaScript.
 // Import and export statements won't work here.
 
+const packageName = require('packageName');
 let num = 10;
 
 // Named export: You can export multiple values by their names.
