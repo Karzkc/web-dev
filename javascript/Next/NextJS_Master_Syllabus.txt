@@ -1,0 +1,105 @@
+
+Mastering Next.js 14: Comprehensive Syllabus
+
+1. Core Routing Concepts
+- File-system Routing: Pages Router (`pages/`) maps files to URL paths. Dynamic routes use brackets: `[id].js`.
+- App Router (`app/`): Introduced in Next.js 13+. Uses Server Components, nested layouts, and new conventions. Supports streaming and parallel routes.
+
+2. Rendering Methods & Data Fetching
+- SSG: `getStaticProps` + `getStaticPaths` to generate HTML at build.
+- SSR: `getServerSideProps` for per-request rendering.
+- ISR: Combine SSG with background regeneration via `revalidate`.
+- CSR: Use `fetch` or SWR/React Query for client-side fetching.
+- App Router: Server Components handle fetching directly using async/await and `generateStaticParams`.
+
+3. Server vs Client Components
+- Server Components: Default in App Router. Run on the server, access secrets, and stream HTML.
+- Client Components: Use `"use client"` directive. Supports React hooks, events, and browser APIs.
+
+4. Middleware and Edge Functions
+- Middleware: Define logic in `middleware.ts` for redirects, auth checks, etc. Runs on Edge.
+- Edge Functions: Export `runtime = 'edge'`. Great for fast, global, low-latency processing.
+
+5. Authentication & Security
+- NextAuth.js: Configure OAuth, credentials, JWTs, sessions.
+- Custom Auth: Handle login/logout manually with cookies, JWTs, secure headers.
+- Middleware-based route protection.
+
+6. Styling and CSS
+- CSS Modules, Global CSS, SCSS support.
+- Tailwind CSS: Utility-first styling with full integration.
+- CSS-in-JS: Styled Components, Emotion.
+- next/font: Load Google/Local fonts with optimization.
+
+7. API Development (Backend Routes)
+- Pages Router: API in `pages/api/filename.js`.
+- App Router: Use `app/api/route.js` with GET/POST handlers.
+- Supports REST methods, dynamic routing, and request validation.
+
+8. Database Integration
+- Prisma ORM with PostgreSQL, MySQL, MongoDB.
+- Place DB logic in API routes or Server Components.
+- Handle pooling and secrets with `.env.local`.
+
+9. Real-time & Live Updates
+- WebSockets via custom Node servers (e.g. Socket.IO).
+- Server-Sent Events (SSE) for live data.
+- 3rd-party services like Firebase, Pusher, Supabase.
+
+10. Performance Optimization
+- Built-in <Image>, <Link>, next/font.
+- Code splitting: Dynamic Imports (`next/dynamic`).
+- Bundle Analyzer, lazy loading, CDN caching.
+
+11. SEO & Accessibility
+- Metadata API (App Router), or <Head> (Pages Router).
+- OG Tags, Twitter Cards, JSON-LD.
+- Lighthouse audit, semantic HTML, ARIA.
+
+12. Testing
+- Unit Testing: Jest, React Testing Library.
+- E2E: Cypress, Playwright.
+- MSW for API mocking, CI/CD pipeline testing.
+
+13. Deployment & DevOps
+- Vercel: Native support, Edge Middleware, ISR, analytics.
+- Netlify, Render, Docker alternative hosting.
+- CI/CD: GitHub Actions, lint + test + build.
+- Static Export: `next export` for SSG-only sites.
+
+14. Internationalization (i18n)
+- i18n config in `next.config.js`.
+- Locale-based routes (`/en`, `/fr`), subdomains.
+- `next-intl`, `react-i18next` for translations.
+
+15. Project Structure & Architecture
+- Feature folders, `lib/`, `hooks/`, `services/`.
+- Monorepo support via Turborepo.
+- TypeScript, ESLint, Prettier for quality code.
+- Backend-for-frontend (BFF) pattern.
+
+16. State Management
+- React hooks, Context API, Zustand, Redux.
+- React Query / SWR for async server data.
+- Best practices for server/client sync.
+
+17. Forms & Validation
+- Controlled/Uncontrolled inputs.
+- react-hook-form for handling + validation.
+- zod/yup for schema validation.
+
+18. External Integrations
+- Stripe: Checkout Sessions, webhooks.
+- CMS: Sanity, Contentful, Strapi, Hygraph.
+- Email: Nodemailer, Resend via API routes.
+
+19. Advanced Patterns
+- React Suspense, streaming, server actions.
+- Partial pre-rendering (PPR), progressive rendering.
+- View Transitions API (experimental).
+- Middleware chaining, advanced Edge logic.
+
+20. Capstone Projects
+- Full-stack app with DB, Auth, UI, SEO.
+- Project using App Router and modern practices.
+- Real deployment with CI/CD + monitoring.

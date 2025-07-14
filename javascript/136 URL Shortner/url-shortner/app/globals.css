@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+.fl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #08090a;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
+
+.navbar {
+  background: #111317;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+
+}
+
+.hero {
+  box-shadow:
+    0 8px 20px rgba(255, 255, 255, 0.08),
+    0 16px 40px rgba(255, 255, 255, 0.06),
+    0 25px 60px rgba(255, 255, 255, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 10px 25px rgba(255, 255, 255, 0.1),
+    0 30px 60px rgba(255, 255, 255, 0.08),
+    0 50px 100px rgba(255, 255, 255, 0.05);
+}
