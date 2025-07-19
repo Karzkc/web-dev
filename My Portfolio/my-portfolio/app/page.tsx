@@ -15,16 +15,16 @@ export default function page() {
       
       <div className="main  w-full fl flex-col !justify-start ">
         
-        <div id="home" className=" border h-250 w-full flex items-center  p-10">
+        <div id="home" className=" h-170 w-full mt-20  p-10">
           <Home />
         </div>
-        <div id="about" className=" border h-300 w-full fl !justify-start p-10">
-          <About />
-        </div>
-        <div id="project" className=" border h-300 w-full fl !justify-start ">
+        <div id="project" className=" h-100 w-full fl !justify-start ">
           <Projects />
         </div>
-        <div id="contact" className=" border h-300 w-full fl !justify-start p-10">
+        <div id="about" className=" h-200 w-full fl  p-10">
+          <About />
+        </div>
+        <div id="contact" className=" h-100 w-full fl p-10">
           <Contact />
         </div>
 

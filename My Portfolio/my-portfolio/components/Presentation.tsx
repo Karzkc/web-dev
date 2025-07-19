@@ -26,7 +26,7 @@ const projects = [
         title: "Short-it: An Url Shortner",
         description: "Shorten URLs quickly and easily.",
         image: "/Url.png",
-        url: "https://weather.kartik.dev",
+        url: "https://github.com/Karzkc/web-dev/tree/master/javascript/136%20URL%20Shortner/url-shortner",
     },
     {
         title: "Spotify Clone",
@@ -93,8 +93,8 @@ export function Presentation() {
         </CarouselContent>
 
         {/* Navigation Buttons */}
-        <CarouselPrevious className="right-10" />
-        <CarouselNext className="right-[-40px]" />
+        <CarouselPrevious className="right-10 cursor-pointer" />
+        <CarouselNext className="right-[-40px] cursor-pointer" />
       </Carousel>
     </div>
   );
