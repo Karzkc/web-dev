@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import url(../style/fonts.css);
 @import "tw-animate-css";
+@import url(../style/media-query.css);
 
 /* @custom-variant dark (&:is(.dark *)); */
 @theme inline {
@@ -136,8 +137,13 @@ body {
   backdrop-filter: blur(10px);
 }
 
+.item:hover{
+  transform: scale(1.1);
+  transition: 100ms ease-in-out;
+}
 .skill-category li:hover{
   transform: scale(1.05);
   transition: ease-in-out 100ms;
 }
+
 

@@ -6,36 +6,36 @@ const Home = () => {
   const badgeWidths: Record<string, number> = {
     // Frontend
     html: 70,
-    css: 60,
-    js: 105,      // Adjusted slightly for 'javascript' text
-    ts: 110,      // Adjusted slightly for 'typescript' text
-    react: 75,
-    reactQuery: 110, // Adjusted for 'React Query' text
-    reactRouter: 115, // Adjusted for 'React Router' text
-    redux: 70,
-    next: 70,
-    vite: 65,
+    css: 40,
+    js: 95,      // Adjusted slightly for 'javascript' text
+    ts: 90,      // Adjusted slightly for 'typescript' text
+    react: 65,
+    reactQuery: 100, // Adjusted for 'React Query' text
+    reactRouter: 105, // Adjusted for 'React Router' text
+    redux: 60,
+    next: 60,
+    vite: 50,
 
     // Backend
-    node: 85,       // Adjusted for 'node.js' text
-    express: 100,   // Adjusted for 'express.js' text
+    node: 75,       // Adjusted for 'node.js' text
+    express: 90,   // Adjusted for 'express.js' text
     mongoose: 100,  // Adjusted for 'Mongoose' text
-    ejs: 65,
-    python: 85,
-    flask: 70,
-    php: 65,
+    ejs: 50,
+    python: 75,
+    flask: 60,
+    php: 50,
 
     // Databases
     mongodb: 95,    // Adjusted for 'MongoDB' text
     mysql: 70,
 
     // Tools & VCS
-    git: 60,
-    github: 75,
-    postman: 90,
+    git: 50,
+    github: 70,
+    postman: 80,
 
     // Other Languages
-    c: 50,
+    c: 40,
     cpp: 60,
   };
 
@@ -43,15 +43,15 @@ const Home = () => {
     <div className='home flex flex-col items-start justify-start p-4 md:p-8'>
 
       <div className="intro text-4xl md:text-5xl font-bold mb-4">
-        Hi, I'm Kartik!
+        Hi, I am Kartik!
       </div>
 
       <div className="text-me text-lg md:text-xl max-w-2xl leading-relaxed mt-6 md:mt-10">
         <p className="mb-4">
-          A <b>Programming Enthusiast</b> passionate about web development since school, I'm on track to be a <b>Full-Stack developer</b>.
+          A <b>Programming Enthusiast</b> passionate about web development since school, I am on track to be a <b>Full-Stack developer</b>.
         </p>
         <p>
-          My current focus is on <b>Next.js</b>. Though new to the professional scene, I'm highly motivated and ready to contribute to innovative web solutions.
+          My current focus is on <b>Next.js</b>. Though new to the professional scene, I am highly motivated and ready to contribute to innovative web solutions.
         </p>
       </div>
 
