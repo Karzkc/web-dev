@@ -1,0 +1,121 @@
+// ========================
+// ✅ Variables
+// ========================
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+$font-stack: 'Segoe UI', sans-serif;
+$base-padding: 1rem;
+$radius: 8px;
+
+// ========================
+// ✅ Functions
+// ========================
+@function px-to-rem($px) {
+  @return ($px / 16) * 1rem;
+}
+
+// ========================
+// ✅ Mixins
+// ========================
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-style($bg-color) {
+  background-color: $bg-color;
+  color: white;
+  border: none;
+  padding: $base-padding;
+  border-radius: $radius;
+  cursor: pointer;
+}
+
+// ========================
+// ✅ Placeholders (%Extend)
+// ========================
+%card-style {
+  padding: $base-padding;
+  border-radius: $radius;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+// ========================
+// ✅ Base Styles with Nesting
+// ========================
+body {
+  font-family: $font-stack;
+  color: $text-color;
+  background: lighten($primary-color, 45%);
+  margin: 0;
+
+  header {
+    background-color: $primary-color;
+    padding: $base-padding;
+
+    nav {
+      @include flex-center;
+
+      ul {
+        list-style: none;
+        display: flex;
+
+        li {
+          margin-right: 20px;
+
+          a {
+            text-decoration: none;
+            color: white;
+
+            &:hover {
+              color: $secondary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========================
+// ✅ Buttons
+// ========================
+.button {
+  @include button-style($primary-color);
+  font-size: px-to-rem(18);
+
+  &.secondary {
+    @include button-style($secondary-color);
+  }
+}
+
+// ========================
+// ✅ Cards with %extend
+// ========================
+.card {
+  @extend %card-style;
+  width: 300px;
+  margin: 2rem auto;
+
+  .card-title {
+    font-size: px-to-rem(20);
+    font-weight: bold;
+  }
+
+  .card-content {
+    font-size: px-to-rem(14);
+    margin-top: 10px;
+  }
+}
+
+// ========================
+// ✅ Math Operators
+// ========================
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: $base-padding * 2;
+}
