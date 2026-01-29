@@ -1,90 +1,143 @@
+// src/zod-complete.ts - ALL ZOD FEATURES IN ONE FILE
 import { z } from "zod";
-import { StringSchema } from "zod/v4/core/json-schema.cjs";
 
-// z.string()
-// Defines a schema that validates string values only.
-const strSchema = z.string();
-let a:StringSchema;
-
-
-
-// z.number()
-// Defines a schema that validates number values only.
-const numSchema = z.number();
-
-// z.boolean()
-// Defines a schema that validates boolean values only.
+// ======================================
+// 1. PRIMITIVES
+// ======================================
+const emailSchema = z.string().email("Invalid email");
+const nameSchema = z.string().min(2, "Too short").max(50, "Too long");
+const ageSchema = z.number().int().positive().min(1, "Min age 1");
 const boolSchema = z.boolean();
 
-// z.object({...})
-// Defines a schema for an object with specified fields and type validations.
+// Coercion (convert strings to types)
+const coerceAge = z.coerce.number();
+const coerceBool = z.coerce.boolean();
+
+// ======================================
+// 2. LITERALS & ENUMS
+// ======================================
+const statusSchema = z.enum(["draft", "published", "archived"]);
+const roleSchema = z.literal("admin").or(z.literal("user"));
+type Status = z.infer<typeof statusSchema>; // "draft" | "published" | "archived"
+
+// ======================================
+// 3. OBJECTS
+// ======================================
 const userSchema = z.object({
-  name: z.string(),      // Ensures 'name' is a string.
-  age: z.number(),       // Ensures 'age' is a number.
-  email: z.string().email(), // Ensures 'email' is a valid email.
+  id: z.number(),
+  name: nameSchema,
+  email: emailSchema,
+  age: ageSchema.optional(),
+  isActive: boolSchema.default(true),
+  role: roleSchema,
+  status: statusSchema,
 });
 
-// z.array(schema)
-// Validates that the value is an array of items that match the provided schema.
-const arrSchema = z.array(z.string());
+type User = z.infer<typeof userSchema>; // ✅ Full TS type inferred
 
-// z.enum([...])
-// Defines a schema that validates values as one of the listed enum strings.
-const colorEnum = z.enum(["red", "green", "blue"]);
+// Strict object (no extra fields)
+const strictUser = userSchema.strict();
 
-// z.union([schemaA, schemaB])
-// Creates a schema that accepts values matching any one of the provided schemas.
-const phoneSchema = z.union([z.string(), z.number()]);
+// Partial (all optional)
+const partialUser = userSchema.partial();
 
-// z.literal(value)
-// Validates that the value is exactly equal to the provided literal value.
-const literalTrue = z.literal(true);
+// ======================================  
+// 4. ARRAYS & UNIONS
+// ======================================
+const usersSchema = z.array(userSchema);
+const userOrAdmin = z.union([userSchema, z.object({ role: z.literal("admin") })]);
 
-// z.parse(data)
-// Runs validation and returns the parsed value if valid, throws error otherwise.
-userSchema.parse({ name: "Alice", age: 25, email: "a@b.com" });
+// ======================================
+// 5. TRANSFORMATIONS & DEFAULTS
+// ======================================
+const trimmedEmail = z.string().transform((val) => val.trim().toLowerCase());
+const fullNameSchema = z.object({
+  first: z.string(),
+  last: z.string(),
+}).transform((val) => `${val.first} ${val.last}`);
 
-// z.safeParse(data)
-// Like .parse(), but returns an object with success/error info (does not throw).
-const result = userSchema.safeParse({ name: "Bob", age: 28, email: "bob@me.com" });
-// result.success will indicate valid/invalid, and result.data or result.error is returned accordingly.
+// Defaults
+const userWithDefaults = userSchema.pick({ isActive: true, status: true }).default({
+  isActive: true,
+  status: "draft",
+});
 
-// .optional()
-// Makes a field optional in an object or allows undefined for the schema.
-const optionalSchema = z.string().optional();
+// ======================================
+// 6. NESTED OBJECTS
+// ======================================
+const addressSchema = z.object({
+  street: z.string().min(5),
+  city: z.string(),
+  zip: z.string().regex(/^\d{5}$/, "Invalid ZIP"),
+});
 
-// .min(value, message?), .max(value, message?)
-// Used for string, number, or array schemas; validates minimum/maximum length or value.
-const nameSchema = z.string().min(3, "Name must be at least 3 chars");
+const fullUserSchema = userSchema.extend({
+  address: addressSchema,
+  tags: z.array(z.string()).max(10),
+});
 
-// .refine(checkFn, message?)
-// Adds custom validation logic using a function.
-const evenSchema = z.number().refine((n) => n % 2 === 0, "Must be even");
+// ======================================
+// 7. LIVE TESTING - RUN THIS!
+// ======================================
 
-// .transform(fn)
-// Transforms the validated data using a function, useful for value modifications.
-const trimmedSchema = z.string().transform((s) => s.trim());
+console.log("=== 1. PRIMITIVES ===");
+console.log("✅ Email:", emailSchema.parse("test@example.com"));
+console.log("❌ Bad email:", emailSchema.safeParse("invalid"));
 
-// .default(value)
-// Provides a default value if none is supplied for .optional() fields.
-const defaultSchema = z.string().optional().default("default value");
+console.log("\n=== 2. OBJECT VALIDATION ===");
+const goodUser: unknown = {
+  id: 1,
+  name: "John Doe",
+  email: "john@example.com",
+  age: 25,
+  role: "user" as any,
+  status: "published",
+};
 
-// .partial()
-// Makes all fields of an object schema optional (like TypeScript's Partial).
-const partialUserSchema = userSchema.partial();
+const result = userSchema.safeParse(goodUser);
+if (result.success) {
+  console.log("✅ Good user:", result.data);
+} else {
+  console.log("❌ Errors:", result.error.issues);
+}
 
-// .pick({ ... })
-// Creates a new object schema with only the listed keys.
-const pickedUserSchema = userSchema.pick({ name: true });
+// Bad data test
+const badUser = { name: "A", email: "bad", age: -5 };
+try {
+  userSchema.parse(badUser);
+} catch (error) {
+  console.log("❌ Caught errors:", (error as z.ZodError).issues);
+}
 
-// .omit({ ... })
-// Creates a new object schema excluding the listed keys.
-const omittedUserSchema = userSchema.omit({ age: true });
+console.log("\n=== 3. TRANSFORMATIONS ===");
+console.log("Transform email:", trimmedEmail.parse("  TEST@GMAIL.COM  "));
+console.log("Full name:", fullNameSchema.parse({ first: "Jane", last: "Doe" }));
 
-// .extend({ ... })
-// Adds new fields or overrides existing fields in an object schema.
-const extendedUserSchema = userSchema.extend({ phone: z.string().optional() });
+console.log("\n=== 4. ARRAYS ===");
+const users = [{ id: 1, name: "Alice", email: "alice@test.com" }];
+console.log("Users array:", usersSchema.parse(users));
 
-// z.infer<typeof schema>
-// Extracts TypeScript type from a Zod schema for static typing.
-type UserType = z.infer<typeof userSchema>;
+console.log("\n=== 5. NESTED OBJECTS ===");
+const fullUser = {
+  id: 1,
+  name: "Bob",
+  email: "bob@test.com",
+  address: { street: "123 Main", city: "NYC", zip: "10001" },
+  tags: ["dev", "ts"],
+};
+console.log("Full user:", fullUserSchema.parse(fullUser));
+
+console.log("\n=== 6. TYPE INFERENCE ===");
+const user: User = {
+  id: 1,
+  name: "Type checked!",
+  email: "type@example.com",
+  isActive: true,
+  role: "user",
+  status: "draft",
+}; // ✅ TS will catch errors here!
+
+console.log("\n=== 7. SAFE PARSE EVERYWHERE ===");
+const apiData: unknown = { name: "Safe", email: "safe@test.com", extra: "ignored" };
+const safeResult = strictUser.safeParse(apiData);
+console.log("Strict parse:", safeResult.success ? "✅ Passed" : "❌ Failed: " + safeResult.error.message);
